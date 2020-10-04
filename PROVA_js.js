@@ -11,7 +11,7 @@ function changeCSS(cssFile, cssLinkIndex) {
 	var linksArray = document.head.getElementsByTagName("link");
 	var firstCount = 0;
     	for (var l = 0; l < linksArray.length; l++) {
-    		if linksArray[l].rel == "stylesheet" {
+    		if (linksArray[l].rel == "stylesheet") {
  			firstCount += 1;
     			linksArray[l].href = cssFile;
     		}
@@ -30,7 +30,7 @@ function changeCSS(cssFile, cssLinkIndex) {
     		var mylinks = elmnt.getElementsByTagName("link");
     		var count = 0;
     		for (var l = 0; l < mylinks.length; l++) {
-    			if mylinks[l].rel == "stylesheet" {
+    			if (mylinks[l].rel == "stylesheet") {
     				count += 1;
     				mylinks[l].href = cssFile;
     			}
