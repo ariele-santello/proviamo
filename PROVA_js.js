@@ -1,25 +1,25 @@
 function changeCSS(cssFile, cssLinkIndex) {
 
-    var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+	var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
-    var newlink = document.createElement("link");
-    newlink.setAttribute("rel", "stylesheet");
-    newlink.setAttribute("type", "text/css");
-    newlink.setAttribute("href", cssFile);
+	var newlink = document.createElement("link");
+	newlink.setAttribute("rel", "stylesheet"); 
+	newlink.setAttribute("type", "text/css");
+	newlink.setAttribute("href", cssFile);
 
-    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
     
     /* aggiunta per cambiare il css anche nei singoli iframe    */
     
     /* frames[i].document.head.repleaceChild(newLink);
     n = i+1
     frames['frame'+n].document.head.children[1].replace(newlink, oldlink);   */
-	
-	var doc=document.getElementsByTagName("iframe");
+    	var doc = document.getElementsByTagName("iframe");
 	for (var i = 0; i < doc.length; i++) {
-		var singledoc = doc[i].contentWindow;
-		var iframeOldlink = singledoc.document.getElementsByTagName("link").item(cssLinkIndex);
-		singledoc.document.getElementsByTagName("head").item(0).replaceChild(newlink, iframeOldlink);
+		var c = doc[i].contentWindow;
+		var iframeOldlink = c.document.getElementsByTagName("link").item(cssLinkIndex);
+		var d = c.document.getElementByTagName("head");
+		d.replaceChild(newlink, iframeOldlink);
     	}
 }
 
