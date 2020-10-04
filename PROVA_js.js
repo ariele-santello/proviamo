@@ -14,13 +14,14 @@ function changeCSS(cssFile, cssLinkIndex) {
     /* frames[i].document.head.repleaceChild(newLink);
     n = i+1
     frames['frame'+n].document.head.children[1].replace(newlink, oldlink);   */
-    	var doc = document.getElementsByTagName("iframe");
+	
+    /*	var doc = document.getElementsByTagName("iframe");
 	for (var i = 0; i < doc.length; i++) {
 		var c = doc[i].contentWindow;
 		var iframeOldlink = c.document.getElementsByTagName("link").item(cssLinkIndex);
 		var d = c.document.getElementsByTagName("head");
 		d[0].replaceChild(newlink, iframeOldlink);
-    	}
+    	}  */
 }
 
 
