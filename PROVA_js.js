@@ -10,10 +10,9 @@ function changeCSS(cssFile, cssLinkIndex) {
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
     
     /* aggiunta per cambiare il css anche nei singoli iframe    */
-    var myFrames = window.frames;
-    for (var i = 0; i < myFrames.length; i++) {
+    for (var i = 0; i < frames.length; i++) {
         /* frames[i].document.head.repleaceChild(newLink);   */
-        myFrames[i].document.getElementsByTagName("head").children[1].replace(newlink, oldlink);
+        frames[i].document.head.children[1].replace(newlink, oldlink);
     }
 }
 
