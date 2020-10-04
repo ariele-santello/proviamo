@@ -1,13 +1,39 @@
 function changeCSS(cssFile, cssLinkIndex) {
 
-	var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-
 	var newlink = document.createElement("link");
 	newlink.setAttribute("rel", "stylesheet"); 
 	newlink.setAttribute("type", "text/css");
 	newlink.setAttribute("href", cssFile);
-
-	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+	
+	var links = document.getElementsByTagName("link");
+	var firstCount = 0
+    		for (var l = 0; l < links.length; l++) {
+    			if links[l].rel == "stylesheet" {
+    				firstCount += 1
+    				links[l].src = cssFile
+    			}
+    		}
+    		if (firstCount == 0) {
+    			document.getElementsByTagName("head").appendChild(newlink)
+    		}
+	
+	var myFramess = document.getElementsByTagName("iframe");
+    	for (var i = 0; i < myFramess.length; i++) {
+    		var n = i+1
+    		var myFrame = document.getElementsById("iframe"+ n);
+    		var elmnt = myFrame.contentWindow.document.head;
+    		var mylinks = elmnt.getElementsByTagName("link");
+    		var count = 0
+    		for (var l = 0; l < mylinks.length; l++) {
+    			if mylinks[l].rel == "stylesheet" {
+    				count += 1
+    				mylinks[l].src = cssFile
+    			}
+    		}
+    		if (count == 0) {
+    			elmnt.appendChild(newlink)
+    		}
+    	}
     
     /* aggiunta per cambiare il css anche nei singoli iframe    */
     
