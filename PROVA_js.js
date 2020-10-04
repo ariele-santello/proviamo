@@ -1,37 +1,42 @@
 function changeCSS(cssFile, cssLinkIndex) {
+	/* create new link */
 
 	var newlink = document.createElement("link");
-	newlink.setAttribute("rel", "stylesheet"); 
-	newlink.setAttribute("type", "text/css");
-	newlink.setAttribute("href", cssFile);
+	newlink.rel = "stylesheet"; 
+  	newlink.type = "text/css";
+	newlink.href = "cssFile";
 	
-	var links = document.getElementsByTagName("link");
-	var firstCount = 0
-    		for (var l = 0; l < links.length; l++) {
-    			if links[l].rel == "stylesheet" {
-    				firstCount += 1
-    				links[l].src = cssFile
-    			}
-    		}
-    		if (firstCount == 0) {
-    			document.getElementsByTagName("head").appendChild(newlink)
-    		}
+	/* case 1: external html */
 	
-	var myFramess = document.getElementsByTagName("iframe");
-    	for (var i = 0; i < myFramess.length; i++) {
-    		var n = i+1
-    		var myFrame = document.getElementsById("iframe"+ n);
+	var linksArray = document.head.getElementsByTagName("link");
+	var firstCount = 0;
+    	for (var l = 0; l < linksArray.length; l++) {
+    		if linksArray[l].rel == "stylesheet" {
+ 			firstCount += 1;
+    			linksArray[l].href = cssFile;
+    		}
+    	}
+    	if (firstCount == 0) {
+    		document.head.appendChild(newlink);
+    	}
+	
+	/* case 2: internal html */
+	
+	var myFrames = document.getElementsByTagName("iframe");
+    	for (var i = 0; i < myFrames.length; i++) {
+    		var n = i+1;
+    		var myFrame = document.getElementById("iframe"+ n);
     		var elmnt = myFrame.contentWindow.document.head;
     		var mylinks = elmnt.getElementsByTagName("link");
-    		var count = 0
+    		var count = 0;
     		for (var l = 0; l < mylinks.length; l++) {
     			if mylinks[l].rel == "stylesheet" {
-    				count += 1
-    				mylinks[l].src = cssFile
+    				count += 1;
+    				mylinks[l].href = cssFile;
     			}
     		}
     		if (count == 0) {
-    			elmnt.appendChild(newlink)
+    			elmnt.appendChild(newlink);
     		}
     	}
     
