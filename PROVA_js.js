@@ -13,7 +13,7 @@ function changeCSS(cssFile, cssLinkIndex) {
     var myFrames = window.frames;
     for (var i = 0; i < myFrames.length; i++) {
         /* frames[i].document.head.repleaceChild(newLink);   */
-        frames[i].document.head.item(0).replaceChild(newlink, oldlink);
+        frames[i].document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
     }
 }
 
