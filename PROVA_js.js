@@ -12,7 +12,8 @@ function changeCSS(cssFile, cssLinkIndex) {
     /* aggiunta per cambiare il css anche nei singoli iframe    */
     for (var i = 0; i < frames.length; i++) {
         /* frames[i].document.head.repleaceChild(newLink);   */
-        frames[i].document.head.children[1].replace(newlink, oldlink);
+	n = i+1
+        frames['frame'+n].document.head.children[1].replace(newlink, oldlink);
     }
 }
 
