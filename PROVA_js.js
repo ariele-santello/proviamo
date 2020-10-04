@@ -18,8 +18,8 @@ function changeCSS(cssFile, cssLinkIndex) {
 	var doc=document.getElementsByTagName("iframe");
 	for (var i = 0; i < doc.length; i++) {
 		singledoc = doc[i].contentWindow;
-		var iframeOldlink = singledoc.getElementsByTagName("link").item(cssLinkIndex);
-		singledoc.getElementByTagName("head").children[1].replace(newlink, iframeOldlink);
+		var iframeOldlink = singledoc.document.getElementsByTagName("link").item(cssLinkIndex);
+		singledoc.document.getElementByTagName("head").children[1].replace(newlink, iframeOldlink);
     	}
 }
 
