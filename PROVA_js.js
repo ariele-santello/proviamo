@@ -7,7 +7,7 @@ function changeCSS(cssFile, cssLinkIndex) {
     newlink.setAttribute("type", "text/css");
     newlink.setAttribute("href", cssFile);
 
-    document.getElementByTagName("head").replaceChild(newlink, oldlink);
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
     
     /* aggiunta per cambiare il css anche nei singoli iframe    */
     
