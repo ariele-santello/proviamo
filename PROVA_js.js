@@ -10,11 +10,17 @@ function changeCSS(cssFile, cssLinkIndex) {
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
     
     /* aggiunta per cambiare il css anche nei singoli iframe    */
-    for (var i = 0; i < frames.length; i++) {
-        /* frames[i].document.head.repleaceChild(newLink);   */
-	n = i+1
-        frames['frame'+n].document.head.children[1].replace(newlink, oldlink);
-    }
+    
+    /* frames[i].document.head.repleaceChild(newLink);
+    n = i+1
+    frames['frame'+n].document.head.children[1].replace(newlink, oldlink);   */
+	
+	var doc=document.getElementsByTagName("iframe");
+	for (var i = 0; i < doc.length; i++) {
+		singledoc = doc[i].contentWindow;
+		var iframeOldlink = singledoc.getElementsByTagName("link").item(cssLinkIndex);
+		singledoc.getElementByTagName("head").children[1].replace(newlink, iframeOldlink);
+    	}
 }
 
 
