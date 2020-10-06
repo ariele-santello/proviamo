@@ -58,15 +58,18 @@ function changeCSS(cssFile, cssLinkIndex) {
 
 function changeIssue(issueN){
 	if ('issue1' === issueN) {
-		x = document.getElementById('issue1')
-		y = document.getElementById('issue2')
+		var x = document.getElementById('issue1');
+		var y = document.getElementById('issue2');
 	} 
 	else {
-		x = document.getElementById('issue2')
-		y = document.getElementById('issue1')
+		var x = document.getElementById('issue2');
+		var y = document.getElementById('issue1');
 	}
 
-		x.style.display = "block";
+		x.children[0].style.display = "block";
+		for (var i=0; i<3; i++) {
+			x.children[i].style.display = "none";
+		}
 		y.style.display = "none";
 
 
