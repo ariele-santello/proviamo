@@ -66,6 +66,7 @@ function changeIssue(issueN){
 		var y = document.getElementById('issue1');
 	}
 
+		x.style.display = "block";
 		x.children[0].style.display = "block";
 		for (var i=1; i<=3; i++) {
 			x.children[i].style.display = "none";
