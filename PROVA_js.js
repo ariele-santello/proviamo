@@ -119,6 +119,12 @@ function changeArticle(articleNum, issueNum){
 		}
 	}
 }
+	
+function changeArticleCover{
+	
+}
+	
+
 
 
 
