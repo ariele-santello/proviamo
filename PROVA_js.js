@@ -110,6 +110,7 @@ function changeArticle(articleN){
 
 function changeArticle(articleNum, issueNum){
 	var c = document.getElementById(issueNum).children;
+	c[0].style.display = "none";
 	for (var i=1; i<=3; i++) {
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
