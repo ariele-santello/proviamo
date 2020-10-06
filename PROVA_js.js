@@ -67,7 +67,7 @@ function changeIssue(issueN){
 	}
 
 		x.children[0].style.display = "block";
-		for (var i=0; i<3; i++) {
+		for (var i=1; i<=3; i++) {
 			x.children[i].style.display = "none";
 		}
 		y.style.display = "none";
