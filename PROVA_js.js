@@ -125,7 +125,7 @@ function changeArticle(articleNum, issueNum){
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
 			
-		/* FUNZIONE DA GUARDARE DOMANI PER TORNARE AL FILE SORGENTE
+		/* TORNARE AL FILE SORGENTE
 			var myFrame = c[i].children[0]
 			var elmnt = myFrame.contentWindow.document.head;
 			var myMeta = elmnt.getElementsByTagName("meta");
