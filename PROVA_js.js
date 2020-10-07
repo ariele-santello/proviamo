@@ -101,8 +101,8 @@ function changeArticle(articleNum, issueNum){
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
 			
-		/* TORNARE AL FILE SORGENTE
-			var myFrame = c[i].children[0]
+			/* TORNARE AL FILE SORGENTE   */
+			var myFrame = c[i].children[0];
 			var elmnt = myFrame.contentWindow.document.head;
 			var myMeta = elmnt.getElementsByTagName("meta");
 				for (var l = 0; l < myMeta.length; l++) {
@@ -110,7 +110,7 @@ function changeArticle(articleNum, issueNum){
 						myOrigin = document.getelementById("Origin");
 						myOrigin.href = myMeta[l].content;
     					}
-    				}   */
+    				}
 		}
 		else {
 			c[i].style.display = "none";
