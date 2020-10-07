@@ -86,11 +86,10 @@ function changeIssue(issueN){
 	    document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[i]);
     	}
 	
-     /* var originButton = document.getElementById("Origin");
+        var originButton = document.getElementById("Origin");
 	if (originButton.hasAttribute("href")) {
 		originButton.removeAttribute("href");
 	}
-	*/
 }
 
 
