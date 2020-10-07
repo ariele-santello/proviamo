@@ -93,29 +93,6 @@ function changeIssue(issueN){
 	*/
 }
 
-/*
-function changeArticle(articleN){
-	if ('article1' === articleN) {
-		var x = document.getElementById('article1')
-		var y = document.getElementById('article2')
-		var z = document.getElementById('article3')
-	} 
-	else if ('article2' === articleN) {
-		var x = document.getElementById('article2')
-		var y = document.getElementById('article1')
-		var z = document.getElementById('article3')
-	}
-	else {
-		var x = document.getElementById('article3')
-		var y = document.getElementById('article1')
-		var z = document.getElementById('article2')
-	}
-
-		x.style.display = "block";
-		y.style.display = "none";
-		z.style.display = "none";
-}
-*/
 
 
 function changeArticle(articleNum, issueNum){
