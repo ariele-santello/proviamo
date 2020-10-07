@@ -123,6 +123,22 @@ function changeArticle(articleNum, issueNum){
 			c[i].style.display = "none";
 		}
 	}
+
+
+/* FUNZIONE DA GUARDARE DOMANI PER TORNARE AL FILE SORGENTE
+	iframeNum = c[i].children[0]
+	var myFrame = document.getElementById(iframeNum.id);
+	var elmnt = myFrame.contentWindow.document.head;
+	var mylinks = elmnt.getElementsByTagName("meta");
+    		var count = 0;
+    		for (var l = 0; l < mylinks.length; l++) {
+    			if (mylinks[l].name == "DC.identifier" && mylinks[l].scheme == "DCTERMS.URI") {
+    				
+    			}
+    		}
+
+*/
+	
 }
 
 /*	
@@ -140,21 +156,6 @@ function changeArticleCover(articleNum, issueNum) {
 */	
 
 
-/* FUNZIONE DA GUARDARE DOMANI PER TORNARE AL FILE SORGENTE
-
-function BackToOrigin(iframeNum) {
-	var myFrame = document.getElementById(iframeNum);
-	var elmnt = myFrame.contentWindow.document.head;
-	var mylinks = elmnt.getElementsByTagName("meta");
-    		var count = 0;
-    		for (var l = 0; l < mylinks.length; l++) {
-    			if (mylinks[l].name == "DC.identifier" && mylinks[l].scheme == "DCTERMS.URI") {
-    				
-    			}
-    		}
-}
-
-*/
 
 
 
