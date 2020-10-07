@@ -118,27 +118,25 @@ function changeArticle(articleNum, issueNum){
 	for (var i=1; i<=3; i++) {
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
+			
+		/* FUNZIONE DA GUARDARE DOMANI PER TORNARE AL FILE SORGENTE
+			iframeNum = c[i].children[0]
+			var myFrame = document.getElementById(iframeNum.id);
+			var elmnt = myFrame.contentWindow.document.head;
+			var myMeta = elmnt.getElementsByTagName("meta");
+				for (var l = 0; l < myMeta.length; l++) {
+					if (myMeta[l].name == "DC.identifier" && myMeta[l].scheme == "DCTERMS.URI") {
+						myOrigin = document.getelementById("Origin")
+						myOrigin.href = myMeta[l].content
+    					}
+    				}
+
+*/
 		}
 		else {
 			c[i].style.display = "none";
 		}
-	}
-
-
-/* FUNZIONE DA GUARDARE DOMANI PER TORNARE AL FILE SORGENTE
-	iframeNum = c[i].children[0]
-	var myFrame = document.getElementById(iframeNum.id);
-	var elmnt = myFrame.contentWindow.document.head;
-	var mylinks = elmnt.getElementsByTagName("meta");
-    		var count = 0;
-    		for (var l = 0; l < mylinks.length; l++) {
-    			if (mylinks[l].name == "DC.identifier" && mylinks[l].scheme == "DCTERMS.URI") {
-    				
-    			}
-    		}
-
-*/
-	
+	}	
 }
 
 /*	
