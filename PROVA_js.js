@@ -139,7 +139,7 @@ function prevArticlee() {
 
 	for (i = 1; i < articles.length; i++) {
 		var frame = articles[i],
-    		style = window.getComputedStyle(frame),
+    			style = window.getComputedStyle(frame),
 			displayValue = style.getPropertyValue('display');
 		if (displayValue === 'block') {
 			frame.style.display='none';
@@ -149,14 +149,6 @@ function prevArticlee() {
 	}
 
 }
-
-
-
-
-
-
-
-
 
 
 
