@@ -133,6 +133,22 @@ function changeArticleCover(articleNum, issueNum) {
 }
 */	
 
+function prevArticlee() {
+	var articles = document.getElementsByTagName("iframe"); /* quindi articles = <div class="article1 articleIssue1 article">, <div class="article2 articleIssue1 article">, <div class="article3 articleIssue1 article">, <div class="article1 articleIssue2 article">, <div class="article2 articleIssue2 article">, <div class="article3 articleIssue2 article"> */
+	var i;
+
+	for (i = 1; i < articles.length; i++) {
+		var frame = articles[i],
+    		style = window.getComputedStyle(frame),
+			displayValue = style.getPropertyValue('display');
+		if (displayValue === 'block') {
+			frame.style.display='none';
+			articles[i-1].style.display = 'block';
+		}
+
+	}
+
+}
 
 
 
