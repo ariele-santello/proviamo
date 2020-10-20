@@ -119,7 +119,19 @@ function changeArticle(articleNum, issueNum){
 	}	
 }
 
-
+/*	
+function changeArticleCover(articleNum, issueNum) {
+	var c = window.parent.document.getElementById(issueNum).children;
+	for (var i=1; i<=3; i++) {
+		if ("article" + i === articleNum) {
+			c[i].style.display = "block";
+		}
+		else {
+			c[i].style.display = "none";
+		}
+	}
+}
+*/	
 
 function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children;
