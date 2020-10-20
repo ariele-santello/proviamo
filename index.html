@@ -188,19 +188,23 @@
 		</ul>
 		<script src="PROVA_js.js"></script>
 		
-		<!-- al posto di <li><a>issues</a></li> che contiene le issues e i rispettivi articoli, mettere due bottoni distinti, uno "issues" e uno "articles" per tenere intatta la struttura delle funzioni di changeIssue e changeArticle
+		<!-- al posto di <li><a>issues</a></li> che contiene le issues e i rispettivi articoli, mettere due bottoni distinti, uno "issues" e uno "articles" (con le rispettive tendine / dropdown) per tenere intatta la struttura delle funzioni di changeIssue e changeArticle
 
 		<li class="dropdown"><a class="dropbtn">Issues</a>
-			<a class="buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
-			<a class="buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
-			<a>Issue 3</a>
+			<div class="dropdown-content">
+				<a class="buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
+				<a class="buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
+				<a>Issue 3</a>
+			</div>
 		</li>
-		<li class="dropdown" id="changeArguments"><a class="dropbtn">Articles</a>
-			<a class="buttonArticle" onclick="changeArticle(); hidePrev()">Article 1</a>
-			<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-			<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-			<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
-		    <a class="buttonArticle" onclick="changeArticle(); hideNext()">Article 5</a>
+		<li class="dropdown"><a class="dropbtn">Articles</a>
+			<div class="dropdown-content" id="changeArguments">
+				<a class="buttonArticle" onclick="changeArticle(); hidePrev()">Article 1</a>
+				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
+				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
+				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
+			    <a class="buttonArticle" onclick="changeArticle(); hideNext()">Article 5</a>
+			</div>
 		</li>
 		<script src="PROVA_js.js"></script>
 
