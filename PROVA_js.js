@@ -83,7 +83,7 @@ function changeIssue(issueN){
 	    newArticle.setAttribute("onclick", "changeArticle('article"  + n + "', '" + issueN + "')");
 	    newArticle.innerHTML = 'article'+n;
 
-	    document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[n]);
+	    document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[n-1]);
     	}
 	
         var originButton = document.getElementById("Origin");
