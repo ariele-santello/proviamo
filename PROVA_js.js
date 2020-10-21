@@ -57,6 +57,9 @@ function changeCSS(cssFile, cssLinkIndex) {
 
 
 function changeIssue(issueN){
+	
+	  /*  identificare l'issue da mostrare   */
+	
 	if ('issue1' === issueN) {
 		var x = document.getElementById('issue1');
 		var y = document.getElementById('issue2');
@@ -66,25 +69,46 @@ function changeIssue(issueN){
 		var y = document.getElementById('issue1');
 	}
 
-	x.style.display = "block";
-	x.children[0].style.display = "block";
-	var totLength = x.children.length;
+	  /*  azioni sull'issue da mostrare e quelli da non mostrare   */
+	
+	var xChildren = x.children;     /*  i div che hanno class coverPage e articleN   */
+	var totLength = xChildren.length;     /* lunghezza della struttura dati dei figli di x  */
+	
+	x.style.display = "block";   /* issue da mostrare  */
+	xChildren[0].style.display = "block";   /* cover da mostrare  */
+	
+	var oldArticles = document.getElementById("changeArguments").children;  /* per cambiare il contenuto delle funzioni onclick degli articoli  */
+	
 	for (var i=1; i<totLength; i++) {
-		x.children[i].style.display = "none";
+		xChildren[i].style.display = "none";    /* articoli da non mostrare  */
+		
+		var newArticle = document.createElement("a");    /* creazione del nuovo tag  */
+		newArticle.setAttribute("class", "buttonArticle");   /* creazione del nuovo tag, set classe  */
+		newArticle.setAttribute("onclick", "changeArticle('article"  + i + "', '" + issueN + "')");   /* creazione del nuovo tag, set onclick attibute  */
+
+		var myFrame = xChildren[i].children[0];
+		var myMeta = myFrame.contentWindow.document.head.getElementsByTagName("meta");
+			for (var l = 0; l < myMeta.length; l++) {
+				if (myMeta[l].name == "DC.title") {
+					newArticle.innerHTML = myMeta[l].content;
+				}
+			}
+		
+		document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[i-1]);
 	}
-	y.style.display = "none";
+	
+	y.style.display = "none";  /* issue da non mostrare  */
 
 
-	var oldArticles = document.getElementById("changeArguments").children;
-
-	for (var n=1; n<totLength; n++) {
+    /*	for (var n=1; n<totLength; n++) {
 		var newArticle = document.createElement("a");
 		newArticle.setAttribute("class", "buttonArticle");
-	    newArticle.setAttribute("onclick", "changeArticle('article"  + n + "', '" + issueN + "')");
+	    	newArticle.setAttribute("onclick", "changeArticle('article"  + n + "', '" + issueN + "')");
+		
 	    newArticle.innerHTML = 'article'+n;
 
 	    document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[n-1]);
-    	}
+    	}   */
 	
         var originButton = document.getElementById("Origin");
 	if (originButton.hasAttribute("href")) {
@@ -97,7 +121,7 @@ function changeIssue(issueN){
 function changeArticle(articleNum, issueNum){
 	var c = document.getElementById(issueNum).children;
 	c[0].style.display = "none";
-	for (var i=1; i<=3; i++) {
+	for (var i=1; i<c.length; i++) {
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
 			
