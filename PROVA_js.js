@@ -68,7 +68,7 @@ function changeIssue(issueN){
 
 	x.style.display = "block";
 	x.children[0].style.display = "block";
-	var totLength = x.children.lenght
+	var totLength = x.children.length;
 	for (var i=1; i<totLength; i++) {
 		x.children[i].style.display = "none";
 	}
