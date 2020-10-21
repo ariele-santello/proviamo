@@ -68,7 +68,8 @@ function changeIssue(issueN){
 
 	x.style.display = "block";
 	x.children[0].style.display = "block";
-	for (var i=1; i<=3; i++) {
+	var totLength = x.children.lenght
+	for (var i=1; i<totLength; i++) {
 		x.children[i].style.display = "none";
 	}
 	y.style.display = "none";
@@ -76,7 +77,7 @@ function changeIssue(issueN){
 
 	var oldArticles = document.getElementById("changeArguments").children;
 
-	for (var i=0; i<3; i++) {
+	for (var i=0; i<totLength; i++) {
 		var newArticle = document.createElement("a");
 		newArticle.setAttribute("class", "buttonArticle");
 		var n = i+1;
