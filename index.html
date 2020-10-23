@@ -116,6 +116,30 @@
 			.dropdown:hover .dropdown-content {
 			  display: block;
 			}
+
+
+			/* stile dei due div contenitori sia degli articoli che del metadata viewer */
+			.split {
+			  height: 100%;
+			  width: 50%;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  overflow-x: hidden;
+			  padding-top: 20px;
+			}
+
+			/* Control the left side */
+			.left {
+			  left: 0;
+			  background-color: #111;
+			}
+
+			/* Control the right side */
+			.right {
+			  right: 0;
+			  background-color: red;
+			}
                 
 		</style>
 		<title></title>
@@ -252,90 +276,95 @@
 
 		<p>woeihfòiwueHGFòIUwgeògiWòEIGUHwòoeughwueg</p> -->
 
+		<div class="split left">
 
-		<!-- issue 1 -->
+			<!-- issue 1 -->
 
-		<div id="issue1">
-			
-			<!-- cover page 1 -->
-			
-			<div id="coverPage1">
-				<iframe src="cover_page1.html" name="coverPage1" id="coverPage1"
+			<div id="issue1">
+				
+				<!-- cover page 1 -->
+				
+				<div id="coverPage1">
+					<iframe src="cover_page1.html" name="coverPage1" id="coverPage1"
+						frameborder="0" border="0" cellspacing="0"
+						style="border-style: none;width: 100%; height: 15%;">
+						</iframe>
+				</div>
+
+				<!-- article 1 -->
+
+				<div class="article1 article">
+					<iframe src="art1-bbc1.html" name="iframe1" id="iframe1"
+			        	frameborder="0" border="0" cellspacing="0"
+			        	style="border-style: none;width: 100%; height: 450%;">
+			        	</iframe>
+		    		</div>
+
+				<!-- article 2 -->
+
+				<div class="article2 article">
+					<iframe src="art2-bbc2.html" name="iframe2" id="iframe2" 
 					frameborder="0" border="0" cellspacing="0"
-					style="border-style: none;width: 100%; height: 15%;">
+					style="border-style: none;width: 100%; height: 400%;">
 					</iframe>
-			</div>
+		    		</div>
 
-			<!-- article 1 -->
+				<!-- article 3 -->
 
-			<div class="article1 article">
-				<iframe src="art1-bbc1.html" name="iframe1" id="iframe1"
-		        	frameborder="0" border="0" cellspacing="0"
-		        	style="border-style: none;width: 100%; height: 450%;">
-		        	</iframe>
-	    		</div>
-
-			<!-- article 2 -->
-
-			<div class="article2 article">
-				<iframe src="art2-bbc2.html" name="iframe2" id="iframe2" 
-				frameborder="0" border="0" cellspacing="0"
-				style="border-style: none;width: 100%; height: 400%;">
-				</iframe>
-	    		</div>
-
-			<!-- article 3 -->
-
-			<div class="article3 article">
-				<iframe src="art3-Atl.html" name="iframe3" id="iframe3"
-				frameborder="0" border="0" cellspacing="0"
-				style="border-style: none;width: 100%; height: 480%;">
-				</iframe>
-	        	</div>
-	    	</div>
-
-
-		<!-- issue 2 -->
-
-		<div id="issue2">
-			
-			<!-- cover page 2 -->
-			
-			<div id="coverPage2">
-				<iframe src="cover_page2.html" name="coverPage2" id="coverPage2"
+				<div class="article3 article">
+					<iframe src="art3-Atl.html" name="iframe3" id="iframe3"
 					frameborder="0" border="0" cellspacing="0"
-					style="border-style: none;width: 100%; height: 15%;">
-				</iframe>
-			</div>
-
-			<!-- article 1 -->
-
-			<div class="article1 article">
-				<iframe src="art1-artsy.html" name="iframe4" id="iframe4"
-				frameborder="0" border="0" cellspacing="0"
-				style="border-style: none;width: 100%; height: 550%;">
-				</iframe>
-	    		</div>
-
-			<!-- article 2 -->
-
-			<div class="article2 article">
-				<iframe src="art2-cnn.html" name="iframe5" id="iframe5"
-				frameborder="0" border="0" cellspacing="0"
-				style="border-style: none;width: 100%; height: 500%;"></iframe>
-	    		</div>
-
-	        <!-- article 3 -->
-
-	        	<div class="article3 article">
-				<iframe src="art3-nyt1.html" name="iframe6" id="iframe6"
-				frameborder="0" border="0" cellspacing="0"
-				style="border-style: none;width: 100%; height: 450%;"></iframe>
+					style="border-style: none;width: 100%; height: 480%;">
+					</iframe>
+		        	</div>
 		    	</div>
 
-    		</div>
 
+			<!-- issue 2 -->
 
+			<div id="issue2">
+				
+				<!-- cover page 2 -->
+				
+				<div id="coverPage2">
+					<iframe src="cover_page2.html" name="coverPage2" id="coverPage2"
+						frameborder="0" border="0" cellspacing="0"
+						style="border-style: none;width: 100%; height: 15%;">
+					</iframe>
+				</div>
+
+				<!-- article 1 -->
+
+				<div class="article1 article">
+					<iframe src="art1-artsy.html" name="iframe4" id="iframe4"
+					frameborder="0" border="0" cellspacing="0"
+					style="border-style: none;width: 100%; height: 550%;">
+					</iframe>
+		    		</div>
+
+				<!-- article 2 -->
+
+				<div class="article2 article">
+					<iframe src="art2-cnn.html" name="iframe5" id="iframe5"
+					frameborder="0" border="0" cellspacing="0"
+					style="border-style: none;width: 100%; height: 500%;"></iframe>
+		    		</div>
+
+		        <!-- article 3 -->
+
+		        	<div class="article3 article">
+					<iframe src="art3-nyt1.html" name="iframe6" id="iframe6"
+					frameborder="0" border="0" cellspacing="0"
+					style="border-style: none;width: 100%; height: 450%;"></iframe>
+			    	</div>
+
+	    		</div>
+
+	    </div> <!-- si chiude il div a sinistra che contiene gli articoli -->
+
+	    <div class="split right"> <!-- div che contiene il metadata viewer -->
+
+	    </div>
 
 
 	</body>
