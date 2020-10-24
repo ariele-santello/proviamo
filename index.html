@@ -151,20 +151,20 @@
 			*/
 
 			/* Control the left side */
-			#left {
+			#content {
 			  left: 0;
 			  grid-area: left;
 			}
 
 			/* Control the right side */
-			#right {
+			#metadata {
 			  right: 0;
 			  grid-area: right;
 			}
 
-			#header { grid-area: header; }
+			#top { grid-area: header; }
 
-			#footer { grid-area: footer; }
+			#bottom { grid-area: footer; }
                 
 		</style>
 		
@@ -185,7 +185,7 @@
 
 	<body>
 		<div id="grid-container">
-			<div id="header">
+			<div id="top">
 				<ul id="selectorNav">
 					<li class="dropdown"><a class="dropbtn">Issues</a>
 						<div class="dropdown-content">
@@ -297,7 +297,7 @@
 
 			</div> <!-- si chiude il div header in cui c'è il selector e la navbar generica -->			
 
-			<div id="left" class="split">
+			<div id="content">
 				<!-- bottone per articolo precedente -->
 				<button id="prev" onclick="prevArticle()"/>previous</button>
 				<button id="next" onclick="nextArticle()"/>next</button>
@@ -362,9 +362,9 @@
 				    </div>
 
 		    	</div>
-		    </div> si chiude il div a sinistra che contiene gli articoli
+		    </div>
 
-		    <div id="right" class="split">  <!-- div che contiene il metadata viewer -->
+		    <div id="metadata">  <!-- div che contiene il metadata viewer -->
 		    	<!-- fare tre liste per ogni issue -->
 		    	<ul id="listIssue1">mamma mia</ul>
 		    	<ul id="listIssue2">che succede</ul>
@@ -422,7 +422,7 @@
 
 			</div> <!-- si chiude il div che contiene il metadata viewer -->
 
-			<div id="footer">
+			<div id="bottom">
 		    	<h5>© Art&amp;Life:</h5>  
 				<h5 class="mb-1">Created by Alessia Cioffi, Sara Coppini and Ariele Santello for the final project of the course <a href="https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2019/424627">Information Modeling and Web Technologies</a> 
       			<br>	
