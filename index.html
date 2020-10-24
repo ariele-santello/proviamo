@@ -121,23 +121,20 @@
 				display: grid;
 				grid-template-areas:
 				'header header header header header'
-				'left left left right right'
+				'main main main side side'
 				'footer footer footer footer footer';
 				grid-gap: 20px;
 				padding: 10px;
-				width: 100%;
+				/*width: 100%;
   				height: 400px;
 				grid-template-columns: 3fr 2fr;
-				grid-template-rows: 50px 1fr 50px;
+				grid-template-rows: 50px 1fr 50px;*/
 			}
 
-			/*#grid-container > div {
-				display: flex;
-				text-align: center;
+			#grid-container > div {
+				background-color: grey;
 				padding: 20px 0;
-				font-size: 30px;
 			}
-			*/
 
 			/* stile dei due div contenitori sia degli articoli che del metadata viewer
 			.split {
@@ -151,16 +148,9 @@
 			  bottom: 0;
 			}
 			*/
+			#content { grid-area: main; }
 
-			/* Control the left side */
-			#content {
-			  grid-area: left;
-			}
-
-			/* Control the right side */
-			#metadata {
-			  grid-area: right;
-			}
+			#metadata { grid-area: side; }
 
 			#top { grid-area: header; }
 
