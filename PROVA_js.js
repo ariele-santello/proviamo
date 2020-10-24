@@ -1,3 +1,5 @@
+
+
 function changeCSS(cssFile, cssLinkIndex) {
 	/* create new link */
 
