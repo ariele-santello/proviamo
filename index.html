@@ -117,7 +117,6 @@
 			  display: block;
 			}
 
-
 			/* #grid-container {
 				  display: grid;
 				  grid-template-areas:
@@ -205,8 +204,7 @@
 						    <a class="buttonArticle" onclick="changeArticle(); hideNext()">Article 3</a>
 						</div>
 					</li>
-					
-							<!-- <a class="buttonArticle" onclick="changeArticle()">Article 3</a>
+					<!-- <a class="buttonArticle" onclick="changeArticle()">Article 3</a>
 							<a class="buttonArticle" onclick="changeArticle()">Article 4</a> -->
 					
 					<!-- navbar con doppio dropdown: (problema: quando si va in hover sull'elemento <li>Issues</li>, si sovrebbero vedere solo tre elementi: issue 1, issue 2, issue 3. Solo una volte andati in hover su uno di questi tre elementi, solo allora si dovrebbero vedere gli articoli. Bisogna dare una classe specifica all'elemento <li>Issue 1</li> (come per gli altri due issue) che lo renda sia dropdown-content che dropdown container)
@@ -259,6 +257,8 @@
 				  	</li>
 				  	<li><a class="buttonIssue" id="Origin">Origin</a></li>
 				</ul>
+				<script src="PROVA_js.js"></script>
+
 				<script src="PROVA_js.js"></script>	
 
 
@@ -299,7 +299,7 @@
 
 				<p>woeihfòiwueHGFòIUwgeògiWòEIGUHwòoeughwueg</p> -->
 
-			<!-- </div> si chiude il div header in cui c'è il selector e la navbar generica
+			<!-- </div> si chiude il div header in cui c'è il selector e la navbar generica				
 
 			<div id="left" class="split"> -->
 				<!-- bottone per articolo precedente -->
@@ -314,40 +314,28 @@
 					<!-- cover page 1 -->
 					
 					<div id="coverPage1">
-						<iframe src="cover_page1.html" name="coverPage1" id="coverPage1"
-							frameborder="0" border="0" cellspacing="0"
-							style="border-style: none;width: 100%; height: 15%;">
-							</iframe>
+						<iframe src="cover_page1.html" name="coverPage1" id="coverPage1" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 15%;"></iframe>
 					</div>
 
 					<!-- article 1 -->
 
 					<div class="article1 article">
-						<iframe src="art1-bbc1.html" name="iframe1" id="iframe1"
-				        	frameborder="0" border="0" cellspacing="0"
-				        	style="border-style: none;width: 100%; height: 750%;">
-				        	</iframe>
-			    		</div>
+						<iframe src="art1-bbc1.html" name="iframe1" id="iframe1" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 750%;"></iframe>
+			    	</div>
 
 					<!-- article 2 -->
 
 					<div class="article2 article">
-						<iframe src="art2-bbc2.html" name="iframe2" id="iframe2" 
-						frameborder="0" border="0" cellspacing="0"
-						style="border-style: none;width: 100%; height: 400%;">
-						</iframe>
-			    		</div>
+						<iframe src="art2-bbc2.html" name="iframe2" id="iframe2" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 400%;"></iframe>
+			    	</div>
 
 					<!-- article 3 -->
 
 					<div class="article3 article">
-						<iframe src="art3-Atl.html" name="iframe3" id="iframe3"
-						frameborder="0" border="0" cellspacing="0"
-						style="border-style: none;width: 100%; height: 480%;">
-						</iframe>
-			        	</div>
+						<iframe src="art3-Atl.html" name="iframe3" id="iframe3" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 480%;"></iframe>
 			    	</div>
-
+			    	
+			    </div>
 
 				<!-- issue 2 -->
 
@@ -356,39 +344,28 @@
 					<!-- cover page 2 -->
 					
 					<div id="coverPage2">
-						<iframe src="cover_page2.html" name="coverPage2" id="coverPage2"
-							frameborder="0" border="0" cellspacing="0"
-							style="border-style: none;width: 100%; height: 15%;">
-						</iframe>
+						<iframe src="cover_page2.html" name="coverPage2" id="coverPage2" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 15%;"></iframe>
 					</div>
 
 					<!-- article 1 -->
 
 					<div class="article1 article">
-						<iframe src="art1-artsy.html" name="iframe4" id="iframe4"
-						frameborder="0" border="0" cellspacing="0"
-						style="border-style: none;width: 100%; height: 550%;">
-						</iframe>
-			    		</div>
+						<iframe src="art1-artsy.html" name="iframe4" id="iframe4" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 550%;"></iframe>
+			    	</div>
 
 					<!-- article 2 -->
 
 					<div class="article2 article">
-						<iframe src="art2-cnn.html" name="iframe5" id="iframe5"
-						frameborder="0" border="0" cellspacing="0"
-						style="border-style: none;width: 100%; height: 500%;"></iframe>
-			    		</div>
+						<iframe src="art2-cnn.html" name="iframe5" id="iframe5" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 500%;"></iframe>
+			    	</div>
 
 			        <!-- article 3 -->
 
-			        	<div class="article3 article">
-						<iframe src="art3-nyt1.html" name="iframe6" id="iframe6"
-						frameborder="0" border="0" cellspacing="0"
-						style="border-style: none;width: 100%; height: 450%;"></iframe>
-				    	</div>
+			        <div class="article3 article">
+						<iframe src="art3-nyt1.html" name="iframe6" id="iframe6" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 450%;"></iframe>
+				    </div>
 
-		    		</div>
-
+		    	</div>
 		    <!-- </div> si chiude il div a sinistra che contiene gli articoli
 
 		    <div id="right" class="split">  --><!-- div che contiene il metadata viewer -->
@@ -425,38 +402,36 @@
 				    blabla
 				    bla
 				<br>    
-				blabla
+					blabla
 				    bla
 				<br>    
-				bla
-				 bla
+					bla
+				 	bla
 				<br>
-				bla
+					bla
 				    bla
 				    bla
 				<br>
 				    bla
 				    blabla
 				<br>    
-				bla
+					bla
 				    blabla
 				    bla
 				<br>    
-				blabla
+					blabla
 				    bla
 				    bla
-			  </ul>
-		  <!--  </div> -->
+				</ul>
 
-		   <!--   <div id="footer"> -->
+			<!-- </div> si chiude il div che contiene il metadata viewer -->
+
+			<footer>
 		    	<h5>© Art&amp;Life:</h5>  
 				<h5 class="mb-1">Created by Alessia Cioffi, Sara Coppini and Ariele Santello for the final project of the course <a href="https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2019/424627">Information Modeling and Web Technologies</a> 
       			<br>	
       			held by professor Fabio Vitali within the master degree course <a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge">Digital Humanities and Digital Knowledge</a> at the <a href="https://www.unibo.it/en/homepage">University of Bologna</a>.</h5>
-		   <!--   </div> -->
-
-
-		<!--   </div> --> <!-- si chiude il div "grid-container" che contiene tutti gli altri div e li dispone in griglia -->
+      		</footer>
 
 	</body>
 </html>
