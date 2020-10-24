@@ -211,20 +211,20 @@ function nextArticle() {
 
 
 
-
+/*
 function metadataViewer () {
 
-	/* enter each issue */
+	// enter each issue 
 
 	var issues = document.getElementById(left).children;
 	for (var i = 1; i <= issues.length; i++) {
 		var myIssue = document.getElementById("issue"+ i);
 
-		/* find the reference list */
+		// find the reference list 
 
 		var myList = document.getElementById("listIssue"+ i);
 
-		/* enter each iFrame of the issue */
+		// enter each iFrame of the issue 
 
 		var myFrames = document.getElementsByTagName("iframe");
 
@@ -232,7 +232,7 @@ function metadataViewer () {
 	   		var myFrame = document.getElementById("iframe"+ i);
 	    	var elmnt = myFrame.contentWindow.document.body;
 
-	    	/* get span tag */
+	    	// get span tag 
 
 	    	var spans = Array.from(elmnt.getElementsByTagName("span"));
 	    	for (var x in spans) {
@@ -242,7 +242,7 @@ function metadataViewer () {
 	}
 
 }
-
+*/
 
 
 
