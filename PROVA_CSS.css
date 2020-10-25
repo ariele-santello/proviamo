@@ -18,7 +18,7 @@ ArticleNum{
 	width: 100%} /*ho aggiunto questo per far aprire l'articolo su tutta la pagina quando clicchi sul bottone change article cover*/
 
 
-.footer {
+.bottom {
   text-align: justify;
   text-align: center;
   padding: 1em;
@@ -29,8 +29,8 @@ ArticleNum{
   margin-left: 0em;
   margin-right: 0em;
 }
-.footer a{text-decoration: none;}
-.footer a:link{color:white;}
-.footer a:hover{color:white;}
-.footer a:active{color:white;}
-.footer a:visited{color:white;}
+.bottom a{text-decoration: none;}
+.bottom a:link{color:white;}
+.bottom a:hover{color:white;}
+.bottom a:active{color:white;}
+.bottom a:visited{color:white;}
