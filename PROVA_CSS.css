@@ -16,3 +16,21 @@ img{
 
 ArticleNum{
 	width: 100%} /*ho aggiunto questo per far aprire l'articolo su tutta la pagina quando clicchi sul bottone change article cover*/
+
+
+.footer {
+  text-align: justify;
+  text-align: center;
+  padding: 1em;
+  background: rgba(38, 38, 38);
+  color: white;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
+}
+.footer a{text-decoration: none;}
+.footer a:link{color:white;}
+.footer a:hover{color:white;}
+.footer a:active{color:white;}
+.footer a:visited{color:white;}
