@@ -145,9 +145,31 @@ function changeArticle(articleNum, issueNum){
 	}	
 }
 
+
+function changeArticleCommon(c){
+	c[0].style.display = "none";
+		for (var i=1; i<=3; i++){
+			if ("article" + i === articleNum){
+				c[i].style.display = "block";
+			}
+			else {
+				c[i].style.display = "none";
+			}
+
+		}
+}
+
+
+function changeArticleCover(articleNum, issueNum){
+	var c = window.parent.document.getElementById(issueNum).children;
+	changeArticleCommon(c);
+}
+
+
 /*	
 function changeArticleCover(articleNum, issueNum) {
 	var c = window.parent.document.getElementById(issueNum).children;
+	c[0].style.display = "none";
 	for (var i=1; i<=3; i++) {
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
@@ -158,22 +180,6 @@ function changeArticleCover(articleNum, issueNum) {
 	}
 }
 */	
-
-function changeArticleCover(articleNum, issueNum){
-	var c = window.parent.document.getElementById(issueNum).children;
-	c[0].style.display = "none";
-	for (var i=1; i<=3; i++){
-		if ("article" + i === articleNum){
-			c[i].style.display = "block";
-		}
-		else {
-			c[i].style.display = "none";
-		}
-
-	}
-
-}
-
 
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
