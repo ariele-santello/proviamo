@@ -119,7 +119,7 @@ function changeIssue(issueN){
 }
 
 
-
+/*
 function changeArticle(articleNum, issueNum){
 	var c = document.getElementById(issueNum).children;
 	c[0].style.display = "none";
@@ -127,7 +127,7 @@ function changeArticle(articleNum, issueNum){
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
 			
-			/* TORNARE AL FILE SORGENTE   */
+			// TORNARE AL FILE SORGENTE   
 			var myFrame = c[i].children[0];
 			var elmnt = myFrame.contentWindow.document.head;
 			var myMeta = elmnt.getElementsByTagName("meta");
@@ -144,6 +144,7 @@ function changeArticle(articleNum, issueNum){
 		}
 	}	
 }
+*/
 
 
 function changeArticleCommon(c, articleNum, myOrigin){
@@ -169,6 +170,11 @@ function changeArticleCommon(c, articleNum, myOrigin){
 	}
 }
 
+function changeArticle(articleNum, issueNum){
+	var c = document.getElementById(issueNum).children;
+	var myOrigin = document.getElementById("Origin");
+	changeArticleCommon(c, articleNum, myOrigin);
+}
 
 function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children;
