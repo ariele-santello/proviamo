@@ -146,7 +146,7 @@ function changeArticle(articleNum, issueNum){
 }
 
 
-function changeArticleCommon(c){
+function changeArticleCommon(c, articleNum){
 	c[0].style.display = "none";
 	for (var i=1; i<=c.length; i++){
 		if ("article" + i === articleNum){
@@ -161,7 +161,7 @@ function changeArticleCommon(c){
 
 function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children;
-	changeArticleCommon(c);
+	changeArticleCommon(c, articleNum);
 }
 
 
