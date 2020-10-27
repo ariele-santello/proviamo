@@ -146,7 +146,7 @@ function changeArticle(articleNum, issueNum){
 }
 
 
-function changeArticleCommon(c, articleNum){
+function changeArticleCommon(c, articleNum, myOrigin){
 	c[0].style.display = "none";
 	for (var i=1; i<=c.length; i++){
 		if ("article" + i === articleNum){
@@ -158,7 +158,6 @@ function changeArticleCommon(c, articleNum){
 			var myMeta = elmnt.getElementsByTagName("meta");
 				for (var l = 0; l < myMeta.length; l++) {
 					if (myMeta[l].name == "DC.identifier" && myMeta[l].scheme == "DCTERMS.URI") {
-						var myOrigin = document.getElementById("Origin");
 						myOrigin.href = myMeta[l].content;
 						myOrigin.target = "_blank";
     					}
@@ -173,7 +172,8 @@ function changeArticleCommon(c, articleNum){
 
 function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children;
-	changeArticleCommon(c, articleNum);
+	var myOrigin = window.parent.document.getElementById("Origin");
+	changeArticleCommon(c, articleNum, myOrigin);
 }
 
 
