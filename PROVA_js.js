@@ -205,8 +205,9 @@ function prevArticle() {
  	var articleNow = 0;
  	
  	for (var i = 1; i < articles.length; i++) { /* i= 1 perché non voglio considerare il primo articolo */
- 		var frame = articles[i];
- 		var displayValue = window.getComputedStyle(frame, null).display;
+ 		var frame = articles[i],
+ 			style = window.getComputedStyle(frame),
+			displayValue = style.getPropertyValue('display');
 		if (displayValue === "block") {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
