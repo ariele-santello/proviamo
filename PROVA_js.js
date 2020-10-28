@@ -147,6 +147,7 @@ function changeArticle(articleNum, issueNum){
 */
 function getLinkOrigin(currentArticle, myOrigin) {
 	/* TORNARE AL FILE SORGENTE   */
+
 	var myFrame = currentArticle.children[0];
 	var elmnt = myFrame.contentWindow.document.head;
 	var myMeta = elmnt.getElementsByTagName("meta");
@@ -200,6 +201,8 @@ function changeArticleCover(articleNum, issueNum) {
 }
 */	
 
+
+
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
  	var articleNow = 0;
@@ -207,21 +210,26 @@ function prevArticle() {
  	for (var i = 1; i < articles.length; i++) { /* i= 1 perché non voglio considerare il primo articolo */
  		var frame = articles[i],
  			style = window.getComputedStyle(frame),
-			displayValue = style.getPropertyValue('display');
+			displayValue = style.getPropertyValue('display'); /* queste ultime due righe sono equivalenti a var displayValue = window.getComputedStyle(frame, null).display; */
 		if (displayValue === "block") {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
-				articles[i-1].style.display = "block";
 				articleNow = articles[i-1];
+				articleNow.style.display = "block";
+				/* var myFrame = articleNow.children[0];
+				var curIssue = articleNow.parentElement;
+				var x = curIssue.children[i-1]; */
+				
 			}
 
 		}
 	}
 
 	var myOrigin = document.getElementById("Origin");
-	getLinkOrigin(articleNow, myOrigin);
+	getLinkOrigin(articleNow, myOrigin); /* se scegliamo di definire la variabile myframe in questa funzione va sostituito articleNow con myFrame come parametro input della funzione getLinkOrigin */
  		
 }
+
 
 
 function nextArticle() {
