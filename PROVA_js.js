@@ -202,6 +202,7 @@ function changeArticleCover(articleNum, issueNum) {
 
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
+ 	var articleNow = 0;
  	
  	for (var i = 1; i < articles.length; i++) { /* i= 1 perché non voglio considerare il primo articolo */
  		var frame = articles[i];
@@ -210,12 +211,14 @@ function prevArticle() {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
 				articles[i-1].style.display = "block";
-				var myOrigin = document.getElementById("Origin");
-				getLinkOrigin(articles[i-1], myOrigin);
+				articleNow = i-1;
 			}
 
 		}
 	}
+
+	var myOrigin = document.getElementById("Origin");
+	getLinkOrigin(articleNow, myOrigin);
  		
 }
 
