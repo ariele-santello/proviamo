@@ -161,7 +161,7 @@ function getLinkOrigin(currentArticle, myOrigin) {
 
 function changeArticleCommon(c, articleNum, myOrigin){
 	c[0].style.display = "none";
-	for (var i=1; i<=c.length; i++){
+	for (var i=1; i<c.length; i++){
 		if ("article" + i === articleNum){
 			c[i].style.display = "block";
 			getLinkOrigin(c[i], myOrigin);
