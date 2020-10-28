@@ -211,7 +211,7 @@ function prevArticle() {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
 				articles[i-1].style.display = "block";
-				articleNow = i-1;
+				articleNow = articles[i-1];
 			}
 
 		}
