@@ -145,24 +145,26 @@ function changeArticle(articleNum, issueNum){
 	}	
 }
 */
-
+function getLinkOrigin(currentArticle, myOrigin) {
+	/* TORNARE AL FILE SORGENTE   */
+	var myFrame = currentArticle.children[0];
+	var elmnt = myFrame.contentWindow.document.head;
+	var myMeta = elmnt.getElementsByTagName("meta");
+		for (var l = 0; l < myMeta.length; l++) {
+			if (myMeta[l].name == "DC.identifier" && myMeta[l].scheme == "DCTERMS.URI") {
+				myOrigin.href = myMeta[l].content;
+				myOrigin.target = "_blank";
+			}
+		}
+	
+}
 
 function changeArticleCommon(c, articleNum, myOrigin){
 	c[0].style.display = "none";
 	for (var i=1; i<=c.length; i++){
 		if ("article" + i === articleNum){
 			c[i].style.display = "block";
-			
-			/* TORNARE AL FILE SORGENTE   */
-			var myFrame = c[i].children[0];
-			var elmnt = myFrame.contentWindow.document.head;
-			var myMeta = elmnt.getElementsByTagName("meta");
-				for (var l = 0; l < myMeta.length; l++) {
-					if (myMeta[l].name == "DC.identifier" && myMeta[l].scheme == "DCTERMS.URI") {
-						myOrigin.href = myMeta[l].content;
-						myOrigin.target = "_blank";
-    					}
-    				}
+			getLinkOrigin(c[i], myOrigin);
 		}
 		else {
 			c[i].style.display = "none";
@@ -208,6 +210,8 @@ function prevArticle() {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
 				articles[i-1].style.display = "block";
+				var myOrigin = document.getElementById("Origin");
+				getLinkOrigin(articles[i-1], myOrigin);
 			}
 
 		}
@@ -227,10 +231,13 @@ function nextArticle() {
 			if (!(frame.classList.contains('article3'))) { /* IMPORTANTE: qua ho messo che la classe dell'ultimo articolo è "article3" ma nel sito finale sarà ARTICLE5*/
 				frame.style.display='none';
 				articles[i+1].style.display = 'block';
+				var myOrigin = document.getElementById("Origin");
+				getLinkOrigin(articles[i+1], myOrigin);
 			}
 		}
 	}
 }
+
 
 
 
