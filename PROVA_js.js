@@ -253,19 +253,19 @@ function nextArticle() {
 
 
 
-/*
+/* 
 function metadataViewer () {
 
 	// enter each issue 
 
-	var elements = document.getElementById(content).children;
+	var elements = document.getElementById('content').children;
 	
 	var counter = 0;
-	for (var i = 0; i <= elements.length; i++) {
-		if 'issue' in elements[i].id{
-			counter++
+	for (var i = 0; i < elements.length; i++) {
+		if (elements[i].id.includes('issue')){
+			counter++;
 		}
-	}
+	} // fino qua verificato da w3school
 	
 	for (var i = 1; i <= counter; i++) {
 		var myIssue = document.getElementById("issue"+ i);
@@ -286,9 +286,9 @@ function metadataViewer () {
 
 			var spans = Array.from(elmnt.getElementsByTagName("span"));
 			for (var span in spans) {
-				curCategory = span.className;  //person
-				categoryFound = False;
-				instanceFound = False;
+				var curCategory = span.className;  //person
+				var categoryFound = False;
+			     // var instanceFound = False;
 				for (i=0; i<myList.children.length; i++){
 					if curCategory === myList.children[i].id{
 						categoryFound = True;
@@ -316,13 +316,13 @@ function metadataViewer () {
 					var ulNode = document.createTextNode(span.innerHTML);
 					NewUl.appendChild(ulNode);
 					matchedLi.appendChild(newUl); //matched e newLi
-				}
+				}*/
 			}
 		}
 	}
 
 }
-*/
+
 
 
 
