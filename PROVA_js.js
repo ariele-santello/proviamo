@@ -258,8 +258,16 @@ function metadataViewer () {
 
 	// enter each issue 
 
-	var issues = document.getElementById(left).children;
-	for (var i = 1; i <= issues.length; i++) {
+	var elements = document.getElementById(content).children;
+	
+	var counter = 0;
+	for (var i = 0; i <= elements.length; i++) {
+		if 'issue' in elements[i].id{
+			counter++
+		}
+	}
+	
+	for (var i = 1; i <= counter; i++) {
 		var myIssue = document.getElementById("issue"+ i);
 
 		// find the reference list 
@@ -268,19 +276,49 @@ function metadataViewer () {
 
 		// enter each iFrame of the issue 
 
-		var myFrames = document.getElementsByTagName("iframe");
+		var myFrames = myIssue.getElementsByTagName("iframe");
 
-	    for (var i = 1; i < myFrames.length; i++) {
-	   		var myFrame = document.getElementById("iframe"+ i);
-	    	var elmnt = myFrame.contentWindow.document.body;
+	    	for (var i = 1; i < myFrames.length; i++) {
+	   		var curFrame = document.getElementById("iframe"+ i);
+	    		var elmnt = curFrame.contentWindow.document.body;
 
-	    	// get span tag 
+			// get span tag 
 
-	    	var spans = Array.from(elmnt.getElementsByTagName("span"));
-	    	for (var x in spans) {
-	    		x.
-	    	}
-    	}
+			var spans = Array.from(elmnt.getElementsByTagName("span"));
+			for (var span in spans) {
+				curCategory = span.className;  //person
+				categoryFound = False;
+				instanceFound = False;
+				for (i=0; i<myList.children.length; i++){
+					if curCategory === myList.children[i].id{
+						categoryFound = True;
+						var matchedLi = myList.children[i];
+					}
+				}
+				if categoryFound === False {
+					var newLi = document.createElement('li');
+					newLi.setAttribute('id', curCategory);
+					var liNode = document.createTextNode(curCategory);
+					NewLi.appendChild(liNode);
+					myList.appendChild(newLi);
+				}
+				else{
+					for (i=0; i<matchedLi.children.length; i++){
+						if span.innerHTML === matchedLi.children[i].id{
+							instanceFound = True;
+						}
+					}
+				}
+				
+				if instanceFound === False {
+					var newUl = document.createElement('ul');
+					newUl.setAttribute('id', span.innerHTML);
+					var ulNode = document.createTextNode(span.innerHTML);
+					NewUl.appendChild(ulNode);
+					matchedLi.appendChild(newUl); //matched e newLi
+				}
+			}
+		}
 	}
 
 }
