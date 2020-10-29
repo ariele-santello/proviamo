@@ -265,64 +265,66 @@ function metadataViewer () {
 		if (elements[i].id.includes('issue')){
 			counter++;
 		}
-	} // fino qua verificato da w3school
+	}
 	
 	for (var i = 1; i <= counter; i++) {
-		var myIssue = document.getElementById("issue"+ i);
-
 		// find the reference list 
 
-		var myList = document.getElementById("listIssue"+ i);
 
+		var myList = document.getElementById("listIssue"+ i);  
+		
 		// enter each iFrame of the issue 
 
-		var myFrames = myIssue.getElementsByTagName("iframe");
+		//var myIssue = document.getElementById("issue"+ i);
+		//var myFrames = myIssue.getElementsByTagName("iframe");
+		var myFrames = document.getElementById("issue"+ i).getElementsByTagName("iframe"); //accorpamento delle due variabili precedenti
 
-	    	for (var i = 1; i < myFrames.length; i++) {
-	   		var curFrame = document.getElementById("iframe"+ i);
-	    		var elmnt = curFrame.contentWindow.document.body;
+	    	for (var n = 1; n < myFrames.length; n++) {       
+		   		//var curFrame = myFrames[n];
+		    	//var elmnt = curFrame.contentWindow.document.body;
+		    	var elmnt = myFrames[n].contentWindow.document.body;     // fino qua verificato da w3school
 
-			// get span tag 
+				// get span tag 
 
-			var spans = Array.from(elmnt.getElementsByTagName("span"));
-			for (var span in spans) {
-				var curCategory = span.className;  //person
-				var categoryFound = False;
-			     // var instanceFound = False;
-				for (i=0; i<myList.children.length; i++){
-					if curCategory === myList.children[i].id{
-						categoryFound = True;
-						var matchedLi = myList.children[i];
-					}
-				}
-				if categoryFound === False {
-					var newLi = document.createElement('li');
-					newLi.setAttribute('id', curCategory);
-					var liNode = document.createTextNode(curCategory);
-					NewLi.appendChild(liNode);
-					myList.appendChild(newLi);
-				}
-				else{
-					for (i=0; i<matchedLi.children.length; i++){
-						if span.innerHTML === matchedLi.children[i].id{
-							instanceFound = True;
+				var spans = Array.from(elmnt.getElementsByTagName("span"));
+				for (var span in spans) {
+					var curCategory = span.className;  //person
+					var categoryFound = False;
+				     // var instanceFound = False;
+					for (i=0; i<myList.children.length; i++){
+						if curCategory === myList.children[i].id{
+							categoryFound = True;
+							var matchedLi = myList.children[i];
 						}
 					}
-				}
+					if categoryFound === False {
+						var newLi = document.createElement('li');
+						newLi.setAttribute('id', curCategory);
+						var liNode = document.createTextNode(curCategory);
+						NewLi.appendChild(liNode);
+						myList.appendChild(newLi);
+					}
+					else{
+						for (c=0; c<matchedLi.children.length; c++){
+							if span.innerHTML === matchedLi.children[c].id{
+								instanceFound = True;
+							}
+						}
+					}
 				
-				if instanceFound === False {
-					var newUl = document.createElement('ul');
-					newUl.setAttribute('id', span.innerHTML);
-					var ulNode = document.createTextNode(span.innerHTML);
-					NewUl.appendChild(ulNode);
-					matchedLi.appendChild(newUl); //matched e newLi
-				}*/
+					if instanceFound === False {
+						var newUl = document.createElement('ul');
+						newUl.setAttribute('id', span.innerHTML);
+						var ulNode = document.createTextNode(span.innerHTML);
+						NewUl.appendChild(ulNode);
+						matchedLi.appendChild(newUl); //matched e newLi
+					}
+				}
 			}
-		}
 	}
 
 }
-
+*/
 
 
 
