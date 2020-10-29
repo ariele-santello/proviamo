@@ -127,10 +127,11 @@
 				'main main main side side'
 				'footer footer footer footer footer';
 				grid-gap: 5px;
-				padding: 5px;
-				width: 99%;
-  				height: 99%;
-				/*grid-template-columns: 3fr 2fr;
+			/*	padding: 5px;  */
+			/*	width: 100%;  */
+  				height: 100%;
+			/*	grid-auto-rows: min-content;
+				grid-template-columns: 3fr 2fr;
 				grid-template-rows: 50px 1fr 50px;*/
 			}
 
@@ -151,7 +152,10 @@
 			  bottom: 0;
 			}
 			*/
-			#content { grid-area: main; }
+			#content {
+				grid-area: main; 
+				position: relative;
+			}
 
 			#metadata { grid-area: side; }
 
@@ -159,6 +163,34 @@
 
 			#bottom { 
 			grid-area: footer;
+			}
+
+			button#prev, button#next  {
+				background: rgba(0,0,0,0.4);
+				padding-left: 5px;
+				padding-right: 5px;
+				border: 0;
+				border-radius: 15%;
+  			}
+
+			#prev {
+		    	top: 50%;
+		        z-index: 1;
+		        position: absolute;
+		        left: 2px;
+					 
+			}
+		    
+		    #next {
+		        top: 50%;
+		        z-index: 1;
+		        position: absolute;
+		        right: 2px;
+			}
+
+			.article {
+				padding-left: 30px;
+				padding-right: 32px;
 			}
                 
 		</style>
@@ -247,7 +279,7 @@
 							<a>2021-2025 (screen + print)</a>
 						</div>
 				  	</li>
-				  	<li><a class="buttonIssue" id="Origin">Origin</a></li>
+				  	<li><a class="buttonIssue" id="Origin">Source</a></li>
 				</ul>
 
 				<script src="PROVA_js.js"></script>	
@@ -294,8 +326,8 @@
 
 			<div id="content">
 				<!-- bottone per articolo precedente -->
-				<button id="prev" onclick="prevArticle()"/>previous</button>
-				<button id="next" onclick="nextArticle()"/>next</button>
+				<button id="prev" onclick="prevArticle()"/>&lt;</button>
+				<button id="next" onclick="nextArticle()"/>&gt;</button>
 				<script src="PROVA_js.js"></script>
 
 				<!-- issue 1 -->
@@ -311,19 +343,19 @@
 					<!-- article 1 -->
 
 					<div class="article1 article">
-						<iframe src="art1-bbc1.html" name="iframe1" id="iframe1" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 93%"></iframe>
+						<iframe src="art1-bbc1.html" name="iframe1" id="iframe1" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em"></iframe>
 			    	</div>
 
 					<!-- article 2 -->
 
 					<div class="article2 article">
-						<iframe src="art2-bbc2.html" name="iframe2" id="iframe2" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 83%;"></iframe>
+						<iframe src="art2-bbc2.html" name="iframe2" id="iframe2" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em;"></iframe>
 			    	</div>
 
 					<!-- article 3 -->
 
 					<div class="article3 article">
-						<iframe src="art3-Atl.html" name="iframe3" id="iframe3" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 83%;"></iframe>
+						<iframe src="art3-Atl.html" name="iframe3" id="iframe3" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em;"></iframe>
 			    	</div>
 			    	
 			    </div>
@@ -341,88 +373,38 @@
 					<!-- article 1 -->
 
 					<div class="article1 article">
-						<iframe src="art1-artsy.html" name="iframe4" id="iframe4" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 83%;"></iframe>
+						<iframe src="art1-artsy.html" name="iframe4" id="iframe4" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
 			    	</div>
 
 					<!-- article 2 -->
 
 					<div class="article2 article">
-						<iframe src="art2-cnn.html" name="iframe5" id="iframe5" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 103%;"></iframe>
+						<iframe src="art2-cnn.html" name="iframe5" id="iframe5" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
 			    	</div>
 
 			        <!-- article 3 -->
 
 			        <div class="article3 article">
-						<iframe src="art3-nyt1.html" name="iframe6" id="iframe6" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 103%;"></iframe>
+						<iframe src="art3-nyt1.html" name="iframe6" id="iframe6" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
 				    </div>
 
 		    	</div>
 		    </div> <!-- si chiude il div content -->
 
 		    <div id="metadata">  <!-- div che contiene il metadata viewer -->
+			    <br>
+			    <a class="buttonArticle" onclick="metadataViewer ()">Click me</a>
+			    <br>  
 		    	<!-- fare tre liste per ogni issue -->
 		    	<ul id="listIssue1">mamma mia</ul>
 		    	<ul id="listIssue2">che succede</ul>
-		    	<ul id="listIssue3">voglio che funzioni
-				    bla
-				    bla
-				    bla
-				    bla
-				<br>
-				    bla
-				    blabla
-				<br>
-				    bla
-				    blabla
-				    bla
-				<br>
-				    blabla
-				    bla
-				    bla
-				<br>
-				 bla
-				    bla
-				    bla
-				<br>
-				    bla
-				    bla
-				<br>
-				    blabla
-				    
-				<br>bla
-				    blabla
-				    bla
-				<br>    
-					blabla
-				    bla
-				<br>    
-					bla
-				 	bla
-				<br>
-					bla
-				    bla
-				    bla
-				<br>
-				    bla
-				    blabla
-				<br>    
-					bla
-				    blabla
-				    bla
-				<br>    
-					blabla
-				    bla
-				    bla
-				</ul>
+		    	<ul id="listIssue3"></ul>
+			    
 
 		</div> <!-- si chiude il div che contiene il metadata viewer -->
 
-		<div id="bottom"   style="text-align: justify; text-align: center; padding: 1em; background: rgba(38, 38, 38); color: white; margin-top: 0em; margin-bottom: 0em;margin-left: 0em; margin-right: 0em;"> <!-- text-align: justify; background: rgba(38, 38, 38); color: white; -->
-		    <h5>© Art&amp;Life:</h5>  
-			<h5>Created by Alessia Cioffi, Sara Coppini and Ariele Santello for the final project of the course <a href="https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2019/424627">Information Modeling and Web Technologies</a> 
-      				<br>	
-     				held by professor Fabio Vitali within the master degree course <a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge">Digital Humanities and Digital Knowledge</a> at the <a href="https://www.unibo.it/en/homepage">University of Bologna</a>.
-			</h5>
+		<div id="bottom"   style="text-align: justify; text-align: center; background: rgba(38, 38, 38); color: white; margin-top: 0em; margin-bottom: 0em;margin-left: 0em; margin-right: 0em;"> <!-- text-align: justify; background: rgba(38, 38, 38); color: white; -->
+		    <h5>© Art&amp;Life:   Created by Alessia Cioffi, Sara Coppini and Ariele Santello</h5>  
       		</div>
 
       	</div> <!-- si chiude il div grid-container -->

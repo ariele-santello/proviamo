@@ -119,7 +119,7 @@ function changeIssue(issueN){
 }
 
 
-
+/*
 function changeArticle(articleNum, issueNum){
 	var c = document.getElementById(issueNum).children;
 	c[0].style.display = "none";
@@ -127,7 +127,7 @@ function changeArticle(articleNum, issueNum){
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
 			
-			/* TORNARE AL FILE SORGENTE   */
+			// TORNARE AL FILE SORGENTE   
 			var myFrame = c[i].children[0];
 			var elmnt = myFrame.contentWindow.document.head;
 			var myMeta = elmnt.getElementsByTagName("meta");
@@ -144,10 +144,52 @@ function changeArticle(articleNum, issueNum){
 		}
 	}	
 }
+*/
+function getLinkOrigin(currentArticle, myOrigin) {
+	/* TORNARE AL FILE SORGENTE   */
+
+	var myFrame = currentArticle.children[0];
+	var elmnt = myFrame.contentWindow.document.head;
+	var myMeta = elmnt.getElementsByTagName("meta");
+		for (var l = 0; l < myMeta.length; l++) {
+			if (myMeta[l].name == "DC.identifier" && myMeta[l].scheme == "DCTERMS.URI") {
+				myOrigin.href = myMeta[l].content;
+				myOrigin.target = "_blank";
+			}
+		}
+	
+}
+
+function changeArticleCommon(c, articleNum, myOrigin){
+	c[0].style.display = "none";
+	for (var i=1; i<c.length; i++){
+		if ("article" + i === articleNum){
+			c[i].style.display = "block";
+			getLinkOrigin(c[i], myOrigin);
+		}
+		else {
+			c[i].style.display = "none";
+		}
+	}
+}
+
+function changeArticle(articleNum, issueNum){
+	var c = document.getElementById(issueNum).children;
+	var myOrigin = document.getElementById("Origin");
+	changeArticleCommon(c, articleNum, myOrigin);
+}
+
+function changeArticleCover(articleNum, issueNum){
+	var c = window.parent.document.getElementById(issueNum).children;
+	var myOrigin = window.parent.document.getElementById("Origin");
+	changeArticleCommon(c, articleNum, myOrigin);
+}
+
 
 /*	
 function changeArticleCover(articleNum, issueNum) {
 	var c = window.parent.document.getElementById(issueNum).children;
+	c[0].style.display = "none";
 	for (var i=1; i<=3; i++) {
 		if ("article" + i === articleNum) {
 			c[i].style.display = "block";
@@ -159,38 +201,35 @@ function changeArticleCover(articleNum, issueNum) {
 }
 */	
 
-function changeArticleCover(articleNum, issueNum){
-	var c = window.parent.document.getElementById(issueNum).children;
-	c[0].style.display = "none";
-	for (var i=1; i<=3; i++){
-		if ("article" + i === articleNum){
-			c[i].style.display = "block";
-		}
-		else {
-			c[i].style.display = "none";
-		}
-
-	}
-
-}
 
 
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
+ 	var articleNow = 0;
  	
  	for (var i = 1; i < articles.length; i++) { /* i= 1 perché non voglio considerare il primo articolo */
- 		var frame = articles[i];
- 		var displayValue = window.getComputedStyle(frame, null).display;
+ 		var frame = articles[i],
+ 			style = window.getComputedStyle(frame),
+			displayValue = style.getPropertyValue('display'); /* queste ultime due righe sono equivalenti a var displayValue = window.getComputedStyle(frame, null).display; */
 		if (displayValue === "block") {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
-				articles[i-1].style.display = "block";
+				articleNow = articles[i-1];
+				articleNow.style.display = "block";
+				/* var myFrame = articleNow.children[0];
+				var curIssue = articleNow.parentElement;
+				var x = curIssue.children[i-1]; */
+				
 			}
 
 		}
 	}
+
+	var myOrigin = document.getElementById("Origin");
+	getLinkOrigin(articleNow, myOrigin); /* se scegliamo di definire la variabile myframe in questa funzione va sostituito articleNow con myFrame come parametro input della funzione getLinkOrigin */
  		
 }
+
 
 
 function nextArticle() {
@@ -204,6 +243,8 @@ function nextArticle() {
 			if (!(frame.classList.contains('article3'))) { /* IMPORTANTE: qua ho messo che la classe dell'ultimo articolo è "article3" ma nel sito finale sarà ARTICLE5*/
 				frame.style.display='none';
 				articles[i+1].style.display = 'block';
+				var myOrigin = document.getElementById("Origin");
+				getLinkOrigin(articles[i+1], myOrigin);
 			}
 		}
 	}
@@ -211,13 +252,22 @@ function nextArticle() {
 
 
 
-/*
+
+/* 
 function metadataViewer () {
 
 	// enter each issue 
 
-	var issues = document.getElementById(left).children;
-	for (var i = 1; i <= issues.length; i++) {
+	var elements = document.getElementById('content').children;
+	
+	var counter = 0;
+	for (var i = 0; i < elements.length; i++) {
+		if (elements[i].id.includes('issue')){
+			counter++;
+		}
+	} // fino qua verificato da w3school
+	
+	for (var i = 1; i <= counter; i++) {
 		var myIssue = document.getElementById("issue"+ i);
 
 		// find the reference list 
@@ -226,23 +276,53 @@ function metadataViewer () {
 
 		// enter each iFrame of the issue 
 
-		var myFrames = document.getElementsByTagName("iframe");
+		var myFrames = myIssue.getElementsByTagName("iframe");
 
-	    for (var i = 1; i < myFrames.length; i++) {
-	   		var myFrame = document.getElementById("iframe"+ i);
-	    	var elmnt = myFrame.contentWindow.document.body;
+	    	for (var i = 1; i < myFrames.length; i++) {
+	   		var curFrame = document.getElementById("iframe"+ i);
+	    		var elmnt = curFrame.contentWindow.document.body;
 
-	    	// get span tag 
+			// get span tag 
 
-	    	var spans = Array.from(elmnt.getElementsByTagName("span"));
-	    	for (var x in spans) {
-	    		x.
-	    	}
-    	}
+			var spans = Array.from(elmnt.getElementsByTagName("span"));
+			for (var span in spans) {
+				var curCategory = span.className;  //person
+				var categoryFound = False;
+			     // var instanceFound = False;
+				for (i=0; i<myList.children.length; i++){
+					if curCategory === myList.children[i].id{
+						categoryFound = True;
+						var matchedLi = myList.children[i];
+					}
+				}
+				if categoryFound === False {
+					var newLi = document.createElement('li');
+					newLi.setAttribute('id', curCategory);
+					var liNode = document.createTextNode(curCategory);
+					NewLi.appendChild(liNode);
+					myList.appendChild(newLi);
+				}
+				else{
+					for (i=0; i<matchedLi.children.length; i++){
+						if span.innerHTML === matchedLi.children[i].id{
+							instanceFound = True;
+						}
+					}
+				}
+				
+				if instanceFound === False {
+					var newUl = document.createElement('ul');
+					newUl.setAttribute('id', span.innerHTML);
+					var ulNode = document.createTextNode(span.innerHTML);
+					NewUl.appendChild(ulNode);
+					matchedLi.appendChild(newUl); //matched e newLi
+				}*/
+			}
+		}
 	}
 
 }
-*/
+
 
 
 
