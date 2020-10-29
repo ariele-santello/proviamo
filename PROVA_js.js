@@ -270,7 +270,6 @@ function metadataViewer () {
 	for (var i = 1; i <= counter; i++) {
 		// find the reference list 
 
-
 		var myList = document.getElementById("listIssue"+ i);  
 		
 		// enter each iFrame of the issue 
