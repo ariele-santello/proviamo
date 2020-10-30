@@ -79,6 +79,11 @@ function changeIssue(issueN){
 	x.style.display = "block";   /* issue da mostrare  */
 	xChildren[0].style.display = "block";   /* cover da mostrare  */
 	
+	y.style.display = "none";  /* issue da non mostrare  */
+	for (var i=0; i<y.children.length; i++) {
+		y.children[i].style.display = "none";
+	}
+	
 	var oldArticles = document.getElementById("changeArguments").children;  /* per cambiare il contenuto delle funzioni onclick degli articoli  */
 	
 	for (var i=1; i<totLength; i++) {
@@ -99,7 +104,6 @@ function changeIssue(issueN){
 		document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[i-1]);
 	}
 	
-	y.style.display = "none";  /* issue da non mostrare  */
 
 
     /*	for (var n=1; n<totLength; n++) {
