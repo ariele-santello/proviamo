@@ -252,7 +252,7 @@ function nextArticle() {
 
 
 
- 
+/* 
 function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittura
 
 	// enter each issue 
@@ -334,7 +334,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 	}
 
 }
-
+*/
 
 
 
