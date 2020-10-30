@@ -299,7 +299,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						var newLi = document.createElement('li');
 						newLi.setAttribute('id', curCategory);
 						var liNode = document.createTextNode(curCategory);
-						NewLi.appendChild(liNode);
+						newLi.appendChild(liNode);
 						myList.appendChild(newLi);
 					}
 					/* else{
