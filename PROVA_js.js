@@ -252,7 +252,7 @@ function nextArticle() {
 
 
 
-/* 
+
 function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittura
 
 	// enter each issue 
@@ -302,7 +302,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						NewLi.appendChild(liNode);
 						myList.appendChild(newLi);
 					}
-					else{
+					/* else{
 						for (c=0; c<matchedLi.children.length; c++){
 							if (span.innerHTML === matchedLi.children[c].id) {
 								instanceFound = true;
@@ -327,14 +327,14 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var instanceNode = document.createTextNode("article"+n": "+); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
 					newUl.appendChild(instanceLi);
-					span.setAttribute('id', span.innerHTML+(newUl.length+1));
+					span.setAttribute('id', span.innerHTML+(newUl.length+1)); */
 
 				}
 			}
 	}
 
 }
-*/
+
 
 
 
