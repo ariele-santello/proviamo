@@ -253,8 +253,8 @@ function nextArticle() {
 
 
 
-/* 
-function metadataViewer () {
+ 
+function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittura
 
 	// enter each issue 
 
@@ -281,17 +281,17 @@ function metadataViewer () {
 	    	for (var n = 1; n < myFrames.length; n++) {       
 		   		//var curFrame = myFrames[n];
 		    	//var elmnt = curFrame.contentWindow.document.body;
-		    	var elmnt = myFrames[n].contentWindow.document.body;     // fino qua verificato da w3school
+		    	var elmnt = myFrames[n].contentWindow.document.body;     
 
 				// get span tag 
 
-				var spans = Array.from(elmnt.getElementsByTagName("span"));
-				for (var span in spans) {
-					var curCategory = span.className;  //person
-					var categoryFound = False;
+				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
+				for (var span of spans) {										
+					var curCategory = span.className;  	//person   
+					var categoryFound = False;							//fino qua verificato da w3school
 				     // var instanceFound = False;
-					for (i=0; i<myList.children.length; i++){
-						if curCategory === myList.children[i].id{
+					for (i=0; i<myList.children.length; i++){ 	//a questo unto specificare se ci sono più classi
+						if (curCategory === myList.children[i].id) {
 							categoryFound = True;
 							var matchedLi = myList.children[i];
 						}
@@ -305,8 +305,9 @@ function metadataViewer () {
 					}
 					else{
 						for (c=0; c<matchedLi.children.length; c++){
-							if span.innerHTML === matchedLi.children[c].id{
+							if (span.innerHTML === matchedLi.children[c].id) {
 								instanceFound = True;
+								var fantoccio = matchedLi.children[c];
 							}
 						}
 					}
@@ -318,12 +319,34 @@ function metadataViewer () {
 						NewUl.appendChild(ulNode);
 						matchedLi.appendChild(newUl); //matched e newLi
 					}
+					else{
+						var newUl = fantoccio;
+					}
+
+
+					var instanceLi = document.createElement('li');
+					var instanceNode = document.createTextNode("article"+n": "+); //aggiungere stringa de titolo
+					instanceLi.appendChild(instanceNode);
+					newUl.appendChild(instanceLi);
+					span.setAttribute('id', span.innerHTML+(newUl.length+1));
+
 				}
 			}
 	}
 
 }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
