@@ -287,15 +287,15 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
 				for (var span of spans) {										
 					var curCategory = span.className;  	//person   
-					var categoryFound = False;							//fino qua verificato da w3school
-				     // var instanceFound = False;
+					var categoryFound = false;							//fino qua verificato da w3school
+				     // var instanceFound = false;
 					for (i=0; i<myList.children.length; i++){ 	//a questo unto specificare se ci sono più classi
 						if (curCategory === myList.children[i].id) {
-							categoryFound = True;
+							categoryFound = true;
 							var matchedLi = myList.children[i];
 						}
 					}
-					if categoryFound === False {
+					if (categoryFound === false) {
 						var newLi = document.createElement('li');
 						newLi.setAttribute('id', curCategory);
 						var liNode = document.createTextNode(curCategory);
@@ -305,13 +305,13 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					else{
 						for (c=0; c<matchedLi.children.length; c++){
 							if (span.innerHTML === matchedLi.children[c].id) {
-								instanceFound = True;
+								instanceFound = true;
 								var fantoccio = matchedLi.children[c];
 							}
 						}
 					}
 				
-					if instanceFound === False {
+					if (instanceFound === false) {
 						var newUl = document.createElement('ul');
 						newUl.setAttribute('id', span.innerHTML);
 						var ulNode = document.createTextNode(span.innerHTML);
