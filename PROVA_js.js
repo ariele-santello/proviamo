@@ -205,7 +205,6 @@ function changeArticleCover(articleNum, issueNum) {
 
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
- 	var articleNow = 0;
  	
  	for (var i = 1; i < articles.length; i++) { /* i= 1 perché non voglio considerare il primo articolo */
  		var frame = articles[i],
@@ -214,20 +213,16 @@ function prevArticle() {
 		if (displayValue === "block") {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
-				articleNow = articles[i-1];
+				var articleNow = articles[i-1];
 				articleNow.style.display = "block";
 				/* var myFrame = articleNow.children[0];
 				var curIssue = articleNow.parentElement;
 				var x = curIssue.children[i-1]; */
-				
+				var myOrigin = document.getElementById("Origin");
+				getLinkOrigin(articleNow, myOrigin); /* se scegliamo di definire la variabile myframe in questa funzione va sostituito articleNow con myFrame come parametro input della funzione getLinkOrigin */
 			}
-
 		}
-	}
-
-	var myOrigin = document.getElementById("Origin");
-	getLinkOrigin(articleNow, myOrigin); /* se scegliamo di definire la variabile myframe in questa funzione va sostituito articleNow con myFrame come parametro input della funzione getLinkOrigin */
- 		
+	}	
 }
 
 
