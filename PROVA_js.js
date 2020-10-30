@@ -289,10 +289,10 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var curCategory = span.className;  	//person   
 					var categoryFound = false;							//fino qua verificato da w3school
 				     // var instanceFound = false;
-					for (i=0; i<myList.children.length; i++){ 	//a questo unto specificare se ci sono più classi
-						if (curCategory === myList.children[i].id) {
+					for (var a=0; a<myList.children.length; a++){ 	//a questo unto specificare se ci sono più classi
+						if (curCategory === myList.children[a].id) {
 							categoryFound = true;
-							var matchedLi = myList.children[i];
+							var matchedLi = myList.children[a];
 						}
 					}
 					if (categoryFound === false) {
