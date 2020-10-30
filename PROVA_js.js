@@ -79,6 +79,11 @@ function changeIssue(issueN){
 	x.style.display = "block";   /* issue da mostrare  */
 	xChildren[0].style.display = "block";   /* cover da mostrare  */
 	
+	y.style.display = "none";  /* issue da non mostrare  */
+	for (var i=0; i<y.children.length; i++) {
+		y.children[i].style.display = "none";
+	}
+	
 	var oldArticles = document.getElementById("changeArguments").children;  /* per cambiare il contenuto delle funzioni onclick degli articoli  */
 	
 	for (var i=1; i<totLength; i++) {
@@ -99,7 +104,6 @@ function changeIssue(issueN){
 		document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[i-1]);
 	}
 	
-	y.style.display = "none";  /* issue da non mostrare  */
 
 
     /*	for (var n=1; n<totLength; n++) {
@@ -205,7 +209,6 @@ function changeArticleCover(articleNum, issueNum) {
 
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
- 	var articleNow = 0;
  	
  	for (var i = 1; i < articles.length; i++) { /* i= 1 perché non voglio considerare il primo articolo */
  		var frame = articles[i],
@@ -214,20 +217,16 @@ function prevArticle() {
 		if (displayValue === "block") {
 			if (!(frame.classList.contains('article1'))) {
 				frame.style.display = "none";
-				articleNow = articles[i-1];
+				var articleNow = articles[i-1];
 				articleNow.style.display = "block";
 				/* var myFrame = articleNow.children[0];
 				var curIssue = articleNow.parentElement;
 				var x = curIssue.children[i-1]; */
-				
+				var myOrigin = document.getElementById("Origin");
+				getLinkOrigin(articleNow, myOrigin); /* se scegliamo di definire la variabile myframe in questa funzione va sostituito articleNow con myFrame come parametro input della funzione getLinkOrigin */
 			}
-
 		}
-	}
-
-	var myOrigin = document.getElementById("Origin");
-	getLinkOrigin(articleNow, myOrigin); /* se scegliamo di definire la variabile myframe in questa funzione va sostituito articleNow con myFrame come parametro input della funzione getLinkOrigin */
- 		
+	}	
 }
 
 
