@@ -315,7 +315,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						var newUl = document.createElement('ul');
 						newUl.setAttribute('id', span.innerHTML);
 						var ulNode = document.createTextNode(span.innerHTML);
-						NewUl.appendChild(ulNode);
+						newUl.appendChild(ulNode);
 						matchedLi.appendChild(newUl); //matched e newLi
 					}
 					else{
