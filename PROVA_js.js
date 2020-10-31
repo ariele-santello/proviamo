@@ -301,6 +301,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						var liNode = document.createTextNode(curCategory);
 						newLi.appendChild(liNode);
 						myList.appendChild(newLi);
+						var matchedLi = myList.getElementById(curCategory);
 					}
 					else{
 						for (c=0; c<matchedLi.children.length; c++){
