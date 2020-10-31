@@ -253,7 +253,7 @@ function nextArticle() {
 
 
 
-function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittura
+function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittura + separare 1. più classi in una 2. più tag innestati + funzioni block/hide sulle singole liste
 
 	// enter each issue 
 
