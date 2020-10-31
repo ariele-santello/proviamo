@@ -288,7 +288,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				for (var span of spans) {										
 					var curCategory = span.className;  	//person   
 					var categoryFound = false;							//fino qua verificato da w3school
-				     // var instanceFound = false;
+					var instanceFound = false;
 					for (var a=0; a<myList.children.length; a++){ 	//a questo unto specificare se ci sono più classi
 						if (curCategory === myList.children[a].id) {
 							categoryFound = true;
@@ -302,7 +302,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						newLi.appendChild(liNode);
 						myList.appendChild(newLi);
 					}
-					/* else{
+					else{
 						for (c=0; c<matchedLi.children.length; c++){
 							if (span.innerHTML === matchedLi.children[c].id) {
 								instanceFound = true;
@@ -321,9 +321,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					else{
 						var newUl = fantoccio;
 					}
+					document.getElementById("writeHere").innerHTML = newUl+', ';
 
-
-					var instanceLi = document.createElement('li');
+					/* var instanceLi = document.createElement('li');
 					var instanceNode = document.createTextNode("article"+n": "+); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
 					newUl.appendChild(instanceLi);
