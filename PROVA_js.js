@@ -321,7 +321,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					else{
 						var newUl = fantoccio;
 					}
-					document.getElementById("writeHere").innerHTML = newUl.id+', ';
+					// document.getElementById("writeHere").innerHTML = newUl.id+', ';
 
 					/* var instanceLi = document.createElement('li');
 					var instanceNode = document.createTextNode("article"+n": "+); //aggiungere stringa de titolo
