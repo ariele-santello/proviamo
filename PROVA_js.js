@@ -332,7 +332,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					//instanceLi.appendChild(citNode);
 
 					newUl.appendChild(instanceLi);
-					span.setAttribute('id', span.innerHTML+(newUl.children.length+1)); 
+					// span.setAttribute('id', span.innerHTML+(newUl.children.length+1)); 
 
 				}
 			}
@@ -349,11 +349,6 @@ function parsing(span, parent){
 
 }
 
-function removeTags(string){​​​​​​​
-  return string.replace(/<[^>]*>/g, ' ')
-               .replace(/\s{​​​​​​​2,}​​​​​​​/g, ' ')
-               .trim();
-}​​​​​​​
 
 */
 
