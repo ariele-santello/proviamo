@@ -46,7 +46,7 @@
 
 			/* styling selector navbar */
 
-			ul#selectorNav {
+			#selectorNav {
 			  list-style-type: none;
 			  margin: 0;
 			  padding: 0;
@@ -55,9 +55,12 @@
 			  /* position: sticky;
 			  width: 100%; */
 			}
-                     
+            
+            #selectorNav > li {
+			  display: inline-block;
+			}
 
-			li#selectorNav a, .dropbtn {
+			#selectorNav > li a, .dropbtn {
 			  display: inline-block;
 			  color: black;
 			  text-align: center;
@@ -66,7 +69,7 @@
 			  /* font-size: 17px; */
 			}
 
-			li#selectorNav a:hover, .dropdown:hover .dropbtn {
+			#selectorNav > li a:hover, .dropdown:hover .dropbtn {
 			  background-color: #a6a6a6;
 			  color: black;
 			}
@@ -89,10 +92,6 @@
 			    }
 			}
 			*/
-                 
-			li#selectorNav {
-			  display: inline-block;
-			}
 
 			.dropdown-content {
 			  display: none;
