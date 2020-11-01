@@ -328,11 +328,11 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
 
-					var citNode = document.createTextNode('" '+ parsing(span.innerHTML, span.parentNode)+'"'); //vedi se fare textNode o innerHTML
-					instanceLi.appendChild(citNode);
+					//var citNode = document.createTextNode('" '+ parsing(span.innerHTML, span.parentNode)+'"'); //vedi se fare textNode o innerHTML
+					//instanceLi.appendChild(citNode);
 
 					newUl.appendChild(instanceLi);
-					// span.setAttribute('id', span.innerHTML+(newUl.length+1)); 
+					span.setAttribute('id', span.innerHTML+(newUl.length+1)); 
 
 				}
 			}
@@ -340,7 +340,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 }
 
-
+/*
 function parsing(span, parent){
 	var container = parent;
 	removeTags(container);
@@ -355,7 +355,7 @@ function removeTags(string){​​​​​​​
                .trim();
 }​​​​​​​
 
-
+*/
 
 
 
