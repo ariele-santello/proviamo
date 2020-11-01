@@ -327,8 +327,12 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var instanceLi = document.createElement('li');
 					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
+
+					var citNode = document.createTextNode('" '+ parsing(span.innerHTML, span.parentNode)+'"'); //vedi se fare textNode o innerHTML
+					instanceLi.appendChild(citNode);
+
 					newUl.appendChild(instanceLi);
-					span.setAttribute('id', span.innerHTML+(newUl.length+1)); 
+					// span.setAttribute('id', span.innerHTML+(newUl.length+1)); 
 
 				}
 			}
@@ -337,6 +341,19 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 }
 
 
+function parsing(span, parent){
+	var container = parent;
+	removeTags(container);
+	
+	var pos = container.index(span);
+
+}
+
+function removeTags(string){​​​​​​​
+  return string.replace(/<[^>]*>/g, ' ')
+               .replace(/\s{​​​​​​​2,}​​​​​​​/g, ' ')
+               .trim();
+}​​​​​​​
 
 
 
