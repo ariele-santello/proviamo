@@ -280,7 +280,8 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 	    	for (var n = 1; n < myFrames.length; n++) {       
 		   		//var curFrame = myFrames[n];
 		    	//var elmnt = curFrame.contentWindow.document.body;
-		    	var elmnt = myFrames[n].contentWindow.document.body;     
+		    	var elmnt = myFrames[n].contentWindow.document.body;  
+		    	/*aggiungere un id ad ogni elemento del body tipo = "h1-1-n"*/  
 
 				// get span tag 
 
@@ -327,6 +328,10 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var instanceLi = document.createElement('li');
 					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
+					/* for le istanze figlie di ul {
+						guardami se ciè già un'altra istanza, quindi un altro li, con lo stesso parent
+						var numIstanza = x ;
+					} c'è da aggiungere un id ad ogni elemento del body dell'articolo*/ 
 
 					//var citNode = document.createTextNode('" '+ parsing(span.innerHTML, span.parentNode)+'"'); //vedi se fare textNode o innerHTML
 					//instanceLi.appendChild(citNode);
@@ -341,16 +346,29 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 }
 
 /*
-function parsing(span, parent){
+function parsing(span, parent, numIstanza){
 	var container = parent;
 	removeTags(container);
-	
-	var pos = container.index(span);
 
+	var occorrenzeArray = [];
+	var pos = container.indexOf(span);
+	occorrenzeArray.push(pos);
+	while (pos > -1) {
+		pos = container.indexOf(span, pos+1);
+		occorrenzeArray.push(pos);
+	}
+	var posIstanzaCorrente = occorrenzeArray[numIstanza];
+	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g")
+	return container.match(regExp)
 }
 
-
+function removeTags(string){
+  return string.replace(/<[^>]*>/g, ' ')
+               .replace(/\s{2,}/g, ' ')
+               .trim();
+}
 */
+
 
 
 
