@@ -399,6 +399,9 @@ function removeTags(string){
 
 /*
 PRIMA PROVA
+
+let removeTags = originalString.replace(/<[^>]*>/g, ' ');
+
 const originalString = (string);
 
 const removeTags = 
@@ -408,9 +411,8 @@ originalString.trim();
 
 console.log(removeTags);
 
-?? let removeTags = originalString.replace(/<[^>]*>/g, ' '); ???
+let removeTags = originalString.replace(/<[^>]*>/g, ' '); 
 
-}
 
 
 SECONDA PROVA
