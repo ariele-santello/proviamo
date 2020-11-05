@@ -281,10 +281,18 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 		   		//var curFrame = myFrames[n];
 		    	//var elmnt = curFrame.contentWindow.document.body;
 		    	var elmnt = myFrames[n].contentWindow.document.body;  
-		    	/*aggiungere un id ad ogni elemento del body tipo = "h1-1-n"*/  
+		    	
+
+		    	/*aggiungere un id ad ogni elemento del body tipo = "h1-1-n" */
+		    	var allIframeElements = elmnt.getElementsByTagName("*");
+		    	//for (let element of allIframeElements) {
+		    	for (var e = 0; e < allIframeElements.length; e++) {
+		    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo, in realtà x è inutile
+					allIframeElements[e].setAttribute("id", x+e+n); // alternativa: element.id = "";
+		    	}				
+		    	 
 
 				// get span tag 
-
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
 				for (var span of spans) {										
 					var curCategory = span.className;  	//person   
