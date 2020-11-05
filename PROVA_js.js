@@ -290,7 +290,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var curCategory = span.className;  	//person   
 					var categoryFound = false;							//fino qua verificato da w3school
 					var instanceFound = false;
-					for (var a=0; a<myList.children.length; a++){ 	//a questo unto specificare se ci sono più classi
+					for (var a=0; a<myList.children.length; a++){ 	//a questo punto specificare se ci sono più classi
 						if (curCategory === myList.children[a].id) {
 							categoryFound = true;
 							var matchedLi = myList.children[a];
@@ -366,11 +366,34 @@ function removeTags(string){
   return string.replace(/<[^>]*>/g, ' ')
                .replace(/\s{2,}/g, ' ')
                .trim();
+
 }
 */
 
+/*
+PRIMA PROVA
+const originalString = (string);
+
+const removeTags = 
+originalString.replace(/<[^>]*>/g, ' ');   !!or gi:To perform a global, case-insensitive search
+originalString.replace(/\s{2,}/g, ' ');
+originalString.trim();
+
+console.log(removeTags);
+
+?? let removeTags = originalString.replace(/<[^>]*>/g, ' '); ???
+
+}
 
 
+SECONDA PROVA
+var string = (string)
+string = string.replace(/<[^>]*>/g, ' ')
+	.replace(/\s{2,}/g, ' ')
+	.trim();
+	
+console.log(string);
+*/
 
 
 
