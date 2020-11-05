@@ -281,16 +281,24 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 		   		//var curFrame = myFrames[n];
 		    	//var elmnt = curFrame.contentWindow.document.body;
 		    	var elmnt = myFrames[n].contentWindow.document.body;  
-		    	/*aggiungere un id ad ogni elemento del body tipo = "h1-1-n"*/  
+		    	
+
+		    	/*aggiungere un id ad ogni elemento del body tipo = "h1-1-n" */
+		    	var allIframeElements = elmnt.getElementsByTagName("*");
+		    	//for (let element of allIframeElements) {
+		    	for (var e = 0; e < allIframeElements.length; e++) {
+		    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo, in realtà x è inutile
+					allIframeElements[e].setAttribute("id", x+"-"+e+"-"+n); // alternativa: element.id = "";
+		    	}
+		    	// esempio: art.1 dell'issue due, i primi tre elementi del body sono: <section id="SECTION02">, <h1 id="H112">, <p class="subtitle" id="P22">...		    	 
 
 				// get span tag 
-
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
 				for (var span of spans) {										
 					var curCategory = span.className;  	//person   
 					var categoryFound = false;							//fino qua verificato da w3school
 					var instanceFound = false;
-					for (var a=0; a<myList.children.length; a++){ 	//a questo unto specificare se ci sono più classi
+					for (var a=0; a<myList.children.length; a++){ 	//a questo punto specificare se ci sono più classi
 						if (curCategory === myList.children[a].id) {
 							categoryFound = true;
 							var matchedLi = myList.children[a];
@@ -376,11 +384,34 @@ function removeTags(string){
   return string.replace(/<[^>]*>/g, ' ')
                .replace(/\s{2,}/g, ' ')
                .trim();
+
 }
 */
 
+/*
+PRIMA PROVA
+const originalString = (string);
+
+const removeTags = 
+originalString.replace(/<[^>]*>/g, ' ');   !!or gi:To perform a global, case-insensitive search
+originalString.replace(/\s{2,}/g, ' ');
+originalString.trim();
+
+console.log(removeTags);
+
+?? let removeTags = originalString.replace(/<[^>]*>/g, ' '); ???
+
+}
 
 
+SECONDA PROVA
+var string = (string)
+string = string.replace(/<[^>]*>/g, ' ')
+	.replace(/\s{2,}/g, ' ')
+	.trim();
+	
+console.log(string);
+*/
 
 
 
