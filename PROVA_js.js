@@ -374,9 +374,11 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 /*
 function parsing(span, parent, numIstanza){
-	var container = parent;
-	removeTags(container);
-
+	var parent = (); 
+	var container = parent.replace(/<[^>]*>/gi, ' ') 
+	.replace(/\s{2,}/gi, ' ')
+	.trim();
+	
 	var occorrenzeArray = [];
 	var pos = container.indexOf(span);
 	occorrenzeArray.push(pos);
@@ -415,13 +417,15 @@ let removeTags = originalString.replace(/<[^>]*>/g, ' ');
 
 
 
-SECONDA PROVA
-var string = (string)
-string = string.replace(/<[^>]*>/g, ' ')
-	.replace(/\s{2,}/g, ' ')
-	.trim();
-	
-console.log(string);
+<script> 
+
+const originalString = ('This is a paragraph.<span>'); 
+const removeTags = originalString.replace(/<[^>]*>/gi, ' ') 
+.replace(/\s{2,}/gi, ' ')
+.trim(); 
+
+console.log(removeTags); 
+</script>
 */
 
 
