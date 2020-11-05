@@ -345,10 +345,20 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var instanceLi = document.createElement('li');
 					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
-					/* for le istanze figlie di ul {
+					/* for (le istanze figlie di ul ){
 						guardami se ciè già un'altra istanza, quindi un altro li, con lo stesso parent
 						var numIstanza = x ;
-					} c'è da aggiungere un id ad ogni elemento del body dell'articolo*/ 
+					} c'è da aggiungere un id ad ogni elemento del body dell'articolo
+					
+					var pos = 0;
+					for (var ulchild of newUl.children){
+						if span.parent.id === ulchild.id{
+							pos++;
+						}
+					}
+					instanceLi.setAttribute('id', pos);
+
+					*/ 
 
 					//var citNode = document.createTextNode('" '+ parsing(span.innerHTML, span.parentNode)+'"'); //vedi se fare textNode o innerHTML
 					//instanceLi.appendChild(citNode);
