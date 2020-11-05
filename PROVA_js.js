@@ -288,9 +288,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 		    	//for (let element of allIframeElements) {
 		    	for (var e = 0; e < allIframeElements.length; e++) {
 		    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo, in realtà x è inutile
-					allIframeElements[e].setAttribute("id", x+e+n); // alternativa: element.id = "";
-		    	}				
-		    	 
+					allIframeElements[e].setAttribute("id", x+"-"+e+"-"+n); // alternativa: element.id = "";
+		    	}
+		    	// esempio: art.1 dell'issue due, i primi tre elementi del body sono: <section id="SECTION02">, <h1 id="H112">, <p class="subtitle" id="P22">...		    	 
 
 				// get span tag 
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
