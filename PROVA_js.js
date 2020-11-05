@@ -287,10 +287,19 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 		    	var allIframeElements = elmnt.getElementsByTagName("*");
 		    	//for (let element of allIframeElements) {
 		    	for (var e = 0; e < allIframeElements.length; e++) {
-		    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo, in realtà x è inutile
+		    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo, in realtà x è inutile ai fini di creare un id unico, però può servirci quando dobbiamo dare un punto di riferimento nel documento all'utente
+		    		
+		    		/*
+		    		var elementsWithSameTag = elmnt.querySelectorAll('[id^=' + CSS.escape(x) + ']'); //^ matches the start; the querySelectorAll method returns a static NodeList representing a list of elements that match the specified group of selectors; css.escape per assicurarsi che il valore sia codificato correttamente per l'uso in un'espressione CSS.
+		    		var len = elementsWithSameTag.length;
+
+		    		allIframeElements[e].setAttribute("id", x+"-"+(len+1)+"-"+n);
+		    		*/
+
+		    				    		
 					allIframeElements[e].setAttribute("id", x+"-"+e+"-"+n); // alternativa: element.id = "";
 		    	}
-		    	// esempio: art.1 dell'issue due, i primi tre elementi del body sono: <section id="SECTION02">, <h1 id="H112">, <p class="subtitle" id="P22">...		    	 
+		    	// esempio: art.2 dell'issue 2, i primi tre elementi del body sono: <section id="SECTION-0-2">, <h1 id="H1-1-2">, <p class="subtitle" id="P-2-2">...		    	 
 
 				// get span tag 
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
