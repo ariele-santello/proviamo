@@ -382,7 +382,7 @@ function parsing(span, parent, numIstanza){
 	var occorrenzeArray = [];
 	var pos = container.indexOf(span);
 	occorrenzeArray.push(pos);
-	while (pos > -1) {
+	while (pos > -1) {		//problema se arriviamo all'ultima istanza trovata. Il while ricomincia(pos è > -1 per forza): non si ferma e inserisce nell'array -1 (indice di un elemento non trovato) (?)
 		pos = container.indexOf(span, pos+1);
 		occorrenzeArray.push(pos);
 	}
