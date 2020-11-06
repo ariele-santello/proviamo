@@ -388,6 +388,7 @@ function parsing(span, parent, numIstanza){
 	}
 	var posIstanzaCorrente = occorrenzeArray[numIstanza];
 	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g")
+	// aggiungere il caso in cui non ci sono sufficienti parole
 	return container.match(regExp)
 }
 
