@@ -343,13 +343,12 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					// document.getElementById("writeHere").innerHTML = newUl.id+', ';
 
 					var instanceLi = document.createElement('li');
-					// instanceLi.setAttribute('onclick', "highlight(spanId)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
 					/* for (le istanze figlie di ul ){
 						guardami se ciè già un'altra istanza, quindi un altro li, con lo stesso parent
 						var numIstanza = x ;
-					} c'è da aggiungere un id ad ogni elemento del body dell'articolo
+					}
 					
 					var pos = 0;
 					for (var ulchild of newUl.children){
@@ -367,7 +366,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					newUl.appendChild(instanceLi);
 
 					// var spanId = span.innerHTML+(newUl.children.length+1)
-					span.setAttribute('id', span.innerHTML+(newUl.children.length+1)); 
+					span.setAttribute('id', span.innerHTML+(newUl.children.length+1));
+
+					// instanceLi.setAttribute('onclick', "highlight(spanId)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 				}
 			}
@@ -435,7 +436,7 @@ console.log(removeTags);
 
 // evidenziare i metadati nel testo dell'articolo
 function highlight(spanId) {
-	var curInstance = elmnt.getElementById("spanId");
+	var curInstance = elmnt.getElementById(spanId);
 	curInstance.style.backgroundColor = "#ffff00"; //giallo
 	// oppure evidenziamo lo snippet
 }
