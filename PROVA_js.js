@@ -442,4 +442,16 @@ function highlight(spanId) {
 }
 // funzione che va richiamata come valore dell'attributo onlick nel li corrispondente del metadata viewer
 
+
+
+
+// da scrivere dopo la riga 307, per il problema delle doppie classi tipo class = "person artist"
+if (curCategory.includes(" ")) { //se c'è uno spazio in teoria vuol dire che c'è più di una classe
+   	var multipleCats = curCategory.split(" "); // si crea un array con le categorie, tipo [person, artist]
+    for (var c = 0; c < multipleCats.length; c++) {
+        if (multipleCats[c] != "") {var curCategory+c = multipleCats[c]} // creiamo diverse variabili?
+    }
+}
+
+
 */
