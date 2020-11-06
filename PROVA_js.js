@@ -343,6 +343,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					// document.getElementById("writeHere").innerHTML = newUl.id+', ';
 
 					var instanceLi = document.createElement('li');
+					// instanceLi.setAttribute('onclick', "highlight(spanId)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
 					/* for (le istanze figlie di ul ){
@@ -364,6 +365,8 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					//instanceLi.appendChild(citNode);
 
 					newUl.appendChild(instanceLi);
+
+					// var spanId = span.innerHTML+(newUl.children.length+1)
 					span.setAttribute('id', span.innerHTML+(newUl.children.length+1)); 
 
 				}
@@ -427,14 +430,15 @@ const removeTags = originalString.replace(/<[^>]*>/gi, ' ')
 
 console.log(removeTags); 
 </script>
+
+
+
+// evidenziare i metadati nel testo dell'articolo
+function highlight(spanId) {
+	var curInstance = elmnt.getElementById("spanId");
+	curInstance.style.backgroundColor = "#ffff00"; //giallo
+	// oppure evidenziamo lo snippet
+}
+// funzione che va richiamata come valore dell'attributo onlick nel li corrispondente del metadata viewer
+
 */
-
-
-
-
-
-
-
-
-
-
