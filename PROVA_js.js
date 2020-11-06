@@ -323,7 +323,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					}
 					else{
 						for (c=0; c<matchedLi.children.length; c++){
-							if (span.innerHTML === matchedLi.children[c].id) {
+							if (span.innerHTML === matchedLi.children[c].id) { //invece che riga 326, scrivere: if (span.innerHTML.includes(matchedLi.children[c].id) || matchedLi.children[c].id.includes(span.innerHTML)) 
 								instanceFound = true;
 								var fantoccio = matchedLi.children[c];
 							}
