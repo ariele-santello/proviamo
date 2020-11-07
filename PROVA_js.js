@@ -305,6 +305,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						}
 					}
 					if (categoryFound === false) {
+					// questo pezzo è in comune con time datetime (a condizione che sia il tag alla posizione 0)
 						var newLi = document.createElement('li');
 						newLi.setAttribute('id', curCategory);
 						var liNode = document.createTextNode(curCategory);
