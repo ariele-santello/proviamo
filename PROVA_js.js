@@ -379,18 +379,22 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 /*
 function parsing(span, parent, numIstanza){
-	var parent = (); 
 	var container = parent.replace(/<[^>]*>/gi, ' ') 
 	.replace(/\s{2,}/gi, ' ')
 	.trim();
 	
+	// vedere come gestire le posizioni 0
 	var occorrenzeArray = [];
 	var pos = container.indexOf(span);
 	occorrenzeArray.push(pos);
-	while (pos > -1) {		//problema se arriviamo all'ultima istanza trovata. Il while ricomincia(pos è > -1 per forza): non si ferma e inserisce nell'array -1 (indice di un elemento non trovato) (?)
+	// calcolo del numero di occorrenze
+	c = 1;
+	while (c < numero di occorrenze) {
 		pos = container.indexOf(span, pos+1);
 		occorrenzeArray.push(pos);
+		c++;
 	}
+	//da rivedere
 	var posIstanzaCorrente = occorrenzeArray[numIstanza];
 	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g")
 	// aggiungere il caso in cui non ci sono sufficienti parole
