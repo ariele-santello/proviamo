@@ -353,11 +353,11 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					
 					var pos = 0;
 					for (var ulchild of newUl.children){
-						if span.parent.id === ulchild.id{
+						if span.parent.id === ulchild.data-parent{ // controllare risultato di === False
 							pos++;
 						}
 					}
-					instanceLi.setAttribute('id', pos);
+					instanceLi.setAttribute('data-parent', span.parent.id);
 
 					*/ 
 
