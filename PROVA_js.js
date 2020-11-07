@@ -287,10 +287,19 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 		    	var allIframeElements = elmnt.getElementsByTagName("*");
 		    	//for (let element of allIframeElements) {
 		    	for (var e = 0; e < allIframeElements.length; e++) {
-		    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo, in realtà x è inutile
+		    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo, in realtà x è inutile ai fini di creare un id unico, però può servirci quando dobbiamo dare un punto di riferimento nel documento all'utente
+		    		
+		    		/*
+		    		var elementsWithSameTag = elmnt.querySelectorAll('[id^=' + CSS.escape(x) + ']'); //^ matches the start; the querySelectorAll method returns a static NodeList representing a list of elements that match the specified group of selectors; css.escape per assicurarsi che il valore sia codificato correttamente per l'uso in un'espressione CSS.
+		    		var len = elementsWithSameTag.length;
+
+		    		allIframeElements[e].setAttribute("id", x+"-"+(len+1)+"-"+n);
+		    		*/
+
+		    				    		
 					allIframeElements[e].setAttribute("id", x+"-"+e+"-"+n); // alternativa: element.id = "";
 		    	}
-		    	// esempio: art.1 dell'issue due, i primi tre elementi del body sono: <section id="SECTION02">, <h1 id="H112">, <p class="subtitle" id="P22">...		    	 
+		    	// esempio: art.2 dell'issue 2, i primi tre elementi del body sono: <section id="SECTION-0-2">, <h1 id="H1-1-2">, <p class="subtitle" id="P-2-2">...		    	 
 
 				// get span tag 
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
@@ -315,7 +324,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					}
 					else{
 						for (c=0; c<matchedLi.children.length; c++){
-							if (span.innerHTML === matchedLi.children[c].id) {
+							if (span.innerHTML.includes(matchedLi.children[c].id) || matchedLi.children[c].id.includes(span.innerHTML)) { //invece di (span.innerHTML === matchedLi.children[c].id) --> il metodo .includes serve per il partial matching
 								instanceFound = true;
 								var fantoccio = matchedLi.children[c];
 							}
@@ -340,7 +349,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					/* for (le istanze figlie di ul ){
 						guardami se ciè già un'altra istanza, quindi un altro li, con lo stesso parent
 						var numIstanza = x ;
-					} c'è da aggiungere un id ad ogni elemento del body dell'articolo
+					}
 					
 					var pos = 0;
 					for (var ulchild of newUl.children){
@@ -356,7 +365,11 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					//instanceLi.appendChild(citNode);
 
 					newUl.appendChild(instanceLi);
-					span.setAttribute('id', span.innerHTML+(newUl.children.length+1)); 
+
+					// var spanId = span.innerHTML+(newUl.children.length+1)
+					span.setAttribute('id', span.innerHTML+(newUl.children.length+1));
+
+					// instanceLi.setAttribute('onclick', "highlight(spanId)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 				}
 			}
@@ -366,18 +379,21 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 /*
 function parsing(span, parent, numIstanza){
-	var container = parent;
-	removeTags(container);
-
+	var parent = (); 
+	var container = parent.replace(/<[^>]*>/gi, ' ') 
+	.replace(/\s{2,}/gi, ' ')
+	.trim();
+	
 	var occorrenzeArray = [];
 	var pos = container.indexOf(span);
 	occorrenzeArray.push(pos);
-	while (pos > -1) {
+	while (pos > -1) {		//problema se arriviamo all'ultima istanza trovata. Il while ricomincia(pos è > -1 per forza): non si ferma e inserisce nell'array -1 (indice di un elemento non trovato) (?)
 		pos = container.indexOf(span, pos+1);
 		occorrenzeArray.push(pos);
 	}
 	var posIstanzaCorrente = occorrenzeArray[numIstanza];
 	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g")
+	// aggiungere il caso in cui non ci sono sufficienti parole
 	return container.match(regExp)
 }
 
@@ -391,6 +407,9 @@ function removeTags(string){
 
 /*
 PRIMA PROVA
+
+let removeTags = originalString.replace(/<[^>]*>/g, ' ');
+
 const originalString = (string);
 
 const removeTags = 
@@ -400,26 +419,40 @@ originalString.trim();
 
 console.log(removeTags);
 
-?? let removeTags = originalString.replace(/<[^>]*>/g, ' '); ???
+let removeTags = originalString.replace(/<[^>]*>/g, ' '); 
 
+
+
+<script> 
+
+const originalString = ('This is a paragraph.<span>'); 
+const removeTags = originalString.replace(/<[^>]*>/gi, ' ') 
+.replace(/\s{2,}/gi, ' ')
+.trim(); 
+
+console.log(removeTags); 
+</script>
+
+
+
+// evidenziare i metadati nel testo dell'articolo
+function highlight(spanId) {
+	var curInstance = elmnt.getElementById(spanId);
+	curInstance.style.backgroundColor = "#ffff00"; //giallo
+	// oppure evidenziamo lo snippet
+}
+// funzione che va richiamata come valore dell'attributo onlick nel li corrispondente del metadata viewer
+
+
+
+
+// da scrivere dopo la riga 307, per il problema delle doppie classi tipo class = "person artist"
+if (curCategory.includes(" ")) { //se c'è uno spazio in teoria vuol dire che c'è più di una classe
+   	var multipleCats = curCategory.split(" "); // si crea un array con le categorie, tipo [person, artist]
+    for (var c = 0; c < multipleCats.length; c++) {
+        if (multipleCats[c] != "") {var curCategory+c = multipleCats[c]} // creiamo diverse variabili?
+    }
 }
 
 
-SECONDA PROVA
-var string = (string)
-string = string.replace(/<[^>]*>/g, ' ')
-	.replace(/\s{2,}/g, ' ')
-	.trim();
-	
-console.log(string);
 */
-
-
-
-
-
-
-
-
-
-
