@@ -303,9 +303,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				// get span tag 
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
-				for (var span of spans) {										
-					var curCategory = span.className;  	//person   
-					var categoryFound = false;							//fino qua verificato da w3school
+				for (var span of spans) {
+					var curCategory = span.className;  	//person
+					var categoryFound = false;				//fino qua verificato da w3school
 					var instanceFound = false;
 					for (var a=0; a<myList.children.length; a++){ 	//a questo punto specificare se ci sono più classi
 						if (curCategory === myList.children[a].id) {
@@ -346,11 +346,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var instanceLi = document.createElement('li');
 					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
 					instanceLi.appendChild(instanceNode);
-					/* for (le istanze figlie di ul ){
-						guardami se ciè già un'altra istanza, quindi un altro li, con lo stesso parent
-						var numIstanza = x ;
-					}
 					
+					/*
+					//numero di li il cui span corrispondente ha lo stesso parent di quello corrente
 					var pos = 0;
 					for (var ulchild of newUl.children){
 						if span.parent.id === ulchild.data-parent{ // controllare risultato di === False
@@ -358,8 +356,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						}
 					}
 					instanceLi.setAttribute('data-parent', span.parent.id);
-
-					*/ 
+					*/
 
 					//var citNode = document.createTextNode('" '+ parsing(span.innerHTML, span.parentNode)+'"'); //vedi se fare textNode o innerHTML
 					//instanceLi.appendChild(citNode);
@@ -370,6 +367,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					span.setAttribute('id', span.innerHTML+(newUl.children.length+1));
 
 					// instanceLi.setAttribute('onclick', "highlight(spanId)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
+					//controllare se bisogna sposare newUl.appendChild(instanceLi); sotto
 
 				}
 			}
@@ -383,33 +381,31 @@ function parsing(span, parent, numIstanza){
 	.replace(/\s{2,}/gi, ' ')
 	.trim();
 	
-	// vedere come gestire le posizioni 0
-	var occorrenzeArray = [];
-	var pos = container.indexOf(span);
-	occorrenzeArray.push(pos);
-	// calcolo del numero di occorrenze
-	c = 1;
-	while (c < numero di occorrenze) {
-		pos = container.indexOf(span, pos+1);
+	// se riusciamo a trovare un modo di far funzionare la riga 401, allora dalla 385 alla 400 sono inutili
+	if (numIstanza != 0) {
+		// vedere come gestire le posizioni 0
+		var occorrenzeArray = [];
+		var pos = container.indexOf(span);
 		occorrenzeArray.push(pos);
-		c++;
+		// calcolo del numero di occorrenze
+		c = 1;
+		while (c < numero di occorrenze) {
+			pos = container.indexOf(span, pos+1);
+			occorrenzeArray.push(pos);
+			c++;
+		}
+		//da rivedere
+		var posIstanzaCorrente = occorrenzeArray[numIstanza];
 	}
-	//da rivedere
-	var posIstanzaCorrente = occorrenzeArray[numIstanza];
-	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g")
+
+	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g");
 	// aggiungere il caso in cui non ci sono sufficienti parole
-	return container.match(regExp)
+	var snippetArray = container.match(regExp);
+
+	return snippetArray[numIstanza];
 }
 
-function removeTags(string){
-  return string.replace(/<[^>]*>/g, ' ')
-               .replace(/\s{2,}/g, ' ')
-               .trim();
 
-}
-*/
-
-/*
 PRIMA PROVA
 
 let removeTags = originalString.replace(/<[^>]*>/g, ' ');
@@ -450,7 +446,7 @@ function highlight(spanId) {
 
 
 
-// da scrivere dopo la riga 307, per il problema delle doppie classi tipo class = "person artist"
+//ULTIMA DELLE QUESTIONI DA RISOLVERE: da scrivere dopo la riga 307, per il problema delle doppie classi tipo class = "person artist"
 if (curCategory.includes(" ")) { //se c'è uno spazio in teoria vuol dire che c'è più di una classe
    	var multipleCats = curCategory.split(" "); // si crea un array con le categorie, tipo [person, artist]
     for (var c = 0; c < multipleCats.length; c++) {
