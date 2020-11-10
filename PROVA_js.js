@@ -498,7 +498,7 @@ console.log(removeTags);
 // evidenziare i metadati nel testo dell'articolo
 function highlight(spanId, iFrameN) {
 	//manca un pezzetto qua
-	var elmnt = document.getElementById(iFrameN).contentWindow.document.body;
+	var elmnt = document.getElementById(iFrameN).contentWindow.document;
 	var curInstance = elmnt.getElementById(spanId);
 	curInstance.style.backgroundColor = "#ffff00";
 	curInstance.scrollIntoView(true);
