@@ -513,9 +513,13 @@ function highlight(spanId, iFrameN) {
 	var curInstance = elmnt.getElementById(spanId);
 	curInstance.style.backgroundColor = "#ffff00";
 	curInstance.scrollIntoView(true);
+	//curInstance.onscroll = function(){removeHighligth(curInstance)};
 }
-
-
+/*
+function removeHighligth(input){
+	input.removeAttribute("style");
+}
+*/
 
 /*
 //ULTIMA DELLE QUESTIONI DA RISOLVERE: da scrivere dopo la riga 307, per il problema delle doppie classi tipo class = "person artist"
