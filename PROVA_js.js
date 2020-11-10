@@ -299,9 +299,57 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				// get span tag 
 				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
+				// get time tag 
+				var times = Array.prototype.slice.call(elmnt.getElementsByTagName("time"));
+			
+				for (var t=0; t<times.length; t++){
+					var instanceFound = false;
+					if (t===0){
+						var new_Li = document.createElement('li');
+						new_Li.setAttribute('id', "Time"); //decidere come chiamarlo
+						var li_Node = document.createTextNode("Time");
+						new_Li.appendChild(li_Node);
+						myList.appendChild(new_Li);
+					}
+					else{
+						for (c=0; c<myList.getElementById('Time').children.length; c++){
+							if ((times[t].dateTime === myList.getElementById('Time').children[c].id)) { //invece di (span.innerHTML === matchedLi.children[c].id) --> il metodo .includes serve per il partial matching
+								instanceFound = true;
+								var matchedUl = myList.getElementById('Time').children[c];
+							}
+						}
+					}
+				
+					if (instanceFound === false) {
+						var newUl = document.createElement('ul');
+						newUl.setAttribute('id', times[t].dateTime);
+						var ulNode = document.createTextNode(times[t].dateTime);
+						newUl.appendChild(ulNode);
+						myList.getElementById('Time').appendChild(newUl); //matched e newLi
+					}
+					else{
+						var newUl = matchedUl;
+					}
+					// document.getElementById("writeHere").innerHTML = newUl.id+', ';
+
+					var instanceLi = document.createElement('li');
+
+					//recuperare il parent per scriverlo in instanceNode come punto di riferimento per l'user
+					var parentTag = span.parentNode.id.match(/([^-]+)/)[1];
+					var parentNum = span.parentNode.id.match(/-([^-]+)-/)[1];  
+					var parentTagAndNum = (parentTag+" "+parentNum).toLowerCase();
+
+					var instanceNode = document.createTextNode("article "+n+", "+parentTagAndNum+": "); //aggiungere stringa del titolo dell'articolo?
+					
+					instanceLi.appendChild(instanceNode);
+					instanceLi.setAttribute('onclick', "highlight('"+spanId+"', 'iFrame"+n+"')"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
+
+					newUl.appendChild(instanceLi);
+				}
+			
 				for (var span of spans) {
 					var curCategory = span.className;  	//person
-					var categoryFound = false;				//fino qua verificato da w3school
+					var categoryFound = false;				
 					var instanceFound = false;
 					for (var a=0; a<myList.children.length; a++){ 	//a questo punto specificare se ci sono più classi
 						if (curCategory === myList.children[a].id) {
@@ -322,7 +370,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						for (c=0; c<matchedLi.children.length; c++){
 							if (span.innerHTML.includes(matchedLi.children[c].id) || matchedLi.children[c].id.includes(span.innerHTML)) { //invece di (span.innerHTML === matchedLi.children[c].id) --> il metodo .includes serve per il partial matching
 								instanceFound = true;
-								var fantoccio = matchedLi.children[c];
+								var matchedUl = matchedLi.children[c];
 							}
 						}
 					}
@@ -335,7 +383,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 						matchedLi.appendChild(newUl); //matched e newLi
 					}
 					else{
-						var newUl = fantoccio;
+						var newUl = matchedUl;
 					}
 					// document.getElementById("writeHere").innerHTML = newUl.id+', ';
 
