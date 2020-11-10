@@ -514,6 +514,8 @@ function highlight(spanId, iFrameN) {
 	curInstance.style.backgroundColor = "#ffff00";
 	curInstance.scrollIntoView(true);
 	//curInstance.onscroll = function(){removeHighligth(curInstance)};
+	//in alternativa annullamento del colore 1. cliccando su un altro metadato 2. cambiando issue 3. cambiando articolo: assegnato un id tipo "intoView" che viene eliminato in tutti i casi e trasferito nel primo
+	//manca anche il cambio articolo se triggerato rispettivo metadato (appare sul titolo e poi si sposta al punto preciso)
 }
 /*
 function removeHighligth(input){
