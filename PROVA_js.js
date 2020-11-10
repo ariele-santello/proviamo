@@ -418,7 +418,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var spanId = span.innerHTML+(newUl.children.length+1);
 					span.setAttribute('id', spanId);
 
-					instanceLi.setAttribute('onclick', "highlight('"+spanId+"', 'iframe"+n+"')"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
+					instanceLi.setAttribute('onclick', "highlight('"+spanId+"', '"+myFrames[n].id+"')"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 					newUl.appendChild(instanceLi);
 				}
