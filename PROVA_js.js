@@ -364,14 +364,13 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					//var citNode = document.createTextNode('" '+ parsing(span.innerHTML, span.parentNode)+'"'); //vedi se fare textNode o innerHTML
 					//instanceLi.appendChild(citNode);
 
+
+					var spanId = span.innerHTML+(newUl.children.length+1);
+					span.setAttribute('id', spanId);
+
+					instanceLi.setAttribute('onclick', "highlight("+spanId+", "+elmnt+")"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
+
 					newUl.appendChild(instanceLi);
-
-					// var spanId = span.innerHTML+(newUl.children.length+1)
-					span.setAttribute('id', span.innerHTML+(newUl.children.length+1));
-
-					// instanceLi.setAttribute('onclick', "highlight(spanId)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
-					//controllare se bisogna sposare newUl.appendChild(instanceLi); sotto
-
 				}
 			}
 	}
@@ -401,11 +400,19 @@ function parsing(span, parent, numIstanza){
 		var posIstanzaCorrente = occorrenzeArray[numIstanza];
 	}
 
+	//versione con stringa di regexp che non va
 	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g");
-	// aggiungere il caso in cui non ci sono sufficienti parole
 	var snippetArray = container.match(regExp);
-
 	return snippetArray[numIstanza];
+
+	//versione che funziona
+	var e = new RegExp('(\\S+\\s){0,5}\\S*' + span + '(\\s+\\S+){0,5}', 'ig');
+  	var res = container.match(e);
+  	return res[numIstanza];
+ 
+
+
+
 }
 
 
@@ -435,20 +442,22 @@ const removeTags = originalString.replace(/<[^>]*>/gi, ' ')
 
 console.log(removeTags); 
 </script>
-
+*/
 
 
 // evidenziare i metadati nel testo dell'articolo
-function highlight(spanId) {
+function highlight(spanId, elmnt) {
 	var curInstance = elmnt.getElementById(spanId);
 	curInstance.style.backgroundColor = "#ffff00"; //giallo
 	// oppure evidenziamo lo snippet
+	curInstance.scrollIntoView(true);
 }
+
 // funzione che va richiamata come valore dell'attributo onlick nel li corrispondente del metadata viewer
 
 
 
-
+/*
 //ULTIMA DELLE QUESTIONI DA RISOLVERE: da scrivere dopo la riga 307, per il problema delle doppie classi tipo class = "person artist"
 if (curCategory.includes(" ")) { //se c'è uno spazio in teoria vuol dire che c'è più di una classe
    	var multipleCats = curCategory.split(" "); // si crea un array con le categorie, tipo [person, artist]
