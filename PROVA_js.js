@@ -296,14 +296,13 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					//allIframeElements[e].setAttribute("id", x+"-"+e+"-"+n); // alternativa: element.id = "";
 		    	}
 		    	// esempio: art.2 dell'issue 2, i primi 5 elementi del body sono: <section id="SECTION-1-2">, <h1 id="H1-1-2">, <img id="IMG-1-2">, <p id="P-1-2">, <p id="p-2-2">...		    	 
-
-				// get span tag 
-				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
+				
+				/*
 				// get time tag 
 				var times = Array.prototype.slice.call(elmnt.getElementsByTagName("time"));
 			
 				for (var t=0; t<times.length; t++){
-					var instanceFound = false;
+					var myInstanceFound = false;
 					if (t===0){
 						var new_Li = document.createElement('li');
 						new_Li.setAttribute('id', "Time"); //decidere come chiamarlo
@@ -314,13 +313,13 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					else{
 						for (c=0; c<myList.getElementById('Time').children.length; c++){
 							if ((times[t].dateTime === myList.getElementById('Time').children[c].id)) { //invece di (span.innerHTML === matchedLi.children[c].id) --> il metodo .includes serve per il partial matching
-								instanceFound = true;
+								myInstanceFound = true;
 								var matchedUl = myList.getElementById('Time').children[c];
 							}
 						}
 					}
 				
-					if (instanceFound === false) {
+					if (myInstanceFound === false) {
 						var newUl = document.createElement('ul');
 						newUl.setAttribute('id', times[t].dateTime);
 						var ulNode = document.createTextNode(times[t].dateTime);
@@ -346,7 +345,10 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 					newUl.appendChild(instanceLi);
 				}
+				*/
 			
+				// get span tag 
+				var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
 				for (var span of spans) {
 					var curCategory = span.className;  	//person
 					var categoryFound = false;				
