@@ -368,7 +368,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var spanId = span.innerHTML+(newUl.children.length+1);
 					span.setAttribute('id', spanId);
 
-					instanceLi.setAttribute('onclick', "highlight("+spanId+", "+elmnt+")"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
+					instanceLi.setAttribute('onclick', "highlight('"+spanId+"', 'iFrame"+n+"')"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 					newUl.appendChild(instanceLi);
 				}
@@ -446,7 +446,8 @@ console.log(removeTags);
 
 
 // evidenziare i metadati nel testo dell'articolo
-function highlight(spanId, elmnt) {
+function highlight(spanId, iFrameN) {
+	//manca un pezzetto qua
 	var curInstance = elmnt.getElementById(spanId);
 	curInstance.style.backgroundColor = "#ffff00"; //giallo
 	// oppure evidenziamo lo snippet
