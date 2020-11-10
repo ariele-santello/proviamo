@@ -340,7 +340,14 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					// document.getElementById("writeHere").innerHTML = newUl.id+', ';
 
 					var instanceLi = document.createElement('li');
-					var instanceNode = document.createTextNode("article"+n+": "); //aggiungere stringa de titolo
+
+					//recuperare il parent per scriverlo in instanceNode come punto di riferimento per l'user
+					var parentTag = span.parentNode.id.match(/([^-]+)/)[1];
+					var parentNum = span.parentNode.id.match(/-([^-]+)-/)[1];  
+					var parentTagAndNum = (parentTag+" "+parentNum).toLowerCase();
+
+					var instanceNode = document.createTextNode("article "+n+", "+parentTagAndNum+": "); //aggiungere stringa del titolo dell'articolo?
+					
 					instanceLi.appendChild(instanceNode);
 					
 					/*
