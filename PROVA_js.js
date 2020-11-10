@@ -505,6 +505,8 @@ console.log(removeTags);
 
 
 // evidenziare i metadati nel testo dell'articolo
+// serve anche cambiare articolo se i metadati puntano all'articolo non in block al momento?
+//manca la scomparsa dello stile onscroll e onclick su qualunque altro tasto
 function highlight(spanId, iFrameN) {
 	//manca un pezzetto qua
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
@@ -512,8 +514,6 @@ function highlight(spanId, iFrameN) {
 	curInstance.style.backgroundColor = "#ffff00";
 	curInstance.scrollIntoView(true);
 }
-
-// funzione che va richiamata come valore dell'attributo onlick nel li corrispondente del metadata viewer
 
 
 
