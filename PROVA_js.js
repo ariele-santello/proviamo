@@ -500,8 +500,7 @@ function highlight(spanId, iFrameN) {
 	//manca un pezzetto qua
 	var elmnt = document.getElementById(iFrameN).contentWindow.document.body;
 	var curInstance = elmnt.getElementById(spanId);
-	curInstance.style.backgroundColor = "#ffff00"; //giallo
-	// oppure evidenziamo lo snippet
+	curInstance.style.backgroundColor = "#ffff00";
 	curInstance.scrollIntoView(true);
 }
 
