@@ -519,9 +519,10 @@ console.log(removeTags);
 // serve anche cambiare articolo se i metadati puntano all'articolo non in block al momento?
 // manca la scomparsa dello stile onscroll e onclick su qualunque altro tasto
 function highlight(spanId, iFrameN) {
-	//manca un pezzetto qua
+	//removeHighligth(iFrameN);
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
 	var curInstance = elmnt.getElementById(spanId);
+	curInstance.setAttribute("name", "onView");
 	curInstance.style.backgroundColor = "#ffff00";
 	curInstance.scrollIntoView(true);
 	//curInstance.onscroll = function(){removeHighligth(curInstance)};
@@ -561,10 +562,10 @@ function highlight(spanId, iFrameN) {
     	}, 10000); // we have to reset the name of animation otherwise another call to background-fade wont have any effect
 }
 /*
-function removeHighligth(input){
-	var isOnView = document.getElementById("onView");
+function removeHighligth(iFrameN){
+	var isOnView = document.getElementById(iFrameN).contentWindow.document.getElementsByName("onView");
     	if(isOnView){
-        	isOnView.removeAttribute("id");
+        	isOnView.removeAttribute("name");
     	}
 }
 */
