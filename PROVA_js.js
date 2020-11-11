@@ -544,6 +544,7 @@ function highlight(spanId, iFrameN) {
 
 
     setTimeout(function() { 
+    	curInstance.style.backgroundColor = 'transparent';
     	curInstance.style.WebkitAnimationName = '';
     	curInstance.style.animation = '';
         curInstance.style.OAnimation = '';
