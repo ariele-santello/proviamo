@@ -402,9 +402,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				//recuperare il parent per scriverlo in instanceNode come punto di riferimento per l'user
 				var parentTag = span.parentNode.id.match(/([^-]+)/)[1];
-				if (parentTag === "P") {parentTag = "paragraph"}
-				else if (parentTag.startsWith("H")) {parentTag = "title"}
-				else (parentTag === "FIGCAPTION") {parentTag = "figure caption"}
+				if (parentTag === "P") {parentTag = "paragraph";}
+				else if (parentTag.startsWith("H")) {parentTag = "title";}
+				else (parentTag === "FIGCAPTION") {parentTag = "figure caption";}
 				var parentNum = span.parentNode.id.match(/-([^-]+)-/)[1];  
 				var parentTagAndNum = (parentTag+" "+parentNum).toLowerCase();
 
