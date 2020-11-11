@@ -430,11 +430,22 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					instanceLi.setAttribute('onclick', "highlight('"+spanId+"', '"+myFrames[n].id+"')"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 					newUl.appendChild(instanceLi);
+					
+					//from text keywords to metadata viewer
+					//span.setAttribute('onclick', "goToMetadata('"+span.innerHTML+"')");
 				}
 			}
 	}
 
 }
+
+
+//from text keywords to metadata viewer
+//function goToMetadata(instanceId){
+	//document.getElementById(instanceId);
+	//mostralo (fai in modo che sia in block e non hidden lui e i children + attribuisci effetto di hover da specificare nel css tipo con un background color)
+//}
+
 
 /*
 function parsing(span, parent, numIstanza){
