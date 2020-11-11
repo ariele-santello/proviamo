@@ -555,7 +555,8 @@ function highlight(spanId, iFrameN) {
     curInstance.style.MozAnimation = 'background-fade 10s forwards';
 
 
-    setTimeout(function() { 
+    setTimeout(function() {
+    	curInstance.style.backgroundColor = transparent;
     	curInstance.style.WebkitAnimationName = '';
     	curInstance.style.animation = '';
         curInstance.style.OAnimation = '';
