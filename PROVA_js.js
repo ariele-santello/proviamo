@@ -532,10 +532,9 @@ function highlight(spanId, iFrameN) {
 		'100% { background-color: transparent; }'+
 		'}';
 		var rules = elmnt.createTextNode(keyFrames);
-		cssAnimation.appendChild(rules);
 	}
 
-	
+	cssAnimation.appendChild(rules);
 	elmnt.getElementsByTagName("head")[0].appendChild(cssAnimation);
 	curInstance.style.animation = 'background-fade 10s forwards';
 	curInstance.style.WebkitAnimation = 'background-fade 10s forwards';
@@ -544,7 +543,6 @@ function highlight(spanId, iFrameN) {
 
 
     setTimeout(function() { 
-    	curInstance.style.backgroundColor = 'transparent';
     	curInstance.style.WebkitAnimationName = '';
     	curInstance.style.animation = '';
         curInstance.style.OAnimation = '';
@@ -553,7 +551,10 @@ function highlight(spanId, iFrameN) {
 }
 /*
 function removeHighligth(input){
-	input.removeAttribute("style");
+	var isOnView = document.getElementById("onView");
+    	if(isOnView){
+        	isOnView.removeAttribute("id");
+    	}
 }
 */
 
