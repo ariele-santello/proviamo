@@ -542,7 +542,12 @@ function highlight(spanId, iFrameN) {
 	}
 
 
-    setTimeout(function() { e.style.webkitAnimationName = ''; }, 10000); // we have to reset the name of animation otherwise another call to background-fade wont have any effect
+    setTimeout(function() { 
+    	curInstance.style.WebkitAnimationName = '';
+    	curInstance.style.animation = '';
+        curInstance.style.OAnimation = '';
+        curInstance.style.MozAnimation = '';
+    	}, 10000); // we have to reset the name of animation otherwise another call to background-fade wont have any effect
 }
 /*
 function removeHighligth(input){
