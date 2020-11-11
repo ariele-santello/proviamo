@@ -506,7 +506,7 @@ console.log(removeTags);
 
 // evidenziare i metadati nel testo dell'articolo
 // serve anche cambiare articolo se i metadati puntano all'articolo non in block al momento?
-//manca la scomparsa dello stile onscroll e onclick su qualunque altro tasto
+// manca la scomparsa dello stile onscroll e onclick su qualunque altro tasto
 function highlight(spanId, iFrameN) {
 	//manca un pezzetto qua
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
@@ -516,6 +516,33 @@ function highlight(spanId, iFrameN) {
 	//curInstance.onscroll = function(){removeHighligth(curInstance)};
 	//in alternativa annullamento del colore 1. cliccando su un altro metadato 2. cambiando issue 3. cambiando articolo: assegnato un id tipo "intoView" che viene eliminato in tutti i casi e trasferito nel primo
 	//manca anche il cambio articolo se triggerato rispettivo metadato (appare sul titolo e poi si sposta al punto preciso)
+
+
+	// animazione scomparsa colore background dopo 10 secondi:
+	var cssAnimation = elmnt.createElement('style'); // può andare in contrsto con la funzione che cambia lo stile dell'articolo?
+    cssAnimation.type = 'text/css';
+
+	var keyFramePrefixes = ["-webkit-", "-o-", "-moz-", ""];
+	var keyFrames = [];
+	var textNode = null;
+
+	for (var i in keyFramePrefixes) {
+		keyFrames = '@'+keyFramePrefixes[i]+'keyframes background-fade {'+
+		'80% { background-color: #ffff00; }'+
+		'100% { background-color: transparent; }'+
+		'}';
+		var rules = elmnt.createTextNode(keyFrames);
+		cssAnimation.appendChild(rules);
+		elmnt.getElementsByTagName("head")[0].appendChild(cssAnimation);
+
+		curInstance.style.animation = 'background-fade 10s forwards';
+		curInstance.style.WebkitAnimation = 'background-fade 10s forwards';
+        curInstance.style.OAnimation = 'background-fade 10s forwards';
+        curInstance.style.MozAnimation = 'background-fade 10s forwards';
+	}
+
+
+    setTimeout(function() { e.style.webkitAnimationName = ''; }, 10000); // we have to reset the name of animation otherwise another call to background-fade wont have any effect
 }
 /*
 function removeHighligth(input){
