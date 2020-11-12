@@ -325,7 +325,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				if (categoryFound === false) {
 					createCategoryLi(curCategory, myList);
-					var matchedLi = myList.getElementById(curCategory);
+					var matchedLi = document.getElementById(curCategory);
 				}
 
 				else{
@@ -361,16 +361,16 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				}
 
 				else{
-					for (r=0; r<myList.getElementById('Time').children.length; r++){
-						if ((times[t].dateTime === myList.getElementById('Time').children[r].id)) { 
+					for (r=0; r<document.getElementById('Time').children.length; r++){
+						if ((times[t].dateTime === document.getElementById('Time').children[r].id)) { 
 							myInstanceFound = true;
-							var matchedTimeUl = myList.getElementById('Time').children[r];
+							var matchedTimeUl = document.getElementById('Time').children[r];
 						}
 					}
 				}
 
 				if (myInstanceFound === false) {
-					createInstanceUl(times[t].dateTime, myList.getElementById('Time'));
+					createInstanceUl(times[t].dateTime, document.getElementById('Time'));
 					var newUl = document.getElementById(times[t].dateTime);
 				}
 				else{
