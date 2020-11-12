@@ -289,7 +289,8 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
     	for (var n = 1; n < myFrames.length; n++) {       
 	   		//var curFrame = myFrames[n];
 	    	//var elmnt = curFrame.contentWindow.document.body;
-	    	var elmnt = myFrames[n].contentWindow.document.body;  
+	    	var elmnt = myFrames[n].contentWindow.document.body;
+
 	    	
 
 	    	/*aggiungere un id ad ogni elemento del body tipo = "h1-1-n" */
@@ -323,7 +324,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 
 				if (categoryFound === false) {
-						createCategoryLi(curCategory);
+						createCategoryLi(curCategory, myList);
 						var matchedLi = newLi;
 					}
 
@@ -355,7 +356,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			for (var t=0; t<times.length; t++){
 				var myInstanceFound = false;
 				if (t===0) {
-					createCategoryLi("Time"); //decidere come chiamarlo
+					createCategoryLi("Time", myList); //decidere come chiamarlo
 				}
 
 				else{
@@ -383,7 +384,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 }
 
 
-function createCategoryLi(category) {
+function createCategoryLi(category, myList) {
 	var newLi = document.createElement('li');
 	newLi.setAttribute('id', category);
 	//1. add showLiChildren
@@ -404,7 +405,7 @@ function createInstanceUl(instance, parentLi) {
 	parentLi.appendChild(newUl);
 }
 
-function createOccurrenceLi(occurrence, occurrenceValue) {	
+function createOccurrenceLi(occurrence, occurrenceValue) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
 
 	//recuperare il parent per scriverlo in instanceNode come punto di riferimento per l'user
