@@ -371,7 +371,8 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				if (categoryFound === false) {
 					var newLi = document.createElement('li');
 					newLi.setAttribute('id', curCategory);
-					//newLi.setAttribute('onClick', 'showLiChildren('"+curCategory+"')');
+					//1. add showLiChildren
+					newLi.setAttribute('onClick', 'showLiChildren('"+curCategory+"')');
 					var liNode = document.createTextNode(curCategory);
 					newLi.appendChild(liNode);
 					myList.appendChild(newLi);
@@ -389,8 +390,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				if (instanceFound === false) {
 					var newUl = document.createElement('ul');
 					newUl.setAttribute('id', span.innerHTML);
-					//newUl.setAttribute('onClick', 'showUlChildren('"+span.innerHTML+"')');
-					//newUl.style.display = 'none';
+					//2. add showUlChildren and display none
+					newUl.setAttribute('onClick', 'showUlChildren('"+span.innerHTML+"')');
+					newUl.style.display = 'none';
 					var ulNode = document.createTextNode(span.innerHTML);
 					newUl.appendChild(ulNode);
 					matchedLi.appendChild(newUl); //matched e newLi
@@ -412,7 +414,8 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				var instanceNode = document.createTextNode("article "+n+", "+parentTagAndNum+": "); //aggiungere stringa del titolo dell'articolo?
 				
-				//instanceLi.style.display = 'none';
+				//3. display none
+				instanceLi.style.display = 'none';
 				instanceLi.appendChild(instanceNode);
 				
 				/*
@@ -445,55 +448,58 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 }
 
-
+/*
 //from text keywords to metadata viewer
-//function goToMetadata(instanceId){
-	//e = document.getElementById(instanceId); //mettendo in block l'ul vanno in block anche tutti i figli
-	//e.style.display = 'block';
-	//f = e.children;
-	//for (var g of f){
-		//g.style.display = 'block';
-	//}
-//}
-	//attribuisci effetto di hover da specificare nel css tipo con un background color
+function goToMetadata(instanceId){
+	e = document.getElementById(instanceId); //mettendo in block l'ul vanno in block anche tutti i figli
+	e.style.display = 'block';
+	f = e.children;
+	for (var g of f){
+		g.style.display = 'block';
+	}
+}
+//attribuisci effetto di hover da specificare nel css tipo con un background color
+*/
 
-//function showLiChildren(instanceId){
-	//e = document.getElementById(instanceId).children;
-	//if(e[0].style.display == 'block'){
-		//for (var child of e){
-			//child.style.display = 'none';
-			//f = child.children;
-			//for (var g of f){
-				//g.style.display = 'none';
-			//}
-		//}
-	//}
-	//else{
-		//for (var child of e){
-			//child.style.display = 'block';
-			//f = child.children;
-			//for (var g of f){
-				//g.style.display = 'none';
-			//}
-		//}
-	//}
-//}
+//4. da rimettere in commento
+function showLiChildren(instanceId){
+	e = document.getElementById(instanceId).children;
+	if(e[0].style.display == 'block'){
+		for (var child of e){
+			child.style.display = 'none';
+			f = child.children;
+			for (var g of f){
+				g.style.display = 'none';
+			}
+		}
+	}
+	else{
+		for (var child of e){
+			child.style.display = 'block';
+			f = child.children;
+			for (var g of f){
+				g.style.display = 'none';
+			}
+		}
+	}
+}
 
 
-//function showUlChildren(instanceId){
-	//e = document.getElementById(instanceId).children;
-	//if(e[0].style.display == 'block'){
-		//for (var child of e){
-			//child.style.display = 'none';
-		//}
-	//}
-	//else{
-		//for (var child of e){
-			//child.style.display = 'block';
-		//}
-	//}
-//}
-
+//5. da rimettere in commento
+function showUlChildren(instanceId){
+	e = document.getElementById(instanceId).children;
+	if(e[0].style.display == 'block'){
+		for (var child of e){
+			child.style.display = 'none';
+		}
+	}
+	else{
+		for (var child of e){
+			child.style.display = 'block';
+		}
+	}
+}
+*/
 
 
 /*
