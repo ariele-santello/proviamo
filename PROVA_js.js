@@ -528,9 +528,8 @@ function highlight(spanId, iFrameN) {
 	curInstance.setAttribute("name", "onView");
 	curInstance.style.backgroundColor = "#ffff00";
 	curInstance.scrollIntoView(true);
-	// sostituire curInstance.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); ?? In alcuni browser non va
-	//curInstance.onscroll = function(){removeHighligth(curInstance)};
-	//in alternativa annullamento del colore 1. cliccando su un altro metadato 2. cambiando issue 3. cambiando articolo: assegnato un id tipo "intoView" che viene eliminato in tutti i casi e trasferito nel primo
+	// sostituire curInstance.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"}); ?? In alcuni browser non va
+	//metodi 1. creare nuva variabile in cui salvare spanId e iFrame in cui cercarlo per cancellare lo style 2. modificare i parametri della funzione removeHighlight in ciascun punto (tutti i metadati e gli altri onclick di interesse)
 	//manca anche il cambio articolo se triggerato rispettivo metadato (appare sul titolo e poi si sposta al punto preciso)
 
 
