@@ -369,9 +369,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					}
 				}
 				if (categoryFound === false) {
-				// questo pezzo è in comune con time datetime (a condizione che sia il tag alla posizione 0)
 					var newLi = document.createElement('li');
 					newLi.setAttribute('id', curCategory);
+					//newLi.setAttribute('onClick', 'showChildren('"+curCategory+"')')
 					var liNode = document.createTextNode(curCategory);
 					newLi.appendChild(liNode);
 					myList.appendChild(newLi);
@@ -445,8 +445,28 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 //from text keywords to metadata viewer
 //function goToMetadata(instanceId){
-	//document.getElementById(instanceId);
-	//mostralo (fai in modo che sia in block e non hidden lui e i children + attribuisci effetto di hover da specificare nel css tipo con un background color)
+	//document.getElementById(instanceId).style.display = 'block'; //mettendo in block l'ul vanno in block anche tutti i figli
+//}
+	//attribuisci effetto di hover da specificare nel css tipo con un background color
+
+//function showChildren(instanceId){
+	//e = document.getElementById(instanceId).children;
+	//if(e[0].style.display == 'block'){
+		//for (var child of e){
+			//child.style.display = 'none';
+		//}
+	//}
+	//else{
+		//for (var child of e){
+			//child.style.display = 'none';
+		//}
+			//e.style.display = 'block';
+			//f = e.children;
+			//for (var g of f){
+				//g.style.display = 'none';
+			//}
+		//}
+	//}
 //}
 
 
