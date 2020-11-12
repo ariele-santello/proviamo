@@ -391,7 +391,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = document.createElement('ul');
 					newUl.setAttribute('id', span.innerHTML);
 					//2. add showUlChildren and display none
-					newUl.setAttribute('onClick', "showUlChildren('"+span.innerHTML+"')");
+					newUl.setAttribute('onClick', "showUlChildren('"+span.innerHTML+"', event)");
 					newUl.style.display = 'none';
 					var ulNode = document.createTextNode(span.innerHTML);
 					newUl.appendChild(ulNode);
@@ -486,7 +486,7 @@ function showLiChildren(instanceId){
 
 
 //5. da rimettere in commento
-function showUlChildren(instanceId){
+function showUlChildren(instanceId, event){
 	e = document.getElementById(instanceId).children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
@@ -498,6 +498,7 @@ function showUlChildren(instanceId){
 			child.style.display = 'block';
 		}
 	}
+	event.stopPropagation();
 }
 
 
