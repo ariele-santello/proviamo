@@ -499,7 +499,6 @@ function showUlChildren(instanceId){
 		}
 	}
 }
-*/
 
 
 /*
