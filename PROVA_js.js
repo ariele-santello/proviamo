@@ -371,7 +371,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				if (categoryFound === false) {
 					var newLi = document.createElement('li');
 					newLi.setAttribute('id', curCategory);
-					//newLi.setAttribute('onClick', 'showChildren('"+curCategory+"')')
+					//newLi.setAttribute('onClick', 'showLiChildren('"+curCategory+"')');
 					var liNode = document.createTextNode(curCategory);
 					newLi.appendChild(liNode);
 					myList.appendChild(newLi);
@@ -389,6 +389,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				if (instanceFound === false) {
 					var newUl = document.createElement('ul');
 					newUl.setAttribute('id', span.innerHTML);
+					//newUl.setAttribute('onClick', 'showUlChildren('"+span.innerHTML+"')');
 					var ulNode = document.createTextNode(span.innerHTML);
 					newUl.appendChild(ulNode);
 					matchedLi.appendChild(newUl); //matched e newLi
@@ -449,7 +450,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 //}
 	//attribuisci effetto di hover da specificare nel css tipo con un background color
 
-//function showChildren(instanceId){
+//function showLiChildren(instanceId){
 	//e = document.getElementById(instanceId).children;
 	//if(e[0].style.display == 'block'){
 		//for (var child of e){
@@ -458,16 +459,30 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 	//}
 	//else{
 		//for (var child of e){
-			//child.style.display = 'none';
-		//}
-			//e.style.display = 'block';
-			//f = e.children;
+			//child.style.display = 'block';
+			//f = chil.children;
 			//for (var g of f){
 				//g.style.display = 'none';
 			//}
 		//}
 	//}
 //}
+
+
+//function showUlChildren(instanceId){
+	//e = document.getElementById(instanceId).children;
+	//if(e[0].style.display == 'block'){
+		//for (var child of e){
+			//child.style.display = 'none';
+		//}
+	//}
+	//else{
+		//for (var child of e){
+			//child.style.display = 'block';
+		//}
+	//}
+//}
+
 
 
 /*
