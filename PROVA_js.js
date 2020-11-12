@@ -324,9 +324,9 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 
 				if (categoryFound === false) {
-						createCategoryLi(curCategory, myList);
-						var matchedLi = newLi;
-					}
+					createCategoryLi(curCategory, myList);
+					var matchedLi = myList.getElementById(curCategory);
+				}
 
 				else{
 					for (c=0; c<matchedLi.children.length; c++){
@@ -340,12 +340,13 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				if (instanceFound === false) {
 					createInstanceUl(span.innerHTML, matchedLi);
+					var newUl = document.getElementById(span.innerHTML);
 				}
 				else {
 					var newUl = matchedUl;
 				}
 				
-				createOccurrenceLi(span, span.innerHTML);				
+				createOccurrenceLi(span, span.innerHTML, newUl);				
 			}
 
 
@@ -370,12 +371,13 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				if (myInstanceFound === false) {
 					createInstanceUl(times[t].dateTime, myList.getElementById('Time'));
+					var newUl = document.getElementById(times[t].dateTime);
 				}
 				else{
 					var newUl = matchedTimeUl;
 				}
 
-				createOccurrenceLi(times[t], times[t].dateTime);
+				createOccurrenceLi(times[t], times[t].dateTime, newUl);
 			}
 
 		}
@@ -405,7 +407,7 @@ function createInstanceUl(instance, parentLi) {
 	parentLi.appendChild(newUl);
 }
 
-function createOccurrenceLi(occurrence, occurrenceValue) {	//occurrenceValue è instance nella funzione precedente
+function createOccurrenceLi(occurrence, occurrenceValue, newUl) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
 
 	//recuperare il parent per scriverlo in instanceNode come punto di riferimento per l'user
@@ -422,6 +424,20 @@ function createOccurrenceLi(occurrence, occurrenceValue) {	//occurrenceValue è 
 	occurrenceLi.style.display = 'none';
 
 	occurrenceLi.appendChild(instanceNode);
+
+	/*
+	//numero di li il cui span o elemento time corrispondente ha lo stesso parent di quello corrente
+	var pos = 0;
+	for (var ulchild of newUl.children){
+		if occurrence.parent.id === ulchild.data-parent{ // controllare risultato di === False
+			pos++;
+		}
+	}
+	occurrenceLi.setAttribute('data-parent', occurrence.parent.id);
+	*/
+
+	//var citNode = document.createTextNode('" '+ parsing(occurrenceValue, occurrence.parentNode)+'"'); //vedi se fare textNode o innerHTML
+	//occurrenceLi.appendChild(citNode);
 
 	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
 
@@ -557,7 +573,9 @@ function highlight(spanId, iFrameN) {
 	}
 
 	cssAnimation.appendChild(rules);
+
 	elmnt.getElementsByTagName("head")[0].appendChild(cssAnimation);
+
 	curInstance.style.animation = 'background-fade 10s forwards';
 	curInstance.style.WebkitAnimation = 'background-fade 10s forwards';
     curInstance.style.OAnimation = 'background-fade 10s forwards';
