@@ -390,6 +390,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = document.createElement('ul');
 					newUl.setAttribute('id', span.innerHTML);
 					//newUl.setAttribute('onClick', 'showUlChildren('"+span.innerHTML+"')');
+					//newUl.style.display = 'none';
 					var ulNode = document.createTextNode(span.innerHTML);
 					newUl.appendChild(ulNode);
 					matchedLi.appendChild(newUl); //matched e newLi
@@ -411,6 +412,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				var instanceNode = document.createTextNode("article "+n+", "+parentTagAndNum+": "); //aggiungere stringa del titolo dell'articolo?
 				
+				//instanceLi.style.display = 'none';
 				instanceLi.appendChild(instanceNode);
 				
 				/*
@@ -446,7 +448,12 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 //from text keywords to metadata viewer
 //function goToMetadata(instanceId){
-	//document.getElementById(instanceId).style.display = 'block'; //mettendo in block l'ul vanno in block anche tutti i figli
+	//e = document.getElementById(instanceId); //mettendo in block l'ul vanno in block anche tutti i figli
+	//e.style.display = 'block';
+	//f = e.children;
+	//for (var g of f){
+		//g.style.display = 'block';
+	//}
 //}
 	//attribuisci effetto di hover da specificare nel css tipo con un background color
 
@@ -455,12 +462,16 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 	//if(e[0].style.display == 'block'){
 		//for (var child of e){
 			//child.style.display = 'none';
+			//f = child.children;
+			//for (var g of f){
+				//g.style.display = 'none';
+			//}
 		//}
 	//}
 	//else{
 		//for (var child of e){
 			//child.style.display = 'block';
-			//f = chil.children;
+			//f = child.children;
 			//for (var g of f){
 				//g.style.display = 'none';
 			//}
