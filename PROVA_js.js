@@ -372,7 +372,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newLi = document.createElement('li');
 					newLi.setAttribute('id', curCategory);
 					//1. add showLiChildren
-					newLi.setAttribute('onClick', 'showLiChildren('"+curCategory+"')');
+					newLi.setAttribute('onClick', "showLiChildren('"+curCategory+"')");
 					var liNode = document.createTextNode(curCategory);
 					newLi.appendChild(liNode);
 					myList.appendChild(newLi);
