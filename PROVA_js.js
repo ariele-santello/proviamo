@@ -441,33 +441,33 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				newUl.appendChild(instanceLi);
 				
 				//from text keywords to metadata viewer
-				//span.setAttribute('onclick', "goToMetadata('"+span.innerHTML+"')");
+				span.setAttribute('onclick', "goToMetadata('"+span.innerHTML+"')");
 			}
 		}
 	}
 
 }
 
-/*
+
 //from text keywords to metadata viewer
 function goToMetadata(instanceId){
-	e = document.getElementById(instanceId); //mettendo in block l'ul vanno in block anche tutti i figli
+	var e = document.getElementById(instanceId); //mettendo in block l'ul vanno in block anche tutti i figli
 	e.style.display = 'block';
-	f = e.children;
+	var f = e.children;
 	for (var g of f){
 		g.style.display = 'block';
 	}
 }
 //attribuisci effetto di hover da specificare nel css tipo con un background color
-*/
+
 
 //4. da rimettere in commento
 function showLiChildren(instanceId){
-	e = document.getElementById(instanceId).children;
+	var e = document.getElementById(instanceId).children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
-			f = child.children;
+			var f = child.children;
 			for (var g of f){
 				g.style.display = 'none';
 			}
@@ -476,7 +476,7 @@ function showLiChildren(instanceId){
 	else{
 		for (var child of e){
 			child.style.display = 'block';
-			f = child.children;
+			var f = child.children;
 			for (var g of f){
 				g.style.display = 'none';
 			}
@@ -487,7 +487,7 @@ function showLiChildren(instanceId){
 
 //5. da rimettere in commento
 function showUlChildren(instanceId, event){
-	e = document.getElementById(instanceId).children;
+	var e = document.getElementById(instanceId).children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
