@@ -391,7 +391,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = document.createElement('ul');
 					newUl.setAttribute('id', span.innerHTML);
 					//2. add showUlChildren and display none
-					newUl.setAttribute('onClick', 'showUlChildren('"+span.innerHTML+"')');
+					newUl.setAttribute('onClick', "showUlChildren('"+span.innerHTML+"')");
 					newUl.style.display = 'none';
 					var ulNode = document.createTextNode(span.innerHTML);
 					newUl.appendChild(ulNode);
