@@ -411,7 +411,7 @@ function createOccurrenceLi(occurrence, occurrenceValue) {
 	var parentTag = occurrence.parentNode.id.match(/([^-]+)/)[1];
 	if (parentTag === "P") {parentTag = "paragraph"}
 	else if (parentTag.startsWith("H")) {parentTag = "title"}
-	else (parentTag === "FIGCAPTION") {parentTag = "figure caption"}
+	else if (parentTag === "FIGCAPTION") {parentTag = "figure caption"}
 	var parentNum = occurrence.parentNode.id.match(/-([^-]+)-/)[1];  
 	var parentTagAndNum = (parentTag+" "+parentNum).toLowerCase();
 
