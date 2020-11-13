@@ -286,12 +286,13 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 		//var myFrames = myIssue.getElementsByTagName("iframe");
 		var myFrames = document.getElementById("issue"+ i).getElementsByTagName("iframe"); //accorpamento delle due variabili precedenti
 
-    	for (var n = 1; n < myFrames.length; n++) {       
-	   		//var curFrame = myFrames[n];
-	    	//var elmnt = curFrame.contentWindow.document.body;
+    	for (var n = 1; n < myFrames.length; n++) { 
+		
+		var sc = document.createElement("script");
+		sc.setAttribute('src', 'PROVA_js.js');
+		myFrames[n].contentWindow.document.head.appendChild(sc);
+		
 	    	var elmnt = myFrames[n].contentWindow.document.body;
-
-	    	
 
 	    	/*aggiungere un id ad ogni elemento del body tipo = "h1-1-n" */
 	    	var allIframeElements = elmnt.getElementsByTagName("*");
