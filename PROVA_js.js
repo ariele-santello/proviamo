@@ -347,7 +347,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = matchedUl;
 				}
 				
-				createOccurrenceLi(span, span.innerHTML, newUl, n);				
+				createOccurrenceLi(span, span.innerHTML, newUl, n, myFrames);				
 			}
 
 
@@ -378,7 +378,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = matchedTimeUl;
 				}
 
-				createOccurrenceLi(times[t], times[t].dateTime, newUl, n);
+				createOccurrenceLi(times[t], times[t].dateTime, newUl, n, myFrames);
 			}
 
 		}
@@ -408,7 +408,7 @@ function createInstanceUl(instance, parentLi) {
 	parentLi.appendChild(newUl);
 }
 
-function createOccurrenceLi(occurrence, occurrenceValue, newUl, n) {	//occurrenceValue è instance nella funzione precedente
+function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
 
 	//recuperare il parent per scriverlo in instanceNode come punto di riferimento per l'user
