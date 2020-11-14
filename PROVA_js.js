@@ -317,7 +317,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				var categoryFound = false;				
 				var instanceFound = false;
 				for (var a=0; a<myList.children.length; a++){ 	//a questo punto specificare se ci sono più classi
-					if (curCategory === myList.children[a].id) {
+					if (curCategory === myList.children[a].className) { // invece di myList.children[a].id
 						categoryFound = true;
 						var matchedLi = myList.children[a];
 					}
@@ -326,12 +326,12 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				if (categoryFound === false) {
 					createCategoryLi(i, curCategory, myList);
-					var matchedLi = document.getElementById(curCategory);
+					var matchedLi = document.getElementsByClassName(curCategory)[i-1];
 				}
 
 				else{
 					for (c=0; c<matchedLi.children.length; c++){
-						if (span.innerHTML.includes(matchedLi.children[c].id) || matchedLi.children[c].id.includes(span.innerHTML)) { // partial matching
+						if (span.innerHTML.includes(matchedLi.children[c].className) || matchedLi.children[c].className.includes(span.innerHTML)) { // partial matching
 							instanceFound = true;
 							var matchedUl = matchedLi.children[c];
 						}
@@ -341,7 +341,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				if (instanceFound === false) {
 					createInstanceUl(i, span.innerHTML, matchedLi);
-					var newUl = document.getElementById(span.innerHTML);
+					var newUl = document.getElementByClassName(span.innerHTML)[i-1];
 				}
 				else {
 					var newUl = matchedUl;
@@ -363,7 +363,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				else{
 					for (r=0; r<document.getElementById('Time').children.length; r++){
-						if ((times[t].dateTime === document.getElementById('Time').children[r].id)) { 
+						if ((times[t].dateTime === document.getElementById('Time').children[r].id)) {  // da sistemare in prospettiva delle classi
 							myInstanceFound = true;
 							var matchedTimeUl = document.getElementById('Time').children[r];
 						}
@@ -389,7 +389,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 function createCategoryLi(i, category, myList) {
 	var newLi = document.createElement('li');
-	newLi.setAttribute('id', category);
+	newLi.setAttribute('class', category); // invece di ('id', category+i)
 	//1. add showLiChildren
 	newLi.setAttribute('onClick', "showLiChildren('"+i+"', '"+category+"')");
 	var liNode = document.createTextNode(category);
@@ -399,7 +399,7 @@ function createCategoryLi(i, category, myList) {
 
 function createInstanceUl(i, instance, parentLi) {
 	var newUl = document.createElement('ul');
-	newUl.setAttribute('id', instance);
+	newUl.setAttribute('id', instance+i);
 	//2. add showUlChildren and display none
 	newUl.setAttribute('onClick', "showUlChildren('"+i+"', '"+instance+"', event)");
 	newUl.style.display = 'none';
@@ -467,8 +467,7 @@ function goToMetadata(instanceId){
 
 //4. da rimettere in commento
 function showLiChildren(i, instanceId){
-	var listIssue = document.getElementById('listIssue'+i);
-	var e = listIssue.getElementById(instanceId).children;
+	var e = document.getElementsByClassName(instanceId)[i-1].children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
@@ -492,8 +491,7 @@ function showLiChildren(i, instanceId){
 
 //5. da rimettere in commento
 function showUlChildren(i, instanceId, event){
-	var listIssue = document.getElementById('listIssue'+i);
-	var e = listIssue.getElementById(instanceId).children;
+	var e = document.getElementsByClassName(instanceId)[i-1].children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
