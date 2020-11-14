@@ -441,6 +441,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames) {	/
 	//occurrenceLi.appendChild(citNode);
 
 	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
+	occurrence.setAttribute('id', occurrenceId);
 
 	occurrenceLi.setAttribute('onclick', "highlight('"+occurrenceId+"', '"+myFrames[n].id+"')"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
