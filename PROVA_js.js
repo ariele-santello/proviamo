@@ -455,7 +455,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames) {	/
 
 //from text keywords to metadata viewer
 function goToMetadata(instanceId){
-	var e = document.getElementById(instanceId); //mettendo in block l'ul vanno in block anche tutti i figli
+	var e = window.parent.document.getElementById(instanceId); //mettendo in block l'ul vanno in block anche tutti i figli
 	e.style.display = 'block';
 	var f = e.children;
 	for (var g of f){
