@@ -325,7 +325,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 
 				if (categoryFound === false) {
-					createCategoryLi(curCategory, myList);
+					createCategoryLi(i, curCategory, myList);
 					var matchedLi = document.getElementById(curCategory);
 				}
 
@@ -340,7 +340,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			
 
 				if (instanceFound === false) {
-					createInstanceUl(span.innerHTML, matchedLi);
+					createInstanceUl(i, span.innerHTML, matchedLi);
 					var newUl = document.getElementById(span.innerHTML);
 				}
 				else {
@@ -358,7 +358,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			for (var t=0; t<times.length; t++){
 				var myInstanceFound = false;
 				if (t===0 && n===1) {
-					createCategoryLi("Time", myList); //decidere come chiamarlo
+					createCategoryLi(i, "Time", myList); //decidere come chiamarlo
 				}
 
 				else{
@@ -371,7 +371,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				}
 
 				if (myInstanceFound === false) {
-					createInstanceUl(times[t].dateTime, document.getElementById('Time'));
+					createInstanceUl(i, times[t].dateTime, document.getElementById('Time'));
 					var newUl = document.getElementById(times[t].dateTime);
 				}
 				else{
@@ -387,21 +387,21 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 }
 
 
-function createCategoryLi(category, myList) {
+function createCategoryLi(i, category, myList) {
 	var newLi = document.createElement('li');
 	newLi.setAttribute('id', category);
 	//1. add showLiChildren
-	newLi.setAttribute('onClick', "showLiChildren('"+category+"')");
+	newLi.setAttribute('onClick', "showLiChildren('"+i+"', '"+category+"')");
 	var liNode = document.createTextNode(category);
 	newLi.appendChild(liNode);
 	myList.appendChild(newLi);
 }
 
-function createInstanceUl(instance, parentLi) {
+function createInstanceUl(i, instance, parentLi) {
 	var newUl = document.createElement('ul');
 	newUl.setAttribute('id', instance);
 	//2. add showUlChildren and display none
-	newUl.setAttribute('onClick', "showUlChildren('"+instance+"', event)");
+	newUl.setAttribute('onClick', "showUlChildren('"+i+"', '"+instance+"', event)");
 	newUl.style.display = 'none';
 	var ulNode = document.createTextNode(instance);
 	newUl.appendChild(ulNode);
@@ -466,8 +466,8 @@ function goToMetadata(instanceId){
 
 
 //4. da rimettere in commento
-function showLiChildren(instanceId){
-	var e = document.getElementById(instanceId).children;
+function showLiChildren(i, instanceId){
+	var e = document.getElementById("issue"+ i).getElementById(instanceId).children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
@@ -490,8 +490,8 @@ function showLiChildren(instanceId){
 
 
 //5. da rimettere in commento
-function showUlChildren(instanceId, event){
-	var e = document.getElementById(instanceId).children;
+function showUlChildren(i, instanceId, event){
+	var e = document.getElementById("issue"+ i).getElementById(instanceId).children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
