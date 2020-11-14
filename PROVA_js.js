@@ -467,7 +467,8 @@ function goToMetadata(instanceId){
 
 //4. da rimettere in commento
 function showLiChildren(i, instanceId){
-	var e = document.getElementById("issue"+ i).getElementById(instanceId).children;
+	var listIssue = document.getElementById('listIssue'+i);
+	var e = listIssue.getElementById(instanceId).children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
@@ -491,7 +492,8 @@ function showLiChildren(i, instanceId){
 
 //5. da rimettere in commento
 function showUlChildren(i, instanceId, event){
-	var e = document.getElementById("issue"+ i).getElementById(instanceId).children;
+	var listIssue = document.getElementById('listIssue'+i);
+	var e = listIssue.getElementById(instanceId).children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
