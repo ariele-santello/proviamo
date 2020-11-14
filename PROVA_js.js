@@ -357,7 +357,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 			for (var t=0; t<times.length; t++){
 				var myInstanceFound = false;
-				if (t===0) {
+				if (t===0 && n===1) {
 					createCategoryLi("Time", myList); //decidere come chiamarlo
 				}
 
