@@ -443,7 +443,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames) {	/
 	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
 	occurrence.setAttribute('id', occurrenceId);
 
-	occurrenceLi.setAttribute('onclick', "highlight('"+occurrenceId+"', '"+myFrames[n].id+"')"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
+	occurrenceLi.setAttribute('onclick', "highlight('"+occurrenceId+"', '"+myFrames[n].id+"', event)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 	newUl.appendChild(occurrenceLi);
 
@@ -546,7 +546,7 @@ function parsing(span, parent, numIstanza){
 // evidenziare i metadati nel testo dell'articolo
 // serve anche cambiare articolo se i metadati puntano all'articolo non in block al momento?
 // manca la scomparsa dello stile onscroll e onclick su qualunque altro tasto
-function highlight(spanId, iFrameN) {
+function highlight(spanId, iFrameN, event) {
 	//removeHighligth(iFrameN);
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
 	var curInstance = elmnt.getElementById(spanId);
@@ -591,6 +591,8 @@ function highlight(spanId, iFrameN) {
         curInstance.style.OAnimation = '';
         curInstance.style.MozAnimation = '';
     	}, 10000); // we have to reset the name of animation otherwise another call to background-fade wont have any effect
+	
+     event.stopPropagation();
 }
 /*
 function removeHighligth(iFrameN){
