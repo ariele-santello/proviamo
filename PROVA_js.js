@@ -408,7 +408,8 @@ function createInstanceUl(i, instance, parentLi) {
 	parentLi.appendChild(newUl);
 	var wikiLi = document.createElement('li'); //creiamo un elemento li che è il bottone cliccabile per arriavre alla pagina Wikipedia di instance
 	var link = document.createElement('a'); //creiamo un elemento 'a'
-	var hrefValue = 'http://en.wikipedia.org/wiki/'+escape(instance);  //costruiamo il link    
+	var normalizedInstance = instance.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //NFD Unicode Normal Form: scompone i grafemi in una combinazione di grafemi semplici per esempio e piu accento. la Regex invece è un range per eliminare gli accenti, quindi da u ad f.
+	var hrefValue = 'http://en.wikipedia.org/wiki/'+escape(normalizedInstance);  //costruiamo il link    
 	link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito
 	link.setAttribute('target', '_blank');
 	var wikiText = document.createTextNode("wikipedia");
