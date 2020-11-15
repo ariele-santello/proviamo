@@ -361,7 +361,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				else{
 					for (r=0; r<document.getElementById('Time').children.length; r++){
-						if ((times[t].dateTime === document.getElementById('Time').children[r].className)) {  // da sistemare in prospettiva delle classi
+						if ((times[t].dateTime === document.getElementById('Time').children[r].className)) {  // qualcosa qui non funziona, forse, invece di id, class.. (createInstanceUl risulta avere parent null)
 							myInstanceFound = true;
 							var matchedTimeUl = document.getElementById('Time').children[r];
 						}
