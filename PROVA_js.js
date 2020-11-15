@@ -473,7 +473,7 @@ function goToMetadata(curList, instanceId){
 		g.style.display = 'block';
 	}
 }
-//attribuisci effetto di hover da specificare nel css tipo con un background color
+//attribuisci effetto di hover da specificare nel css tipo con un background color 
 
 
 //4. da rimettere in commento
