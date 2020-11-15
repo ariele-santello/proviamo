@@ -406,6 +406,16 @@ function createInstanceUl(i, instance, parentLi) {
 	var ulNode = document.createTextNode(instance);
 	newUl.appendChild(ulNode);
 	parentLi.appendChild(newUl);
+	var wikiLi = document.createElement('li'); //creiamo un elemento li che è il bottone cliccabile per arriavre alla pagina Wikipedia di instance
+	var link = document.createElement('a'); //creiamo un elemento 'a'
+	var hrefValue = 'http://en.wikipedia.org/wiki/'+escape(instance);  //costruiamo il link    
+	link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito
+	link.setAttribute('target', '_blank');
+	var wikiText = document.createTextNode("wikipedia");
+	link.appendChild(wikiText);
+	wikiLi.appendChild(link);
+	newUl.appendChild(wikiLi);
+	
 }
 
 function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
