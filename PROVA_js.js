@@ -282,9 +282,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 		
 		// enter each iFrame of the issue 
 
-		//var myIssue = document.getElementById("issue"+ i);
-		//var myFrames = myIssue.getElementsByTagName("iframe");
-		var myFrames = document.getElementById("issue"+ i).getElementsByTagName("iframe"); //accorpamento delle due variabili precedenti
+		var myFrames = document.getElementById("issue"+ i).getElementsByTagName("iframe");
 
     	for (var n = 1; n < myFrames.length; n++) { 
 		
@@ -325,7 +323,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 
 				if (categoryFound === false) {
-					createCategoryLi(i, curCategory, myList);
+					createCategoryLi(curCategory, myList);
 					var matchedLi = myList.getElementsByClassName(curCategory)[0];
 				}
 
@@ -340,7 +338,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			
 
 				if (instanceFound === false) {
-					createInstanceUl(i, span.innerHTML, matchedLi);
+					createInstanceUl(span.innerHTML, matchedLi, myList);
 					var newUl = myList.getElementsByClassName(span.innerHTML)[0];
 				}
 				else {
@@ -358,7 +356,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			for (var t=0; t<times.length; t++){
 				var myInstanceFound = false;
 				if (t===0 && n===1) {
-					createCategoryLi(i, "Time", myList); //decidere come chiamarlo
+					createCategoryLi("Time", myList); //decidere come chiamarlo
 				}
 
 				else{
@@ -371,7 +369,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				}
 
 				if (myInstanceFound === false) {
-					createInstanceUl(i, times[t].dateTime, document.getElementById('Time'));
+					createInstanceUl(times[t].dateTime, document.getElementById('Time'), myList);
 					var newUl = myList.getElementsByClassName(times[t].dateTime)[0];
 				}
 				else{
@@ -387,7 +385,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 }
 
 
-function createCategoryLi(i, category, myList) {
+function createCategoryLi(category, myList) {
 	var newLi = document.createElement('li');
 	newLi.setAttribute('class', category); // invece di ('id', category+i)
 	//1. add showLiChildren
@@ -397,11 +395,11 @@ function createCategoryLi(i, category, myList) {
 	myList.appendChild(newLi);
 }
 
-function createInstanceUl(i, instance, parentLi) {
+function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo link a wikipedia (se farlo vedere contemporaneamente all'ul)
 	var newUl = document.createElement('ul');
 	newUl.setAttribute('class', instance);
 	//2. add showUlChildren and display none
-	newUl.setAttribute('onClick', "showUlChildren('"+i+"', '"+instance+"', event)");
+	newUl.setAttribute('onClick', "showUlChildren('"+myList+"', '"+instance+"', event)");
 	newUl.style.display = 'none';
 	var ulNode = document.createTextNode(instance);
 	newUl.appendChild(ulNode);
@@ -466,7 +464,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 
 //from text keywords to metadata viewer
 function goToMetadata(curList, instanceId){
-	var e = window.parent.document.getElementById(curList).getElemmentsByClassName(instanceId)[0];
+	var e = window.parent.document.getElementById(curList.id).getElemmentsByClassName(instanceId)[0];
 	e.style.display = 'block';
 	var f = e.children;
 	for (var g of f){
