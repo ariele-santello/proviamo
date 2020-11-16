@@ -418,10 +418,6 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	
 }
 
-$('li.wikiLink').click(function(event){
-	event.stopPropagation();
-});
-
 
 function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
