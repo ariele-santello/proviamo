@@ -360,7 +360,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				}
 
 				else{
-					for (r=0; r<document.getElementById('Time').children.length; r++){
+					for (r=0; r<myList.getElementsByClassName('Time')[0].children.length; r++){  //document.getElementById('Time').children.length
 						if ((times[t].dateTime === myList.getElementsByClassName('Time')[0].children[r].className)) {  // qualcosa qui non funziona, forse, invece di id, class.. (createInstanceUl risulta avere parent null)   //document.getElementById('Time').children[r].className
 							myInstanceFound = true;
 							var matchedTimeUl = myList.getElementsByClassName('Time')[0].children[r];  //document.getElementById('Time').children[r];
