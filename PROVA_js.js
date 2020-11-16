@@ -389,7 +389,7 @@ function createCategoryLi(category, myList) {
 	var newLi = document.createElement('li');
 	newLi.setAttribute('class', category); // invece di ('id', category+i)
 	//1. add showLiChildren
-	newLi.setAttribute('onClick', "showLiChildren('"+myList+"', '"+category+"')");
+	newLi.setAttribute('onClick', "showLiChildren('"+myList.id+"', '"+category+"')");
 	var liNode = document.createTextNode(category);
 	newLi.appendChild(liNode);
 	myList.appendChild(newLi);
@@ -399,7 +399,7 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	var newUl = document.createElement('ul');
 	newUl.setAttribute('class', instance);
 	//2. add showUlChildren and display none
-	newUl.setAttribute('onClick', "showUlChildren('"+myList+"', '"+instance+"', event)");
+	newUl.setAttribute('onClick', "showUlChildren('"+myList.id+"', '"+instance+"', event)");
 	newUl.style.display = 'none';
 	var ulNode = document.createTextNode(instance);
 	newUl.appendChild(ulNode);
@@ -475,8 +475,8 @@ function goToMetadata(curList, instanceId){
 
 
 //4. da rimettere in commento
-function showLiChildren(myList, instanceId){
-	var e = myList.getElementsByClassName(instanceId)[0].children;
+function showLiChildren(myListId, instanceId){
+	var e = document.getElementById(myListId).getElementsByClassName(instanceId)[0].children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
@@ -499,8 +499,8 @@ function showLiChildren(myList, instanceId){
 
 
 //5. da rimettere in commento
-function showUlChildren(myList, instanceId, event){
-	var e = myList.getElementsByClassName(instanceId)[0].children;
+function showUlChildren(myListId, instanceId, event){
+	var e = document.getElementById(myListId).getElementsByClassName(instanceId)[0].children;
 	if(e[0].style.display == 'block'){
 		for (var child of e){
 			child.style.display = 'none';
