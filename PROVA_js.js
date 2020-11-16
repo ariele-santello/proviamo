@@ -369,7 +369,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				}
 
 				if (myInstanceFound === false) {
-					createInstanceUl(times[t].dateTime, myList.children.getElementsByClassName('TIME')[0], myList);  //secondo parametro: document.getElementById('Time')
+					createInstanceUl(times[t].dateTime, myList.getElementsByClassName('TIME')[0], myList);  //secondo parametro: document.getElementById('Time')
 					var newUl = myList.getElementsByClassName(times[t].dateTime)[0];
 				}
 				else{
