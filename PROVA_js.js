@@ -410,12 +410,18 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	var hrefValue = 'http://en.wikipedia.org/wiki/'+escape(normalizedInstance);  //costruiamo il link    
 	link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito
 	link.setAttribute('target', '_blank');
+	link.setAttribute('class', 'wikiLink'); //classe per poter richiamare la funzione da jquery
 	var wikiText = document.createTextNode("wikipedia");
 	link.appendChild(wikiText);
 	wikiLi.appendChild(link);
 	newUl.appendChild(wikiLi);
 	
 }
+
+$('li.wikiLink').click(function(event){
+	event.stopPropagation();
+});
+
 
 function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
