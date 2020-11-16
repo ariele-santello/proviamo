@@ -361,15 +361,15 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 
 				else{
 					for (r=0; r<document.getElementById('Time').children.length; r++){
-						if ((times[t].dateTime === document.getElementById('Time').children[r].className)) {  // qualcosa qui non funziona, forse, invece di id, class.. (createInstanceUl risulta avere parent null)
+						if ((times[t].dateTime === myList.getElementByClassName('Time')[0].children[r].className)) {  // qualcosa qui non funziona, forse, invece di id, class.. (createInstanceUl risulta avere parent null)   //document.getElementById('Time').children[r].className
 							myInstanceFound = true;
-							var matchedTimeUl = document.getElementById('Time').children[r];
+							var matchedTimeUl = myList.getElementByClassName('Time')[0].children[r];  //document.getElementById('Time').children[r];
 						}
 					}
 				}
 
 				if (myInstanceFound === false) {
-					createInstanceUl(times[t].dateTime, document.getElementById('Time'), myList);
+					createInstanceUl(times[t].dateTime, myList.getElementByClassName('Time')[0], myList);  //secondo parametro: document.getElementById('Time')
 					var newUl = myList.getElementsByClassName(times[t].dateTime)[0];
 				}
 				else{
