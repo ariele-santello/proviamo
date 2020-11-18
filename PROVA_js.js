@@ -518,7 +518,7 @@ function showUlChildren(myListId, instanceId, event){
 
 
 function parsing(span, parent, numIstanza){
-	var container = parent.replace(/<[^>]*>/gi, ' ') //or gi:To perform a global, case-insensitive search
+	var container = parent.innerHTML.replace(/<[^>]*>/gi, ' ') //or gi:To perform a global, case-insensitive search
 	.replace(/\s{2,}/gi, ' ')
 	.trim();
 /*	
