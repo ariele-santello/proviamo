@@ -440,7 +440,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 	//numero di li il cui span o elemento time corrispondente ha lo stesso parent di quello corrente
 	var pos = 0;
 	for (var ulchild of newUl.children){
-		if occurrence.parent.id === ulchild.getAttribute('data-parent'){
+		if (occurrence.parent.id === ulchild.getAttribute('data-parent')){
 			pos++;
 		}
 	}
