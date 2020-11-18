@@ -517,9 +517,9 @@ function showUlChildren(myListId, instanceId, event){
 
 
 function parsing(span, parent, numIstanza){
-	var container = parent.innerHTML.replace(/<[^>]*>/gi, ' ') //or gi:To perform a global, case-insensitive search
-	.replace(/\s{2,}/gi, ' ')
-	.trim();
+	//var container = parent.innerHTML.replace(/<[^>]*>/gi, ' ') //or gi:To perform a global, case-insensitive search
+	//.replace(/\s{2,}/gi, ' ')
+	//.trim();
 /*	
 	// se riusciamo a trovare un modo di far funzionare la riga 401, allora dalla 385 alla 400 sono inutili
 	if (numIstanza != 0) {
@@ -543,6 +543,7 @@ function parsing(span, parent, numIstanza){
 	var snippetArray = container.match(regExp);
 	return snippetArray[numIstanza];
 */
+	var container = parent.innerText;
 	//versione che funziona
 	var e = new RegExp('(\\S+\\s){0,5}\\S*' + span + '(\\s+\\S+){0,5}', 'ig');
   	var res = container.match(e);
