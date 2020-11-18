@@ -447,8 +447,8 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 	occurrenceLi.setAttribute('data-parent', occurrence.parent.id);
 	*/
 
-	//var citNode = document.createTextNode('" '+ parsing(occurrenceValue, occurrence.parentNode)+'"'); //vedi se fare textNode o innerHTML
-	//occurrenceLi.appendChild(citNode);
+	var citNode = document.createTextNode('" '+ parsing(occurrenceValue, occurrence.parentNode)+'"'); //vedi se fare textNode o innerHTML
+	occurrenceLi.appendChild(citNode); //appena tolto dal commento
 
 	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
 	occurrence.setAttribute('id', occurrenceId);
@@ -516,12 +516,12 @@ function showUlChildren(myListId, instanceId, event){
 }
 
 
-/*
+
 function parsing(span, parent, numIstanza){
-	var container = parent.replace(/<[^>]*>/gi, ' ') !!or gi:To perform a global, case-insensitive search
+	var container = parent.replace(/<[^>]*>/gi, ' ') //or gi:To perform a global, case-insensitive search
 	.replace(/\s{2,}/gi, ' ')
 	.trim();
-	
+/*	
 	// se riusciamo a trovare un modo di far funzionare la riga 401, allora dalla 385 alla 400 sono inutili
 	if (numIstanza != 0) {
 		// vedere come gestire le posizioni 0
@@ -543,13 +543,13 @@ function parsing(span, parent, numIstanza){
 	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g");
 	var snippetArray = container.match(regExp);
 	return snippetArray[numIstanza];
-
+*/
 	//versione che funziona
 	var e = new RegExp('(\\S+\\s){0,5}\\S*' + span + '(\\s+\\S+){0,5}', 'ig');
   	var res = container.match(e);
   	return res[numIstanza];
 }
-*/
+
 
 
 
