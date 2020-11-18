@@ -444,7 +444,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 			pos++;
 		}
 	}
-	occurrenceLi.setAttribute('data-parent', occurrence.parent.id);
+	occurrenceLi.setAttribute('data-parent', occurrence.parentNode.id);
 
 	var citNode = document.createTextNode('" '+ parsing(occurrenceValue, occurrence.parentNode, pos)+'"'); //vedi se fare textNode o innerHTML
 	occurrenceLi.appendChild(citNode); //appena tolto dal commento
