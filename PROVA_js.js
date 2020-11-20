@@ -525,7 +525,7 @@ function parsing(instance, parent, numIstanza){
 	else{
 		var cleanInstance = instance;
 	}
-	var e = new RegExp('(\\S+\\s){0,5}\\S*' + cleanInstance + '(\\s+\\S+){0,5}', 'ig');
+	var e = new RegExp('(\\S+\\s){0,5}\\S*' + cleanInstance + '(\\,?\\s+\\S+){0,5}', 'ig');
   	var res = container.match(e);
   	return res[numIstanza];
 }
