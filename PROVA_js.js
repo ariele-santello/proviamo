@@ -345,7 +345,8 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = matchedUl;
 				}
 				
-				createOccurrenceLi(span, span.innerHTML, newUl, n, myFrames, myList);				
+				createOccurrenceLi(span, span.innerHTML, newUl, n, myFrames, myList);	
+				
 			}
 
 
@@ -446,7 +447,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 	}
 	occurrenceLi.setAttribute('data-parent', occurrence.parentNode.id);
 
-	var citNode = document.createTextNode('" '+ parsing(occurrenceValue, occurrence.parentNode, pos)+'"'); //vedi se fare textNode o innerHTML
+	var citNode = document.createTextNode('" '+ parsing(occurrence.innerText, occurrence.parentNode, pos)+'"'); //vedi se fare textNode o innerHTML
 	occurrenceLi.appendChild(citNode); //appena tolto dal commento
 
 	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
@@ -517,9 +518,10 @@ function showUlChildren(myListId, instanceId, event){
 
 
 function parsing(instance, parent, numIstanza){
-	if (document.getElementById(instance).tagName === "TIME"){     //nel caso in cui il tag sia TIME,prendiamo l'innerHTML invece che l'Id 
+	/*if (document.getElementById(instance).tagName === "TIME"){     //nel caso in cui il tag sia TIME,prendiamo l'innerHTML invece che l'Id 
 		var instance = document.getElementById(instance).innerHTML;	
 	}
+	*/
 	var container = parent.innerText;
 	if (instance.includes("(") && instance.includes(")")){ //modificate le parentesi con le corrispettive espressioni in regexp
 		var cleanInstance = instance.replace(/\(/g, "\\S*\(").replace(/\)/g, "\\S*\)");
