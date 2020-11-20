@@ -518,10 +518,6 @@ function showUlChildren(myListId, instanceId, event){
 
 
 function parsing(instance, parent, numIstanza){
-	/*if (document.getElementById(instance).tagName === "TIME"){     //nel caso in cui il tag sia TIME,prendiamo l'innerHTML invece che l'Id 
-		var instance = document.getElementById(instance).innerHTML;	
-	}
-	*/
 	var container = parent.innerText;
 	if (instance.includes("(") && instance.includes(")")){ //modificate le parentesi con le corrispettive espressioni in regexp
 		var cleanInstance = instance.replace(/\(/g, "\\S*\(").replace(/\)/g, "\\S*\)");
