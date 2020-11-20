@@ -205,7 +205,15 @@
 		<meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="PROVA_js.js"></script>
-		<script>$('.wikiLink').click(function(event){event.preventDefault();});</script>
+		<script>
+			$(document).ready(function(){
+				$('.wikiLink').click(function(event){
+					event.stopPropagation();
+					return false;
+				});
+			});	
+		</script>
+		
 	</head>
 
 
