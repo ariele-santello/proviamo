@@ -1,4 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 function changeCSS(cssFile, cssLinkIndex) {
 	/* create new link */
@@ -418,7 +417,7 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	parentLi.appendChild(newUl);	
 }
 
-/*
+
 function($){
 	$(document).ready(function(){
 		$(".wikiLink").click(function(event){
@@ -427,7 +426,7 @@ function($){
 		});
 	});
 }
-*/
+
 
 function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
