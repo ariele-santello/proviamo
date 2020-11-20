@@ -544,8 +544,13 @@ function parsing(span, parent, numIstanza){
 	return snippetArray[numIstanza];
 */
 	var container = parent.innerText;
-	//versione che funziona
-	var e = new RegExp('(\\S+\\s){0,5}\\S*' + span + '(\\s+\\S+){0,5}', 'ig');
+	if (span.includes("(") && span.includes(")")){ //modificate le parentesi con le corrispettive espressioni in regexp
+		var cleanSpan = span.replace(/\(/g, "\\S*\(").replace(/\)/g, "\\S*\)");
+	} 
+	else{
+		var cleanSpan = span;
+	}
+	var e = new RegExp('(\\S+\\s){0,5}\\S*' + cleanSpan + '(\\s+\\S+){0,5}', 'ig');
   	var res = container.match(e);
   	return res[numIstanza];
 }
