@@ -516,41 +516,19 @@ function showUlChildren(myListId, instanceId, event){
 
 
 
-function parsing(span, parent, numIstanza){
-	//var container = parent.innerHTML.replace(/<[^>]*>/gi, ' ') //or gi:To perform a global, case-insensitive search
-	//.replace(/\s{2,}/gi, ' ')
-	//.trim();
-/*	
-	// se riusciamo a trovare un modo di far funzionare la riga 401, allora dalla 385 alla 400 sono inutili
-	if (numIstanza != 0) {
-		// vedere come gestire le posizioni 0
-		var occorrenzeArray = [];
-		var pos = container.indexOf(span);
-		occorrenzeArray.push(pos);
-		// calcolo del numero di occorrenze
-		c = 1;
-		while (c < numero di occorrenze) {
-			pos = container.indexOf(span, pos+1);
-			occorrenzeArray.push(pos);
-			c++;
-		}
-		//da rivedere
-		var posIstanzaCorrente = occorrenzeArray[numIstanza];
+function parsing(instance, parent, numIstanza){
+	document.getElementById(instance).tagName;  
+	if (document.getElementById(instance).tagName === "TIME"){     //nel caso in cui il tag sia TIME,prendiamo l'innerHTML invece che l'Id 
+		var instance = document.getElementById(instance).innerHTML;	
 	}
-
-	//versione con stringa di regexp che non va
-	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g");
-	var snippetArray = container.match(regExp);
-	return snippetArray[numIstanza];
-*/
 	var container = parent.innerText;
-	if (span.includes("(") && span.includes(")")){ //modificate le parentesi con le corrispettive espressioni in regexp
-		var cleanSpan = span.replace(/\(/g, "\\S*\(").replace(/\)/g, "\\S*\)");
+	if (instance.includes("(") && instance.includes(")")){ //modificate le parentesi con le corrispettive espressioni in regexp
+		var cleanInstance = instance.replace(/\(/g, "\\S*\(").replace(/\)/g, "\\S*\)");
 	} 
 	else{
-		var cleanSpan = span;
+		var cleanInstance = instance;
 	}
-	var e = new RegExp('(\\S+\\s){0,5}\\S*' + cleanSpan + '(\\s+\\S+){0,5}', 'ig');
+	var e = new RegExp('(\\S+\\s){0,5}\\S*' + cleanInstance + '(\\s+\\S+){0,5}', 'ig');
   	var res = container.match(e);
   	return res[numIstanza];
 }
@@ -628,4 +606,32 @@ if (curCategory.includes(" ")) { //se c'è uno spazio in teoria vuol dire che c'
 }
 
 
+*/
+
+// body della funzione parsing!!
+//var container = parent.innerHTML.replace(/<[^>]*>/gi, ' ') //or gi:To perform a global, case-insensitive search
+	//.replace(/\s{2,}/gi, ' ')
+	//.trim();
+/*	
+	// se riusciamo a trovare un modo di far funzionare la riga 401, allora dalla 385 alla 400 sono inutili
+	if (numIstanza != 0) {
+		// vedere come gestire le posizioni 0
+		var occorrenzeArray = [];
+		var pos = container.indexOf(span);
+		occorrenzeArray.push(pos);
+		// calcolo del numero di occorrenze
+		c = 1;
+		while (c < numero di occorrenze) {
+			pos = container.indexOf(span, pos+1);
+			occorrenzeArray.push(pos);
+			c++;
+		}
+		//da rivedere
+		var posIstanzaCorrente = occorrenzeArray[numIstanza];
+	}
+
+	//versione con stringa di regexp che non va
+	var regExp = eval("/(\\S+\\s){0,5}\\S*" + span + "\\*(\\S+\\s+) {0,5}/g");
+	var snippetArray = container.match(regExp);
+	return snippetArray[numIstanza];
 */
