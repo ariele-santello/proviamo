@@ -417,7 +417,7 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	parentLi.appendChild(newUl);	
 }
 
-
+/*
 function($){
 	$(document).ready(function(){
 		$(".wikiLink").click(function(event){
@@ -426,7 +426,7 @@ function($){
 		});
 	});
 }
-
+*/
 
 function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
