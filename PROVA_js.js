@@ -407,15 +407,23 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	var link = document.createElement('a'); //creiamo un elemento 'a'
 	var normalizedInstance = instance.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //NFD Unicode Normal Form: scompone i grafemi in una combinazione di grafemi semplici per esempio e piu accento. la Regex invece è un range per eliminare gli accenti, quindi da u ad f.
 	var hrefValue = 'http://en.wikipedia.org/wiki/'+escape(normalizedInstance);  //costruiamo il link    
-	link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito
-	link.setAttribute('target', '_blank');
-	link.setAttribute('class', 'wikiLink'); //classe per poter richiamare la funzione da jquery
+	//link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito //da reintegrare se le altre due opzioni non vanno
+	//link.setAttribute('target', '_blank'); //da reintegrare se le altre due opzioni non vanno
+	//link.setAttribute('onClick', 'function wikiLink(hrefValue, event)'); //alternativa alla funzione inline, eventListener
+	link.addEventListener("click", function(hrefValue, event){window.open(hrefValue, "_blank"); event.stopPropagation();});
 	var wikiText = document.createTextNode("wikipedia");
 	link.appendChild(wikiText);
 	wikiLi.appendChild(link);
 	newUl.appendChild(wikiLi);
 	parentLi.appendChild(newUl);	
 }
+
+/*
+function wikiLink(newUrl, event) { 
+	window.open(newUrl, "_blank"); 
+	event.stopPropagation;
+} 
+*/
 
 /*
 function($){
