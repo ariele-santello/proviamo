@@ -480,7 +480,7 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 
 //from text keywords to metadata viewer
 function goToMetadata(curList, instanceId){
-	var e = window.parent.document.getElementById(curList.id).getElemmentsByClassName(instanceId)[0];
+	var e = window.parent.document.getElementById(curList.id).getElementsByClassName(instanceId)[0];
 	e.style.display = 'block';
 	var f = e.children;
 	for (var g of f){
