@@ -409,7 +409,7 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	var hrefValue = 'http://en.wikipedia.org/wiki/'+escape(normalizedInstance);  //costruiamo il link    
 	//link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito //da reintegrare se le altre due opzioni non vanno
 	//link.setAttribute('target', '_blank'); //da reintegrare se le altre due opzioni non vanno
-	link.setAttribute('onClick', 'function wikiLink('+hrefValue+', event)'); //alternativa alla funzione inline, eventListener
+	link.setAttribute('onClick', 'function wikiLink("'+hrefValue+'", event)'); //alternativa alla funzione inline, eventListener
 	//link.addEventListener("click", function(hrefValue, event){window.open(hrefValue, "_blank"); event.stopPropagation();});
 	var wikiText = document.createTextNode("wikipedia");
 	link.appendChild(wikiText);
