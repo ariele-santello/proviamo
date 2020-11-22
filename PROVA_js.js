@@ -410,7 +410,6 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	//link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito //da reintegrare se le altre due opzioni non vanno
 	//link.setAttribute('target', '_blank'); //da reintegrare se le altre due opzioni non vanno
 	link.setAttribute('onClick', 'wikiLink("'+hrefValue+'", event)'); //alternativa alla funzione inline, eventListener
-	//link.addEventListener("click", function(hrefValue, event){window.open(hrefValue, "_blank"); event.stopPropagation();});
 	var wikiText = document.createTextNode("wikipedia");
 	link.appendChild(wikiText);
 	wikiLi.appendChild(link);
@@ -422,17 +421,6 @@ function wikiLink(newUrl, event) {
 	window.open(newUrl, "_blank"); 
 	event.stopPropagation();
 } 
-
-/*
-function($){
-	$(document).ready(function(){
-		$(".wikiLink").click(function(event){
-			event.stopPropagation();
-			return false;
-		});
-	});
-}
-*/
 
 function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
