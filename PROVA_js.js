@@ -473,14 +473,14 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 	newUl.appendChild(occurrenceLi);
 
 	//from text keywords to metadata viewer
-	occurrence.setAttribute('onclick', "goToMetadata('"+myList+"', '"+occurrenceValue+"')");
+	occurrence.setAttribute('onclick', "goToMetadata('"+myList.id+"', '"+occurrenceValue+"')");
 }
 					
 
 
 //from text keywords to metadata viewer
-function goToMetadata(curList, instanceId){
-	var e = window.parent.document.getElementById(curList.id).getElementsByClassName(instanceId)[0];
+function goToMetadata(curListId, instanceId){
+	var e = window.parent.document.getElementById(curListId).getElementsByClassName(instanceId)[0];
 	e.style.display = 'block';
 	var f = e.children;
 	for (var g of f){
