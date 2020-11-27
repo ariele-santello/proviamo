@@ -308,8 +308,14 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			// get span tag 
 			var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
 
-			//first check: is the category already exist
+			//first check: if the category already exist
 			for (var span of spans) {
+				// creating the variable for the parent
+				if (span.parentNode.tagName === ("I" || "A" || "Q" || "SPAN" || "EM" || "STRONG" || "B" || "CITE")) {
+					var inlineParent = span.parentNode;
+					var spanParent = inlineParent.parentNode;
+				}
+				else {var spanParent = span.parentNode;}
 				var curCategory = span.className;  	//person
 				var categoryFound = false;				
 				var instanceFound = false;
@@ -344,7 +350,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = matchedUl;
 				}
 				
-				createOccurrenceLi(span, span.innerHTML, newUl, n, myFrames, myList);	
+				createOccurrenceLi(span, spanParent, span.innerHTML, newUl, n, myFrames, myList);	
 				
 			}
 
@@ -354,6 +360,12 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			var times = Array.prototype.slice.call(elmnt.getElementsByTagName("time"));
 
 			for (var t=0; t<times.length; t++){
+				// creating variable for parent
+				if (times[t].parentNode.tagName === ("Q" || "I" || "SPAN" || "A" || "EM" || "STRONG" || "B" || "CITE")) {
+					var inlineParent = times[t].parentNode;
+					var timeParent = inlineParent.parentNode;
+				}
+				else {var timeParent = times[t].parentNode;}
 				var myInstanceFound = false;
 				if (t===0 && n===1) {
 					createCategoryLi("TIME", myList); //decidere come chiamarlo
@@ -376,7 +388,7 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					var newUl = matchedTimeUl;
 				}
 
-				createOccurrenceLi(times[t], times[t].dateTime, newUl, n, myFrames, myList);
+				createOccurrenceLi(times[t], timeParent, times[t].dateTime, newUl, n, myFrames, myList);
 			}
 
 		}
@@ -406,7 +418,7 @@ function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo li
 	var wikiLi = document.createElement('li'); //creiamo un elemento li che è il bottone cliccabile per arriavre alla pagina Wikipedia di instance
 	var link = document.createElement('a'); //creiamo un elemento 'a'
 	var normalizedInstance = instance.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); //NFD Unicode Normal Form: scompone i grafemi in una combinazione di grafemi semplici per esempio e piu accento. la Regex invece è un range per eliminare gli accenti, quindi da u ad f.
-	var hrefValue = 'http://en.wikipedia.org/wiki/'+escape(normalizedInstance);  //costruiamo il link    
+	var hrefValue = 'http://en.wikipedia.org/wiki/'+normalizedInstance;  //costruiamo il link    
 	//link.setAttribute('href', hrefValue); //aggiungiamo a "link", figlio di "wikiLi", l'url costruito //da reintegrare se le altre due opzioni non vanno
 	//link.setAttribute('target', '_blank'); //da reintegrare se le altre due opzioni non vanno
 	link.setAttribute('onClick', 'wikiLink("'+hrefValue+'", event)'); //alternativa alla funzione inline, eventListener
@@ -422,17 +434,16 @@ function wikiLink(newUrl, event) {
 	event.stopPropagation();
 } 
 
-function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
+function createOccurrenceLi(occurrence, occurrenceParent, occurrenceValue, newUl, n, myFrames, myList) {	//occurrenceValue è instance nella funzione precedente
 	var occurrenceLi = document.createElement('li');
 
 	//recuperare il parent per scriverlo in instanceNode come punto di riferimento per l'user
-	var parentTag = occurrence.parentNode.id.match(/([^-]+)/)[1];
+	var parentTag = occurrenceParent.id.match(/([^-]+)/)[1];
 	if (parentTag === "P") {parentTag = "paragraph"}
 	else if (parentTag.startsWith("H")) {parentTag = "title"}
 	else if (parentTag === "FIGCAPTION") {parentTag = "figure caption"}
-	var parentNum = occurrence.parentNode.id.match(/-([^-]+)-/)[1];  
+	var parentNum = occurrenceParent.id.match(/-([^-]+)-/)[1];  
 	var parentTagAndNum = (parentTag+" "+parentNum).toLowerCase();
-
 	var instanceNode = document.createTextNode("article "+n+", "+parentTagAndNum+": "); //aggiungere stringa del titolo dell'articolo?
 	
 	//3. display none
@@ -444,13 +455,13 @@ function createOccurrenceLi(occurrence, occurrenceValue, newUl, n, myFrames, myL
 	//numero di li il cui span o elemento time corrispondente ha lo stesso parent di quello corrente
 	var pos = 0;
 	for (var ulchild of newUl.children){
-		if (occurrence.parentNode.id === ulchild.getAttribute('data-parent')){
+		if (occurrenceParent.id === ulchild.getAttribute('data-parent')){
 			pos++;
 		}
 	}
-	occurrenceLi.setAttribute('data-parent', occurrence.parentNode.id);
+	occurrenceLi.setAttribute('data-parent', occurrenceParent.id);
 
-	var citNode = document.createTextNode('" '+ parsing(occurrence.innerText, occurrence.parentNode, pos)+'"'); //vedi se fare textNode o innerHTML
+	var citNode = document.createTextNode('" '+ parsing(occurrence.innerText, occurrenceParent, pos)+'"'); //vedi se fare textNode o innerHTML
 	occurrenceLi.appendChild(citNode); //appena tolto dal commento
 
 	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
@@ -495,7 +506,7 @@ function showLiChildren(myListId, instanceId){
 			child.style.display = 'block';
 			var f = child.children;
 			for (var g of f){
-				g.style.display = 'none';
+				g.style.display = 'none'; //tranne il primo figlio di ul, cioè il link a wikipedia (.style.display = "inline-block";)
 			}
 		}
 	}
@@ -583,6 +594,7 @@ function highlight(spanId, iFrameN, event) {
     	curInstance.style.animation = '';
         curInstance.style.OAnimation = '';
         curInstance.style.MozAnimation = '';
+        elmnt.getElementsByTagName("head")[0].removeChild(cssAnimation);
     	}, 10000); // we have to reset the name of animation otherwise another call to background-fade wont have any effect
 	
      event.stopPropagation();
