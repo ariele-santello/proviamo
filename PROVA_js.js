@@ -492,22 +492,28 @@ function goToMetadata(curListId, instanceId){
 //4. da rimettere in commento
 function showLiChildren(myListId, instanceId){
 	var e = document.getElementById(myListId).getElementsByClassName(instanceId)[0].children;
-	if(e[0].style.display == 'block'){
-		for (var child of e){
+	if(e[0].style.display == 'block') {
+		for (var child of e) {
 			child.style.display = 'none';
 			var f = child.children;
-			for (var g of f){
-				g.style.display = 'none';
-			}
+			for (var g of f) { g.style.display = 'none'; }
 		}
 	}
 	else{
-		for (var child of e){
+		for (var child of e) {
 			child.style.display = 'block';
 			var f = child.children;
+			/*
 			for (var g of f){
-				g.style.display = 'none'; //tranne il primo figlio di ul, cioè il link a wikipedia (.style.display = "inline-block";)
+				g.style.display = 'none'; 
 			}
+			*/
+			// non mostrare i figli <li> degli <ul> tranne il primo figlio di ogni <ul>, cioè il link a wikipedia
+			for (var g = 0; g < f.length; g++) {
+				if (g === 0) {f[g].style.display = "inline-block";}
+				else {f[g].style.display = 'none';}
+			}
+
 		}
 	}
 }
