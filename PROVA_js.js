@@ -402,6 +402,7 @@ function createCategoryLi(category, myList) {
 	newLi.setAttribute('class', category); // invece di ('id', category+i)
 	//1. add showLiChildren
 	newLi.setAttribute('onClick', "showLiChildren('"+myList.id+"', '"+category+"')");
+	newLi.setAttribute('data-position', myList.children.length); //attributo per ordinare in base all'ordine di apparizione
 	var liNode = document.createTextNode(category);
 	newLi.appendChild(liNode);
 	myList.appendChild(newLi);
@@ -410,8 +411,8 @@ function createCategoryLi(category, myList) {
 function createInstanceUl(instance, parentLi, myList) { //ragionare sul primo link a wikipedia (se farlo vedere contemporaneamente all'ul)
 	var newUl = document.createElement('ul');
 	newUl.setAttribute('class', instance);
-	//2. add showUlChildren and display none
 	newUl.setAttribute('onClick', "showUlChildren('"+myList.id+"', '"+instance+"', event)");
+	newUl.setAttribute('data-position', parentLi.children.length);
 	newUl.style.display = 'none';
 	var ulNode = document.createTextNode(instance);
 	newUl.appendChild(ulNode);
