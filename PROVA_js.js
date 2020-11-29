@@ -641,7 +641,9 @@ function sortCategory(list, searchKey) {
   	b = list.children;
   	for (i = 0; i < (b.length - 1); i++) {
       		shouldSwitch = false;
-      		if (b[i].getAttribute(searchKey).toLowerCase() > b[i + 1].getAttribute(searchKey).toLowerCase()) {
+		if (!isNaN(b[i].getAttribute("data-position"))){var myStr = parseInt(b[i].getAttribute(searchKey))>parseInt(b[i+1].getAttribute(searchKey));}
+		else{var myStr = b[i].getAttribute(searchKey).toLowerCase() >b[i+1].getAttribute(searchKey).toLowerCase();}
+      		if (myStr) {
         		shouldSwitch = true;
         		break;
       		}
