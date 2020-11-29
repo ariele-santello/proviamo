@@ -8,7 +8,6 @@ function changeCSS(cssFile, cssLinkIndex) {
 	newlink.href = cssFile;
 	
 	/* case 1: external html */
-	
 	var linksArray = document.head.getElementsByTagName("link");
 	var firstCount = 0;
     	for (var l = 0; l < linksArray.length; l++) {
@@ -17,12 +16,9 @@ function changeCSS(cssFile, cssLinkIndex) {
     			linksArray[l].href = cssFile;
     		}
     	}
-    	if (firstCount == 0) {
-    		document.head.appendChild(newlink);
-    	}
+    	if (firstCount == 0) {document.head.appendChild(newlink);}
 	
 	/* case 2: internal html */
-	
 	var myFrames = document.getElementsByTagName("iframe");
     	for (var i = 0; i < myFrames.length; i++) {
     		var n = i+1;
@@ -36,9 +32,7 @@ function changeCSS(cssFile, cssLinkIndex) {
     				mylinks[l].href = cssFile;
     			}
     		}
-    		if (count == 0) {
-    			elmnt.appendChild(newlink);
-    		}
+    		if (count == 0) {elmnt.appendChild(newlink);}
     	}
     
     /* aggiunta per cambiare il css anche nei singoli iframe    */
@@ -58,9 +52,7 @@ function changeCSS(cssFile, cssLinkIndex) {
 
 
 function changeIssue(issueN){
-	
 	  /*  identificare l'issue da mostrare   */
-	
 	if ('issue1' === issueN) {
 		var x = document.getElementById('issue1');
 		var y = document.getElementById('issue2');
@@ -71,7 +63,6 @@ function changeIssue(issueN){
 	}
 
 	  /*  azioni sull'issue da mostrare e quelli da non mostrare   */
-	
 	var xChildren = x.children;     /*  i div che hanno class coverPage e articleN   */
 	var totLength = xChildren.length;     /* lunghezza della struttura dati dei figli di x  */
 	
@@ -99,11 +90,8 @@ function changeIssue(issueN){
 					newArticle.innerHTML = myMeta[l].content;
 				}
 			}
-		
 		document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[i-1]);
-	}
-	
-
+	}	
 
     /*	for (var n=1; n<totLength; n++) {
 		var newArticle = document.createElement("a");
@@ -130,33 +118,6 @@ function changeIssue(issueN){
 	}
 }
 
-
-/*
-function changeArticle(articleNum, issueNum){
-	var c = document.getElementById(issueNum).children;
-	c[0].style.display = "none";
-	for (var i=1; i<c.length; i++) {
-		if ("article" + i === articleNum) {
-			c[i].style.display = "block";
-			
-			// TORNARE AL FILE SORGENTE   
-			var myFrame = c[i].children[0];
-			var elmnt = myFrame.contentWindow.document.head;
-			var myMeta = elmnt.getElementsByTagName("meta");
-				for (var l = 0; l < myMeta.length; l++) {
-					if (myMeta[l].name == "DC.identifier" && myMeta[l].scheme == "DCTERMS.URI") {
-						var myOrigin = document.getElementById("Origin");
-						myOrigin.href = myMeta[l].content;
-						myOrigin.target = "_blank";
-    					}
-    				}
-		}
-		else {
-			c[i].style.display = "none";
-		}
-	}	
-}
-*/
 function getLinkOrigin(currentArticle, myOrigin) {
 	/* TORNARE AL FILE SORGENTE   */
 
@@ -169,7 +130,6 @@ function getLinkOrigin(currentArticle, myOrigin) {
 				myOrigin.target = "_blank";
 			}
 		}
-	
 }
 
 function changeArticleCommon(c, articleNum, myOrigin){
@@ -197,24 +157,6 @@ function changeArticleCover(articleNum, issueNum){
 	changeArticleCommon(c, articleNum, myOrigin);
 }
 
-
-/*	
-function changeArticleCover(articleNum, issueNum) {
-	var c = window.parent.document.getElementById(issueNum).children;
-	c[0].style.display = "none";
-	for (var i=1; i<=3; i++) {
-		if ("article" + i === articleNum) {
-			c[i].style.display = "block";
-		}
-		else {
-			c[i].style.display = "none";
-		}
-	}
-}
-*/	
-
-
-
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
  	
@@ -237,8 +179,6 @@ function prevArticle() {
 	}	
 }
 
-
-
 function nextArticle() {
 	var articles = document.getElementsByClassName("article");
 
@@ -257,14 +197,9 @@ function nextArticle() {
 	}
 }
 
-
-
-
-
 function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittura + separare 1. più classi in una 2. più tag innestati + funzioni block/hide sulle singole liste
 
 	// enter each issue 
-
 	var elements = document.getElementById('content').children;
 	
 	var counter = 0;
@@ -273,14 +208,12 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 			counter++;
 		}
 	}
-	
 	for (var i = 1; i <= counter; i++) {
 		// find the reference list 
 
 		var myList = document.getElementById("listIssue"+ i);  
 		
 		// enter each iFrame of the issue 
-
 		var myFrames = document.getElementById("issue"+ i).getElementsByTagName("iframe");
 
     	for (var n = 1; n < myFrames.length; n++) { 
@@ -326,7 +259,6 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					}
 				}
 
-
 				if (categoryFound === false) {
 					createCategoryLi(curCategory, myList);
 					var matchedLi = myList.getElementsByClassName(curCategory)[0];
@@ -341,7 +273,6 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 					}
 				}
 			
-
 				if (instanceFound === false) {
 					createInstanceUl(span.innerHTML, matchedLi, myList);
 					var newUl = myList.getElementsByClassName(span.innerHTML)[0];
@@ -354,8 +285,6 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 				
 			}
 
-
-				
 			// get time tag 
 			var times = Array.prototype.slice.call(elmnt.getElementsByTagName("time"));
 
@@ -395,7 +324,6 @@ function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittu
 	}
 
 }
-
 
 function createCategoryLi(category, myList) {
 	var newLi = document.createElement('li');
@@ -448,7 +376,6 @@ function createOccurrenceLi(occurrence, occurrenceParent, occurrenceValue, newUl
 	var parentTagAndNum = (parentTag+" "+parentNum).toLowerCase();
 	var instanceNode = document.createTextNode("article "+n+", "+parentTagAndNum+": "); //aggiungere stringa del titolo dell'articolo?
 	
-	//3. display none
 	occurrenceLi.style.display = 'none';
 
 	occurrenceLi.appendChild(instanceNode);
@@ -477,8 +404,6 @@ function createOccurrenceLi(occurrence, occurrenceParent, occurrenceValue, newUl
 	occurrence.setAttribute('onclick', "goToMetadata('"+myList.id+"', '"+occurrenceValue+"')");
 }
 					
-
-
 //from text keywords to metadata viewer
 function goToMetadata(curListId, instanceId){
 	var e = window.parent.document.getElementById(curListId).getElementsByClassName(instanceId)[0];
@@ -490,8 +415,6 @@ function goToMetadata(curListId, instanceId){
 }
 //attribuisci effetto di hover da specificare nel css tipo con un background color 
 
-
-//4. da rimettere in commento
 function showLiChildren(myListId, instanceId){
 	var e = document.getElementById(myListId).getElementsByClassName(instanceId)[0].children;
 	if(e[0].style.display == 'block') {
@@ -520,8 +443,6 @@ function showLiChildren(myListId, instanceId){
 	}
 }
 
-
-//5. da rimettere in commento
 function showUlChildren(myListId, instanceId, event){
 	var e = document.getElementById(myListId).getElementsByClassName(instanceId)[0].children;
 	if(e[1].style.display == 'block'){
@@ -544,8 +465,6 @@ function showUlChildren(myListId, instanceId, event){
 	event.stopPropagation();
 }
 
-
-
 function parsing(instance, parent, numIstanza){
 	var container = parent.innerText;
 	if (instance.includes("(") && instance.includes(")")){ //modificate le parentesi con le corrispettive espressioni in regexp
@@ -558,9 +477,6 @@ function parsing(instance, parent, numIstanza){
   	var res = container.match(e);
   	return res[numIstanza];
 }
-
-
-
 
 // evidenziare i metadati nel testo dell'articolo
 // serve anche cambiare articolo se i metadati puntano all'articolo non in block al momento?
