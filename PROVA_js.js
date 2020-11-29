@@ -531,8 +531,8 @@ function showUlChildren(myListId, instanceId, event){
 		}
 	}
 	else{
-		//for (var child of e)
-		{for (var i=1; i<e.length; i++){
+		//for (var child of e){
+		for (var i=1; i<e.length; i++){
 			e[i].style.display = 'block';
 		}		
 		/*for (var b = 0; b < e.length; b++) {
