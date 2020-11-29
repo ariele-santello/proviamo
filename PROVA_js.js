@@ -611,6 +611,41 @@ function highlight(spanId, iFrameN, event) {
 	
      event.stopPropagation();
 }
+
+function sortOccurrences(){
+	var elements = document.getElementById("metadata").children;
+	for (var i = 1; i <= 2; i++){   //nella versine finale ci sarà 3 perchè abbiamo 3 listissues
+		sortCategory(document.getElementById("listIssue" + i));
+		for (var n = 0; n < document.getElementById("listIssue" + i).children.length; n++){
+			sortCategory(document.getElementById("listIssue" + i).getElementsByClassName(document.getElementById("listIssue" + i).children[n].className)[0]);
+		}
+	}
+}
+
+function sortByAppearance(){
+	
+}
+
+function sortCategory(list) {
+  var i, switching, b, shouldSwitch;
+  switching = true;
+  while (switching) {
+  	switching = false;
+  	b = list.children;
+  	for (i = 0; i < (b.length - 1); i++) {
+      		shouldSwitch = false;
+      		if (b[i].getAttribute("class").toLowerCase() > b[i + 1].getAttribute("class").toLowerCase()) {
+        		shouldSwitch = true;
+        		break;
+      		}
+    	}
+    	if (shouldSwitch) {
+		b[i].parentNode.insertBefore(b[i + 1], b[i]); 
+		switching = true;
+	}
+  }
+}
+
 /*
 function removeHighligth(iFrameN){
 	var isOnView = document.getElementById(iFrameN).contentWindow.document.getElementsByName("onView");
