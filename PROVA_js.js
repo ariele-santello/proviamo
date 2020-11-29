@@ -524,14 +524,16 @@ function showLiChildren(myListId, instanceId){
 //5. da rimettere in commento
 function showUlChildren(myListId, instanceId, event){
 	var e = document.getElementById(myListId).getElementsByClassName(instanceId)[0].children;
-	if(e[0].style.display == 'block'){
-		for (var child of e){
-			child.style.display = 'none';
+	if(e[1].style.display == 'block'){
+		//for (var child of e){
+		for (var i=1; i<e.length; i++){
+			e[i].style.display = 'none';
 		}
 	}
 	else{
-		for (var child of e){
-			child.style.display = 'block';
+		//for (var child of e)
+		{for (var i=1; i<e.length; i++){
+			e[i].style.display = 'block';
 		}		
 		/*for (var b = 0; b < e.length; b++) {
 			if (b === 0) {e[b].style.display = "inline-block";}
