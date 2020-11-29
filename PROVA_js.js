@@ -332,6 +332,7 @@ function createCategoryLi(category, myList) {
 	newLi.setAttribute('onClick', "showLiChildren('"+myList.id+"', '"+category+"')");
 	newLi.setAttribute('data-position', myList.children.length); //attributo per ordinare in base all'ordine di apparizione
 	newLi.style.listStyleType = 'none';
+	newLi.style.width = '200px';
 	var liNode = document.createTextNode(category);
 	newLi.appendChild(liNode);
 	myList.appendChild(newLi);
