@@ -529,8 +529,14 @@ function showUlChildren(myListId, instanceId, event){
 		}
 	}
 	else{
+		/*
 		for (var child of e){
 			child.style.display = 'block';
+		}
+		*/
+		for (var t = 0; t < f.length; t++) {
+			if (t === 0) {e[t].style.display = "inline-block";}
+			else {e[t].style.display = 'block';}
 		}
 	}
 	event.stopPropagation();
