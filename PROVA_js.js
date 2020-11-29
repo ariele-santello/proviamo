@@ -534,7 +534,7 @@ function showUlChildren(myListId, instanceId, event){
 			child.style.display = 'block';
 		}
 		*/
-		for (var b = 0; b < f.length; b++) {
+		for (var b = 0; b < e.length; b++) {
 			if (b === 0) {e[b].style.display = "inline-block";}
 			else {e[b].style.display = 'none';}
 		}
