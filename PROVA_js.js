@@ -532,16 +532,16 @@ function highlight(spanId, iFrameN, event) {
      event.stopPropagation();
 }
 
-function sortOccurrences(){
+function sortOccurrences(keyToSearch){
 	var elements = document.getElementById("metadata").children;
 	for (var i = 1; i <= 2; i++){   //nella versine finale ci sarà 3 perchè abbiamo 3 listissues
-		sortCategory(document.getElementById("listIssue" + i), 'class');
+		sortCategory(document.getElementById("listIssue" + i), keyToSearch);
 		for (var n = 0; n < document.getElementById("listIssue" + i).children.length; n++){
-			sortCategory(document.getElementById("listIssue" + i).getElementsByClassName(document.getElementById("listIssue" + i).children[n].className)[0], 'class');
+			sortCategory(document.getElementById("listIssue" + i).getElementsByClassName(document.getElementById("listIssue" + i).children[n].className)[0], keyToSearch);
 		}
 	}
 }
-
+/*
 function sortByAppearance(){
 	var elements = document.getElementById("metadata").children;
 	for (var i = 1; i <= 2; i++){   //nella versine finale ci sarà 3 perchè abbiamo 3 listissues
@@ -551,7 +551,7 @@ function sortByAppearance(){
 		}
 	}
 }
-
+*/
 
 function sortByFreq() {
 	var elements = document.getElementById("metadata").children;
