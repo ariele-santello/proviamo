@@ -108,7 +108,7 @@ function changeIssue(issueN){
 		originButton.removeAttribute("href");
 	}
 	// mostrare solo la lista di metadati dell'issue in block
-	for (var m=0; m<document.getElementById('metadata').children.length; m++){
+	for (var m=1; m<document.getElementById('metadata').children.length; m++){
 		if (document.getElementById('metadata').children[m].id === "list"+issueN.charAt(0).toUpperCase()+issueN.slice(1)){
 			document.getElementById('metadata').children[m].style.display = "block";
 		}
