@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Issue 2</title>
+		<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+		<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+		<meta name="DC.title" lang="en" content="" />
+		<meta name="DC.creator" content="" />
+		<meta name="DC.creator" content="" />
+		<meta name="DCTERMS.issued" scheme="DCTERMS.W3CDTF" content="" />
+		<meta name="DC.publisher" content="" />
+		<meta name="DC.identifier" scheme="DCTERMS.URI" content="" />
+		<meta name="DC.format" scheme="DCTERMS.IMT" content="text/html" />
+		<meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" />
+
+		<link rel="stylesheet" type="text/css" href="IndexStyle.css">
+		<link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- , user-scalable=no" -->
+		<!-- <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+		<script src="main.js"></script>
+		<!-- <script>
+			$(document).ready(function(){
+				
+			});	
+		</script> -->
+	</head>
+	<body onload="metadataViewer()">
+	<body>
+		<!-- main navigation navbar -->
+		<div class="topnav">			
+			<a id="mmm" style="float: left;">Art&amp;Life</a>
+			<a href="index.html">Home</a>
+			<a href="disclaimer.html">Disclaimer</a> <!-- dovrebbe stare nel selector -->
+			<a href="documentation.html">Documentation</a>
+			<a href="about.html">About</a>
+			<a class="icon" onclick="myFunction()"></a>
+			<script src="main.js"></script>
+    	</div>
+
+		<!-- selector navbar -->
+		<ul id="selectorNav">
+			<li class="dropdown"><a class="dropbtn">Issues</a>
+				<div class="dropdown-content">
+					<a class="buttonIssue" onclick="changeIssue('issue1')">Art and Society</a>
+					<a class="buttonIssue" onclick="changeIssue('issue2')">Art and Covid-19</a>
+					<a class="buttonIssue" onclick="changeIssue('issue3')">Art and Ecology</a>
+				</div>
+			</li>	
+			<li class="dropdown"><a class="dropbtn">Articles</a>
+				<div class="dropdown-content" id="changeArguments">
+					<a class="buttonArticle">Article 1</a>
+					<a class="buttonArticle">Article 2</a>
+			    	<a class="buttonArticle">Article 3</a>
+			    	<a class="buttonArticle">Article 4</a>
+			    	<a class="buttonArticle">Article 5</a>
+				</div>
+			</li>
+			<!-- <a class="buttonArticle" onclick="changeArticle()">Article 3</a>
+					<a class="buttonArticle" onclick="changeArticle()">Article 4</a> -->
+			
+			<!-- navbar con doppio dropdown: (problema: quando si va in hover sull'elemento <li>Issues</li>, si sovrebbero vedere solo tre elementi: issue 1, issue 2, issue 3. Solo una volte andati in hover su uno di questi tre elementi, solo allora si dovrebbero vedere gli articoli. Bisogna dare una classe specifica all'elemento <li>Issue 1</li> (come per gli altri due issue) che lo renda sia dropdown-content che dropdown container)
+		  	<li class="dropdown"><a class="dropbtn">Issues</a>
+		  		<div class="dropdown-content">
+		      		<li class="dropdown"><a class="dropbtn buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
+		      			<div class="dropdown-content changeArguments">
+		      				<a class="buttonIssue" onclick="changeIssue('issue1')">Cover page</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
+		      			</div>
+		      		</li>
+		      		<li class="dropdown"><a class="dropbtn buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
+		      			<div class="dropdown-content changeArguments">
+		      				<a class="buttonIssue" onclick="changeIssue('issue2')">Cover page</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
+		      			</div>
+		      		</li>
+		      		<li class="dropdown"><a class="dropbtn">Issue 3</a>
+		      			<div class="dropdown-content changeArguments">
+		      				<a class="buttonIssue">Cover page</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
+		      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
+		      			</div>
+		      		</li>
+		    	</div>
+		  	</li> -->
+			<!-- <li><a href="#news">Disclaimer</a></li> -->
+		  	<li class="dropdown"><a class="dropbtn">Themes</a>
+				<div class="dropdown-content">
+					<a>Between 1500 and 1800</a>
+					<a>XIX Century</a>
+					<a>First half of XX Century</a>
+					<a>Second half of XX Century</a>
+					<a>Late XX Century - Start of XXI Century (print)</a>
+					<a>2021-2025 (screen + print)</a>
+				</div>
+		  	</li>
+		  	<li><a class="buttonIssue" id="Origin">Source</a></li>
+		</ul>
+
+		<!--  bottoni per cambiare stile
+			
+		<a class="buttonStyle" href="#" onclick="changeCSS('PROVA_CSS.css', 0);">Style 1</a>
+		<a class="buttonStyle" href="#" onclick="changeCSS('PROVA2_CSS.css', 0);">Style 2</a>
+		<script src="PROVA_js.js"></script>
+		bottoni per cambiare issue
+		<a class="buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
+		<a class="buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
+		<script src="PROVA_js.js"></script>
+		bottoni per cambiare articolo
+		<div id="changeArguments">
+			<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
+			<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
+			<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
+			<script src="PROVA_js.js"></script>
+			<br>
+			<br>
+		</div>
+		
+	 	bottoni per andare all'articolo di origine del testo 
+		<a class="buttonIssue" id="Origin">Origin</a>
+		<a class="buttonIssue" onclick="prevArticlee()">Previous article</a>
+		<script src="PROVA_js.js"></script>-->
+				
+		<div id = "flex-container">
+			<div id="content">
+				<!-- bottone per articolo precedente -->
+				<button id="prev" onclick="prevArticle()"/>&lt;</button>
+				<button id="next" onclick="nextArticle()"/>&gt;</button>
+
+				<!-- issue 2 -->
+
+				<div id="issue2">
+					
+					<!-- cover page 2 -->
+
+					<div id="coverPage2">
+						<iframe src="cover_page2.html" name="coverPage2" id="coverPage2" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 15%;"></iframe>
+					</div>
+
+					<!-- article 1 -->
+
+					<div class="article1 article" id="article6">
+						<iframe src="articles/issue2_art1/art1-artsy.html" name="iframe6" id="iframe6" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
+					</div>
+
+					<!-- article 2 -->
+
+					<div class="article2 article" id="article7">
+						<iframe src="articles/issue2_art2/art2-cnn.html" name="iframe7" id="iframe7" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
+					</div>
+
+					<!-- article 3 -->
+
+					<div class="article3 article" id="article8">
+						<iframe src="articles/issue2_art3/art3-nyt1.html" name="iframe8" id="iframe8" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
+					</div>
+
+					<!-- article 4 -->
+
+					<div class="article4 article" id="article9">
+						<iframe src="articles/issue2_art4/art4-guardian.html" name="iframe9" id="iframe9" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
+					</div>
+
+					<!-- article 5 -->
+
+					<div class="article5 article" id="article10">
+						<iframe src="articles/issue2_art5/art5-nyt2.html" name="iframe10" id="iframe10" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
+					 </div>
+
+		    		</div>
+		
+		    </div> <!-- si chiude il div content -->
+
+		    <div id="metadata">  <!-- div che contiene il metadata viewer -->
+            <div id="changeOrderBtns">
+              <p class="metadataText" onclick="showMetaContent()">METADATA VIEWER</p>
+              <p class="metadataText" id="contentToShow" style="display:none">Here you can find all the metadata of all the articles of the issue. You can jump from a metadata to the correspondent place in the article and vice versa.</p>
+              <p class="metadataText">Order your list by:</p>
+                <button id="sort" onclick="sortOccurrences('class')">Alphabet</button> <!-- bottone sort --> 
+              <button id="appearanceSort" onclick="sortOccurrences('data-position')">Appearance</button> <!-- bottone sort per ordine di comparsa --> 
+              <button id="frequencySort" onclick="sortByFreq()">Frequency</button> <!-- bottone sort per ordine di frequenza --> 
+            </div>
+              <!-- fare tre liste per ogni issue -->
+            <ul id="listIssue2"></ul>
+			  </div> <!-- si chiude il div che contiene il metadata viewer -->
+
+		</div> <!-- si chiude il div flex-container -->
+
+
+		<div class="footer"> <!-- text-align: justify; background: rgba(38, 38, 38); color: white; -->
+    		<h5>© Art&amp;Life: Created by Alessia Cioffi, Sara Coppini and Ariele Santello</h5>  
+		</div>
+
+
+	</body>
+</html>
