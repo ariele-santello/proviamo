@@ -726,9 +726,8 @@ button#prev, button#next  {
 /* METTIAMO IN BLOCK TUTTI I DIV DEGLI ARTICOLI E DELLE COVER */
  
 
-#issue1 > div, #issue2 > div, #issue3 > div { display: none; }
 
-#coverPage1:target, #coverPage2:target, #coverPage3:target, #article1:target, #article2:target, #article3:target, #article4:target, #article5:target, #article6:target, #article7:target, #article8:target, #article9:target, #article10:target, #article11:target, #article12:target, #article13:target, #article14:target, #article15:target { display: block; }
+#article1:target, #article2:target, #article3:target, #article4:target, #article5:target, #article6:target, #article7:target, #article8:target, #article9:target, #article10:target, #article11:target, #article12:target, #article13:target, #article14:target, #article15:target { display: block; }
 
 #coverPage1:target ~ #listIssue1, #article1:target ~ #listIssue1, #article2:target ~ #listIssue1, #article3:target ~ #listIssue1, #article5:target ~ #listIssue1 { display: block; }
 
@@ -744,6 +743,7 @@ button#prev, button#next  {
   /* padding necessario per i bottoni prev e next */
   padding-left: 30px;
   padding-right: 32px;
+  display: none;
 }
 
 
