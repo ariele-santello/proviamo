@@ -35,7 +35,6 @@
 			<a href="documentation.html">Documentation</a>
 			<a href="about.html">About</a>
 			<a class="icon" onclick="myFunction()"></a>
-			<script src="main.js"></script>
     	</div>
 
 		<!-- selector navbar -->
@@ -188,16 +187,16 @@
 		    </div> <!-- si chiude il div content -->
 
 		    <div id="metadata">  <!-- div che contiene il metadata viewer -->
-            <div id="changeOrderBtns">
-              <p class="metadataText" onclick="showMetaContent()">METADATA VIEWER</p>
-              <p class="metadataText" id="contentToShow" style="display:none">Here you can find all the metadata of all the articles of the issue. You can jump from a metadata to the correspondent place in the article and vice versa.</p>
-              <p class="metadataText">Order your list by:</p>
-                <button id="sort" onclick="sortOccurrences('class')">Alphabet</button> <!-- bottone sort --> 
-              <button id="appearanceSort" onclick="sortOccurrences('data-position')">Appearance</button> <!-- bottone sort per ordine di comparsa --> 
-              <button id="frequencySort" onclick="sortByFreq()">Frequency</button> <!-- bottone sort per ordine di frequenza --> 
-            </div>
+		    <div id="changeOrderBtns">
+			      <p class="metadataText" onclick="showMetaContent()">METADATA VIEWER</p>
+			      <p class="metadataText" id="contentToShow" style="display:none">Here you can find all the metadata of all the articles of the issue. You can jump from a metadata to the correspondent place in the article and vice versa.</p>
+			      <p class="metadataText">Order your list by:</p>
+				<button id="sort" onclick="sortOccurrences('class')">Alphabet</button> <!-- bottone sort --> 
+			      <button id="appearanceSort" onclick="sortOccurrences('data-position')">Appearance</button> <!-- bottone sort per ordine di comparsa --> 
+			      <button id="frequencySort" onclick="sortByFreq()">Frequency</button> <!-- bottone sort per ordine di frequenza --> 
+		    </div>
               <!-- fare tre liste per ogni issue -->
-            <ul id="listIssue2"></ul>
+            <ul id="listIssue"></ul>
 			  </div> <!-- si chiude il div che contiene il metadata viewer -->
 
 		</div> <!-- si chiude il div flex-container -->
