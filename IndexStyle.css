@@ -1,0 +1,818 @@
+/* global styling */
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  /*display: flex;*/
+  font-family: 'Proza Libre', sans-serif;
+  margin: 0;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+ /* height:2.5rem; */
+}
+
+/* attenzione coi margini: per alcuni elementi si sballa tutto, tipo i div. meglio padding*/
+img, p, h1, h2, h3, h4, h5, h6, hr, br {
+  margin: 10px;
+}
+p.metadataText{
+	margin: 0px;
+	padding-top: 5px;
+}
+
+
+
+/* styling navbar */
+.topnav {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #e6e6e6;
+  position: sticky;
+  text-align: right;
+  width: 100%;
+  margin: 0 !important;
+}
+
+.topnav  a {
+  display: inline-block;
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  
+}
+
+.topnav a:hover {
+  background-color: #a6a6a6;
+  color: black;
+}
+    
+.topnav a.active {
+  background-color: #1a1a1a;
+  color: white
+
+}
+
+.topnav .icon {  
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+      .topnav a {
+      float: none;
+      display: block;
+    }
+}
+    
+
+
+
+
+
+
+
+
+
+/* styling selector */
+/* styling vecchio, non usiamo più questi id 
+.articleMenu {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #a6a6a6; 
+  position: sticky;
+  text-align: left;
+  width: 100%;
+  margin: 0 !important;
+    }
+
+.articleMenu  a {
+  display: inline-block;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  
+}
+
+.articleMenu a:hover {
+  background-color: #e6e6e6;
+  color: black;
+}
+    
+.articleMenu a.active {
+  background-color: #1a1a1a;
+  color: white
+
+}
+
+.articleMenu .icon {  
+  display: none;
+}
+
+
+ @media screen and (max-width: 500px) {
+      .articleMenu a {
+      float: none;
+      display: block;
+    }
+}
+ */
+
+/* end styling selector */ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* styling divs */
+
+/* the div class "row" is both for issues and articles */
+.row {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* for centering 3 blocks in the center */
+  /* justify-content: space-between;  for large space in between */
+}
+
+
+
+/******* DIVS FOR ISSUES GRID/TABLE *************************************************************************/
+
+/* the div class "issue-block" is only for issues */
+.issue-block {
+  width: 30%;
+  margin: 1%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* the div class "t-block" is for the black rectangle of text for issues */
+.t-block {
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.t-block:hover {font-size: 110%; transition: 0.50s;}
+
+
+
+/***** DIVS FOR ARTICLES GRID/TABLE ************************************************************************/
+
+/* the div class "block" is only for articles */
+.block {
+  width: 30%;
+  margin: 1%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  line-height: 140%;
+}
+
+.block p {
+  line-height: 180%;
+}
+
+.block a { color: #000000; text-decoration: none}
+.block a:visited { color: #2e2e2e; }
+
+/* the div class "artTable" is for images of the articles grid */
+/* this is the styling for the zoom effect on hover */
+.block .artTable {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.block:hover .artTable img {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.block .artTable img {
+  width: 100%;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+/* styling for the hover effect of the hr enlargement */
+.block hr {
+  border: 0;
+  border-top: 2px solid black;
+  width: 0;
+  position: absolute; /* è ciò che fa partire l'animazione dal centro */        
+  margin: 0;
+  transition: width 1s ease-out;
+  -webkit-transition: width 1s ease-out;
+  left: 50%;
+  right: 50%;
+  visibility: hidden;
+}
+
+.block:hover hr {
+  animation: double 2s .2s ease-out;
+  -webkit-animation: double 2s .2s ease-out;
+  visibility: visible;
+}
+
+@keyframes double {
+    0% {width: 0;}
+    100% {width: 70%; right: 30%; left: 15%;}
+}
+
+
+/* the div class "presentation" is only for the articles */
+.presentation {
+  position: relative;
+  width: 30%;
+  margin: 1%;
+}
+
+.presentation-text {
+  position: absolute;
+  transform: translateY(-35%);
+  margin-right: 1%;
+  margin-left: 5%;
+}
+
+.presentation img {
+   border-radius: 50%; 
+   width: 50%;
+   margin-top: 5%;
+}
+
+@media /* only */ screen and (max-width: 820px){
+  .presentation-text {
+    transform: translateY(-25%);
+  }
+}
+
+
+
+
+/* styling the hr */
+#new {
+  display: block;
+  margin-top: 4em;
+  margin-bottom: 0em;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 1px;
+  border-color: black;
+}
+
+#new2 {
+  display: block;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 0.5px;
+  border-color: gray;
+}
+
+
+  /******* DIVS FOR ARTICLE PAGES *************************************************************************/
+/* styling vecchio, non usiamo più questi id 
+#selector{
+  width: 60%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 5px;
+  margin-top: 0px;
+  margin-left: 0px;
+  left: 0;
+}
+
+
+#metadataViewer {
+  width: 40%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 5px;
+  margin-top: 0px;
+  margin-right: 0px;
+    right: 0;
+}
+
+#textContent {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+*/
+
+/* adapting pictures */
+
+/* PC */
+/* @media only screen and (min-width: 701px){ */
+
+  .land{
+    width: 100%;
+    float: left;
+    padding-bottom: 15px;
+  }
+
+  .land img{
+    width: 100%;
+  }
+
+  .cutPortrait {
+    padding-bottom: 15px;
+  }
+
+
+  .cutPortrait img{
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .artTable img{
+    width:100%;
+    height:225px;
+  }
+
+  .issueTable img{
+    width:100%; 
+    height:380px;
+  }
+
+
+
+/* TABLET */
+/* @media only screen and (max-width: 700px) */
+  @media /* only */ screen and (max-width: 700px){
+
+    .row {
+      width: 100%;
+      margin: 0 auto;
+      float: none;
+      display: flex;
+    }
+       
+    .presentation {
+    width: 50%;
+    margin: 1%;
+    }
+
+    .block {
+    width: 50%;
+    }
+
+    /*.presentation img {
+       position: absolute;
+       top: 25%;
+       margin-top: 25%;
+    }*/
+
+    .presentation-text {
+      transform: translateY(-18%);
+    }
+
+    .artTable img {  
+      padding: 5px;
+      max-height: 400px;
+      margin-top: 3em;
+      margin-bottom: 0em;
+      margin-left: 0em;
+      margin-right: 0em;
+    }
+   
+}
+
+
+
+
+/* SMARTPHONE */
+
+  @media screen and (max-width: 550px){
+
+    .row {
+  	  width: 100%;
+  	  margin: 0 auto;
+  	  float: none;
+      display: block;
+      overflow: hidden; /*va bene??*/
+  	}
+
+    .issue-block, .block {
+   	  width: 100%;
+  	}
+
+  	.block h4{
+  		display: none;
+  	}
+
+  	.presentation {
+    	width: 100%;
+    	position: center;
+    	text-align: center;
+    	display: block;
+  	}
+
+  	.presentation-text {
+    	vertical-align: middle;
+    	text-align: justify;
+    	transform: translateY(-100%);
+      margin-left: 1%;
+  	}
+
+  	.presentation-text h3{
+  		text-align: center;
+  	}
+
+  	.land{
+    }
+
+    .land img {
+      object-fit: cover;
+      width: 100%;
+    }
+
+  	.artTable img {
+  	  display: block;
+      width: 100%; 
+      max-height: 400px;
+      margin-top: 3em;
+      margin-bottom: 0em;
+      margin-left: 0em;
+      margin-right: 0em;
+  	}
+
+  	.issueTable img {
+  	  display: block;
+      width: 100%; 
+      max-height:350px;
+      margin-bottom: 50px;
+      margin-top: 4em;
+      margin-left: 0em;
+      margin-right: 0em;
+      }
+
+    .footer {
+      font-size: small;
+    }
+
+
+}
+
+
+
+
+.footer {
+  text-align: justify;
+  text-align: center;
+  font-size: small;
+  padding: 15px;
+  background: rgba(38, 38, 38);
+  color: white;
+  margin-top: 0em;  /* or 0em;  */
+  margin-bottom: 0em;
+  margin-left: 0em;
+  margin-right: 0em;  /* modifiche per tenere sotto il footer */
+  position: absolute; /*bottom: 0;*/
+  width: 100%;
+  height: 2.5rem;
+  /* per fissarlo sotto con FLEX --> BODY DISPLAY: FLEX;
+  flex-shrink: 0; */
+}
+.footer a{text-decoration: none;}
+.footer a:link{color:white;}
+.footer a:hover{color:white;}
+.footer a:active{color:white;}
+.footer a:visited{color:white;}
+
+
+
+
+/* tables cells separated equally: non servono più
+.issues tr td {
+  width:33.3333%;
+}
+
+.articles tr td {
+  width:33.3333%;
+}
+
+Container holding the image and the text: non servono più 
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+Bottom right text
+.text-block {
+  position: absolute;
+  bottom: 25%; 
+  right: 35%; 
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,0.2);
+  color: white;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.text-block:hover, .text-block:active {font-size: 110%; transition: 0.50s;}
+
+*/
+
+
+/* STYLING DI METDADATA_MODEL.HTML */
+      
+
+/* styling selector navbar */
+      
+.dropdown:hover{cursor:pointer;}
+
+#selectorNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #bfbfbf;
+  /* position: sticky;
+  width: 100%; */
+}
+      
+#selectorNav > li {
+  display: inline-block;
+}
+
+#Origin, .dropbtn {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 10px 12px;
+  text-decoration: none;
+  /* font-size: 17px; */
+}
+
+#selectorNav > li a:hover, .dropdown:hover .dropbtn {
+  background-color: #a6a6a6;
+  color: black;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #bfbfbf;
+  min-width: 160px;
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #a6a6a6;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+/* contenitore di #content e #metadata, se si aggiunge margine a uno dei due non stanno più allineati */
+#flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* @media (min-width: 768px) */
+#content {
+  position: relative;
+  padding-left: 15px; /* per farci stare il bottone prevArticle */
+  flex: 0 0 65%;
+  max-width: 65%;
+}
+
+#metadata {
+  position: relative;
+  height: 35.85em;
+  overflow: scroll;
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
+
+
+/*extra per la navbar generale
+
+@media (min-width: 992px)
+.navbar-expand-lg {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.topnav {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}*/
+
+/* extra per selectorNav */
+/* selectorNav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1500;
+    border-bottom: 4px solid black;
+    padding-top: 5px;
+    height: 60px;
+    font-size: 18px;
+}
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}*/
+
+
+
+
+
+
+
+
+
+button#prev, button#next  {
+  background: rgba(0,0,0,0.4);
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 0;
+  border-radius: 15%;
+}
+
+#prev {
+  top: 15px;
+  z-index: 1;
+  position: absolute;
+  left: 2px;
+}
+  
+#next {
+  top: 15px;
+  z-index: 1;
+  position: absolute;
+  right: 2px;
+}
+
+
+
+
+
+
+
+
+/* METTIAMO IN BLOCK TUTTI I DIV DEGLI ARTICOLI E DELLE COVER */
+ 
+
+#issue1 > div, #issue2 > div, #issue3 > div { display: none; }
+
+#coverPage1:target, #coverPage2:target, #coverPage3:target, #article1:target, #article2:target, #article3:target, #article4:target, #article5:target, #article6:target, #article7:target, #article8:target, #article9:target, #article10:target, #article11:target, #article12:target, #article13:target, #article14:target, #article15:target { display: block; }
+
+#coverPage1:target ~ #listIssue1, #article1:target ~ #listIssue1, #article2:target ~ #listIssue1, #article3:target ~ #listIssue1, #article5:target ~ #listIssue1 { display: block; }
+
+#coverPage2:target ~ #listIssue2, #article6:target ~ #listIssue2, #article7:target ~ #listIssue2, #article8:target ~ #listIssue2, #article9:target ~ #listIssue2, #article10:target ~ #listIssue2  { display: block; }
+
+#coverPage3:target ~ #listIssue3, #article11:target ~ #listIssue3, #article12:target ~ #listIssue3, #article13:target ~ #listIssue3, #article114:target ~ #listIssue3, #article15:target ~ #listIssue3  { display: block; }
+
+
+
+
+
+.article {
+  /* padding necessario per i bottoni prev e next */
+  padding-left: 30px;
+  padding-right: 32px;
+}
+
+
+
+
+[onClick] {cursor:pointer;}
+span[onclick] {cursor:pointer;}
+
+#wikiButton {
+  border: solid 1px #000000;
+  padding: 3px;
+  margin: 8px;
+  display: inline-block;
+}
+
+#listIssue1, #listIssue2, #listIssue3 {
+  width: 350px;
+  padding-inline-start: 0px;
+}
+
+#listIssue1>li, #listIssue2>li, #listIssue3>li {
+  font-size: 17px;
+  border: 2px solid black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /*padding-left: 5px;*/
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#listIssue1 li ul, #listIssue2 li ul, #listIssue3 li ul {
+  font-size: 16px;
+  list-style-type: none;
+  border: 1px solid black;
+  /*padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;*/
+  margin-top: 5px;
+  padding-inline-start: 0px;
+}
+
+li ul li{font-size: 15px;}
+
+button#sort, button#appearanceSort, button#frequencySort {
+	font-size: 12px;
+	letter-spacing: 2px;
+	padding: 13px 17px;
+  border-color: aquamarine;
+	color: aquamarine;
+  border: 2px solid;
+	background: transparent;
+}
+
+button#sort:hover, button#appearanceSort:hover, button#frequencySort:hover {
+  background-color:aquamarine;
+  border-color: aquamarine;
+  color: black;	
+  font-weight:bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

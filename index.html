@@ -1,457 +1,283 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 	<head>
-		<style>
-			
-			body{margin:0px;}
-				
-			/*
-			.buttonStyle {
-			  background-color: #4CAF50;
-			  border: none;
-			  color: white;
-			  padding: 15px 32px;
-			  text-align: center;
-			  text-decoration: none;
-			  display: inline-block;
-			  font-size: 16px;
-			  margin: 4px 2px;
-			  cursor: pointer;
-			}
-			.buttonIssue {
-			  background-color: #4CAF50;
-			  border: none;
-			  color: white;
-			  padding: 15px 32px;
-			  text-align: center;
-			  text-decoration: none;
-			  display: inline-block;
-			  font-size: 16px;
-			  margin: 4px 2px;
-			  cursor: pointer;
-			}
-			.buttonArticle {
-			  background-color: #4CAF50;
-			  border: none;
-			  color: white;
-			  padding: 15px 32px;
-			  text-align: center;
-			  text-decoration: none;
-			  display: inline-block;
-			  font-size: 16px;
-			  margin: 4px 2px;
-			  cursor: pointer;
-			}
-			*/
-
-			/* styling selector navbar */
-			
-			.dropdown:hover{cursor:pointer;}
-
-			#selectorNav {
-			  list-style-type: none;
-			  margin: 0;
-			  padding: 0;
-			  overflow: hidden;
-			  background-color: #e6e6e6;
-			  /* position: sticky;
-			  width: 100%; */
-			}
-            
-            #selectorNav > li {
-			  display: inline-block;
-			}
-
-			#Origin, .dropbtn {
-			  display: inline-block;
-			  color: black;
-			  text-align: center;
-			  padding: 14px 16px;
-			  text-decoration: none;
-			  /* font-size: 17px; */
-			}
-
-			#selectorNav > li a:hover, .dropdown:hover .dropbtn {
-			  background-color: #a6a6a6;
-			  color: black;
-			}
-                     
-			/*
-			.topnav a.active {
-			  background-color: #1a1a1a;
-			  color: white
-
-			}
-
-			.topnav .icon {  
-			  display: none;
-			}
-
-			@media screen and (max-width: 500px) {
-			      .topnav a {
-			      float: none;
-			      display: block;
-			    }
-			}
-			*/
-
-			.dropdown-content {
-			  display: none;
-			  position: absolute;
-			  background-color: #e6e6e6;
-			  min-width: 160px;
-			  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
-			  z-index: 1;
-			}
-
-			.dropdown-content a {
-			  color: black;
-			  padding: 12px 16px;
-			  text-decoration: none;
-			  display: block;
-			  text-align: left;
-			}
-
-			.dropdown-content a:hover {background-color: #a6a6a6;}
-
-			.dropdown:hover .dropdown-content {
-			  display: block;
-			}
-
-			#grid-container {
-				display: grid;
-				grid-template-areas:
-				'header header header header header'
-				'main main main side side'
-				'footer footer footer footer footer';
-				grid-gap: 5px;
-			/*	padding: 5px;  */
-			/*	width: 100%;  */
-  				height: 100%;
-			/*	grid-auto-rows: min-content;
-				grid-template-columns: 3fr 2fr;
-				grid-template-rows: 50px 1fr 50px;*/
-			}
-
-			/* #grid-container > div {
-				background-color: grey;
-				padding: 20px 0;
-			}
-
-			stile dei due div contenitori sia degli articoli che del metadata viewer
-			.split {
-			  height: 90%;
-			  width: 50%;
-			  position: fixed;
-			  z-index: 1;
-			  top: 0;
-			  overflow-x: hidden;
-			  padding-top: 20px;
-			  bottom: 0;
-			}
-			*/
-			#content {
-				grid-area: main; 
-				position: relative;
-			}
-
-			#metadata { grid-area: side; overflow: scroll;}
-
-			#top { grid-area: header; }
-
-			#bottom { 
-			grid-area: footer;
-			}
-
-			button#prev, button#next  {
-				background: rgba(0,0,0,0.4);
-				padding-left: 5px;
-				padding-right: 5px;
-				border: 0;
-				border-radius: 15%;
-  			}
-
-			#prev {
-		    	top: 50%;
-		        z-index: 1;
-		        position: absolute;
-		        left: 2px;
-					 
-			}
-		    
-		    #next {
-		        top: 50%;
-		        z-index: 1;
-		        position: absolute;
-		        right: 2px;
-			}
-
-			.article {
-				padding-left: 30px;
-				padding-right: 32px;
-			}
-		[onClick] {cursor:pointer;}
-		span[onclick] {cursor:pointer;}
-
-		#wikiButton {
-			border: solid 1px #000000;
-    		padding: 3px;
-    		margin: 8px;
-    		display: inline-block;
-		}
-                
-		</style>
-		
-		<link rel="stylesheet" type="text/css" href="">
-		<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-		<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
-
-		<meta name="DC.title" lang="en" content="" />
-		<meta name="DC.creator" content="" />
-		<meta name="DC.creator" content="" />
-		<meta name="DCTERMS.issued" scheme="DCTERMS.W3CDTF" content="" />
-		<meta name="DC.publisher" content="" />
-		<meta name="DC.identifier" scheme="DCTERMS.URI" content="" />
-		<meta name="DC.format" scheme="DCTERMS.IMT" content="text/html" />
-		<meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<!-- <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-		<script src="PROVA_js.js"></script>
-		<!-- <script>
-			$(document).ready(function(){
-				$(".wikiLink").click(function(event){
-					event.stopPropagation();
-					return false;
-				});
-			});	
-		</script> -->
-		
+		<title>Art&amp;Life</title>
+		<link rel="stylesheet" type="text/css" href="IndexStyle.css">
+		<link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- , user-scalable=no" -->
+		<script src="main.js"></script>
 	</head>
+	<body>
+		<h1>Art&amp;Life</h1>
 
+		<div class="topnav">
+	        <a class="active" href="index.html">Home</a>
+	        <a href="disclaimer.html">Disclaimer</a>
+	        <a href="documentation.html">Documentation</a>
+	        <a href="about.html">About</a>
+	        <a class="icon" onclick="myFunction()"></a> <!--cosa è? -->
+    	</div>
 
-	<body onload="metadataViewer ()">
-		<div id="grid-container">
-			<div id="top">
-				<ul id="selectorNav">
-					<li class="dropdown"><a class="dropbtn">Issues</a>
-						<div class="dropdown-content">
-							<a class="buttonIssue" onclick="changeIssue('issue1')">Art and Society</a>
-							<a class="buttonIssue" onclick="changeIssue('issue2')">Art and Covid-19</a>
-							<a>Art and Ecology</a>
-						</div>
-					</li>	
-					<li class="dropdown"><a class="dropbtn">Articles</a>
-						<div class="dropdown-content" id="changeArguments">
-							<a class="buttonArticle" onclick="changeArticle(); hidePrev()">Article 1</a>
-							<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-						    <a class="buttonArticle" onclick="changeArticle(); hideNext()">Article 3</a>
-						</div>
-					</li>
-					<!-- <a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-							<a class="buttonArticle" onclick="changeArticle()">Article 4</a> -->
-					
-					<!-- navbar con doppio dropdown: (problema: quando si va in hover sull'elemento <li>Issues</li>, si sovrebbero vedere solo tre elementi: issue 1, issue 2, issue 3. Solo una volte andati in hover su uno di questi tre elementi, solo allora si dovrebbero vedere gli articoli. Bisogna dare una classe specifica all'elemento <li>Issue 1</li> (come per gli altri due issue) che lo renda sia dropdown-content che dropdown container)
-				  	<li class="dropdown"><a class="dropbtn">Issues</a>
-				  		<div class="dropdown-content">
-				      		<li class="dropdown"><a class="dropbtn buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
-				      			<div class="dropdown-content changeArguments">
-				      				<a class="buttonIssue" onclick="changeIssue('issue1')">Cover page</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
-				      			</div>
-				      		</li>
-				      		<li class="dropdown"><a class="dropbtn buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
-				      			<div class="dropdown-content changeArguments">
-				      				<a class="buttonIssue" onclick="changeIssue('issue2')">Cover page</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
-				      			</div>
-				      		</li>
-				      		<li class="dropdown"><a class="dropbtn">Issue 3</a>
-				      			<div class="dropdown-content changeArguments">
-				      				<a class="buttonIssue">Cover page</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
-				      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
-				      			</div>
-				      		</li>
-				    	</div>
-				  	</li> -->
-					<!-- <li><a href="#news">Disclaimer</a></li> -->
-				  	<li class="dropdown"><a class="dropbtn">Themes</a>
-						<div class="dropdown-content">
-							<a href="#" onclick="changeCSS('PROVA_CSS.css', 0);">Stile di prova 1</a>
-							<a href="#" onclick="changeCSS('PROVA2_CSS.css', 0);">Stile di prova 2</a>
-							<a>Between 1500 and 1800</a>
-							<a>XIX Century</a>
-							<a>First half of XX Century</a>
-							<a>Second half of XX Century</a>
-							<a>Late XX Century - Start of XXI Century (print)</a>
-							<a>2021-2025 (screen + print)</a>
-						</div>
-				  	</li>
-				  	<li><a class="buttonIssue" id="Origin">Source</a></li>
-				</ul>
-
-				<script src="PROVA_js.js"></script>	
-
-
-				<!--  bottoni per cambiare stile
-					
-				<a class="buttonStyle" href="#" onclick="changeCSS('PROVA_CSS.css', 0);">Style 1</a>
-				<a class="buttonStyle" href="#" onclick="changeCSS('PROVA2_CSS.css', 0);">Style 2</a>
-				<script src="PROVA_js.js"></script>
-
-				bottoni per cambiare issue
-
-				<a class="buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
-				<a class="buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
-				<script src="PROVA_js.js"></script>
-
-				bottoni per cambiare articolo
-
-				<div id="changeArguments">
-
-					<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-					<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-					<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-					<script src="PROVA_js.js"></script>
-					<br>
-					<br>
-
+		<hr id="new">
+		<h1>Issues</h1>
+		<br>
+		
+		<div class="row">
+			<div class="issue-block">
+				<div class="cutPortrait issueTable">
+					<img src="./articles/issue1_art1/art1-img7.jpg">
 				</div>
-				
-			 	bottoni per andare all'articolo di origine del testo 
-
-				<a class="buttonIssue" id="Origin">Origin</a>
-				<a class="buttonIssue" onclick="prevArticlee()">Previous article</a>
-				<script src="PROVA_js.js"></script>-->
-				
-				
-				
-				<!-- testo prova
-
-				<p>woeihfòiwueHGFòIUwgeògiWòEIGUHwòoeughwueg</p> -->
-
-			</div> <!-- si chiude il div top in cui c'è il selector e la navbar generica -->			
-
-			<div id="content">
-				<!-- bottone per articolo precedente -->
-				<button id="prev" onclick="prevArticle()"/>&lt;</button>
-				<button id="next" onclick="nextArticle()"/>&gt;</button>
-				<script src="PROVA_js.js"></script>
-
-				<!-- issue 1 -->
-
-				<div id="issue1">
-					
-					<!-- cover page 1 -->
-					
-					<div id="coverPage1">
-						<iframe src="cover_page1.html" name="coverPage1" id="coverPage1" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 15%;"></iframe>
+				<a href="metadata_model.html#coverPage1">
+					<div class="t-block">
+					    <h3>ISSUE N°1</h4>
+					    <hr id="new2">
+					    <p>Art and Society</p>
 					</div>
-
-					<!-- article 1 -->
-
-					<div class="article1 article">
-						<iframe src="articles/issue1_art1/art1-bbc1.html" name="iframe1" id="iframe1" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em"></iframe>
-			    	</div>
-
-					<!-- article 2 -->
-
-					<div class="article2 article">
-						<iframe src="articles/issue1_art2/art2-bbc2.html" name="iframe2" id="iframe2" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em;"></iframe>
-			    	</div>
-
-					<!-- article 3 -->
-
-					<div class="article3 article">
-						<iframe src="articles/issue1_art3/art3-Atl.html" name="iframe3" id="iframe3" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em;"></iframe>
-			    	</div>
-					
-					<!-- article 4 -->
-
-					<div class="article4 article">
-						<iframe src="articles/issue1_art4/art4-verge.html" name="iframe4" id="iframe4" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em;"></iframe>
-			    	</div>
-					<!-- article 5 -->
-
-					<div class="article5 article">
-						<iframe src="articles/issue1_art5/art5-vox.html" name="iframe5" id="iframe5" frameborder="0" border="0" cellspacing="0" style="border-style: none; width: 100%; height: 35.85em;"></iframe>
-			    	</div>
-			    	
-			    </div>
-
-				<!-- issue 2 -->
-
-				<div id="issue2">
-					
-				<!-- cover page 2 -->
-					
-				<div id="coverPage2">
-					<iframe src="cover_page2.html" name="coverPage2" id="coverPage2" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 15%;"></iframe>
-				</div>
-
-				<!-- article 1 -->
-
-				<div class="article1 article">
-					<iframe src="articles/issue2_art1/art1-artsy.html" name="iframe6" id="iframe6" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
-			    	</div>
-
-				<!-- article 2 -->
-
-				<div class="article2 article">
-					<iframe src="articles/issue2_art2/art2-cnn.html" name="iframe7" id="iframe7" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
-			    	</div>
-
-			        <!-- article 3 -->
-
-			        <div class="article3 article">
-					<iframe src="articles/issue2_art3/art3-nyt1.html" name="iframe8" id="iframe8" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
-				</div>
-					
-				<!-- article 4 -->
-
-			        <div class="article4 article">
-					<iframe src="articles/issue2_art4/art4-guardian.html" name="iframe9" id="iframe9" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
-				</div>
-					
-				<!-- article 5 -->
-
-			        <div class="article5 article">
-					<iframe src="articles/issue2_art5/art5-nyt2.html" name="iframe10" id="iframe10" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 35.85em;"></iframe>
-				 </div>
-
-		    	</div>
-		    </div> <!-- si chiude il div content -->
-
-		    <div id="metadata">  <!-- div che contiene il metadata viewer -->
-			<div id="changeOrderBtns">
-		    		<button id="sort" onclick="sortOccurrences('class')">Alphabetic</button> <!-- bottone sort --> 
-				<button id="appearanceSort" onclick="sortOccurrences('data-position')">Appearance</button> <!-- bottone sort per ordine di comparsa --> 
-				<button id="frequencySort" onclick="sortByFreq()">Frequency</button> <!-- bottone sort per ordine di frequenza --> 
+				</a>
 			</div>
-		    	<!-- fare tre liste per ogni issue -->
-		    	<ul id="listIssue1"></ul>
-		    	<ul id="listIssue2"></ul>
-		    	<!-- <ul id="listIssue3"></ul> -->
-			  
+			<div class="issue-block">
+				<div class="cutPortrait issueTable">
+					<img src="imgs/cover-issue2.jpg">
+				</div>
+				<a href="metadata_model.html#coverPage2">
+					<div class="t-block">
+					    <h3>ISSUE N°2</h4>
+					    <hr id="new2">
+					    <p>Art and Covid-19</p>
+					</div>
+				</a>
+			</div>
+			<div class="issue-block">
+				<div class="cutPortrait issueTable">
+					<img src="imgs/cover3.jpg">
+				</div>
+				<a href="metadata_model.html#coverPage3">
+					<div class="t-block">
+					    <h3>ISSUE N°3</h4>
+					    <hr id="new2">
+					    <p>Art and Ecology</p>
+					</div>
+				</a>
+			</div>
+		</div>
 
-		</div> <!-- si chiude il div che contiene il metadata viewer -->
+		<hr id="new">
+		<h1>Articles</h1>
+		<br>
+		<br>
+		<hr id="new3">
+		<h2>ISSUE N°1</h2>
+		<br>
+		
+		<div class="row">
+			<div class="presentation">
+				<img src="imgs/yellow-for-home.jpg">
+				<div class="presentation-text">
+					<h3>Art and Society</h3>
+					<p>Does <i>society</i> influence <i>art</i> or does <i>art</i> influence <i>society</i>? Actually, society strongly influences art and artists, producing a cultural context with which interact. But it's true also the opposite: art is the mean for the artist to communicate with people and transmit strong messages.</p>
+				</div>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article1">
+					<div class="cutPortrait artTable">
+						<img src="articles/issue1_art1/art1-img1.jpg"> 
+					</div>				 
+					<h3>How art and culture can help us rethink time</h3>
+					<hr>
+					<p>By Ella Saltmarshe and Beatrice Pembroke</p>	
+				</a>				
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article2">
+					<div class="land artTable">
+						<img src="articles/issue1_art2/art2-img2.jpg"> 
+					</div>					 
+					<h3>How to create an iconic image</h3>
+					<hr>
+					<p>By Sophia Smith Galer</p>
+				</a>
+			</div>
+		</div>
 
-		<div id="bottom"   style="text-align: justify; text-align: center; background: rgba(38, 38, 38); color: white; margin-top: 0em; margin-bottom: 0em;margin-left: 0em; margin-right: 0em;"> <!-- text-align: justify; background: rgba(38, 38, 38); color: white; -->
-		    <h5>© Art&amp;Life:   Created by Alessia Cioffi, Sara Coppini and Ariele Santello</h5>  
-      		</div>
+		<div class="row">
+			<div class="block">
+				<a href="metadata_model.html#article3">
+					<div class="land artTable">
+						<img src="articles/issue1_art3/art3-img1.gif"> 
+					</div>					 
+					<h3>The Death of the Artist and the Birth of the Creative Entrepreneur</h3>
+					<hr>
+					<p>By William Deresiewicz</p>
+				</a>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article4">
+					<div class="land artTable">
+						<img src="articles/issue1_art4/art4-img3.jpg"> 
+					</div>				 
+					<h3>Welcome to Airspace</h3>
+					<h4>How Silicon Valley helps spread the same sterile aesthetic across the world</h4>
+					<hr>
+					<p>By Kyle Chayka, illustations by Daniel Hertzberg</p>
+				</a>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article5">
+					<div class="cutPortrait artTable">
+						<img src="articles/issue1_art5/art5-img1.webp">
+					</div>					  
+					<h3>Style Is an Algorithm</h3>
+					<h4>No one is original anymore, not even you.</h4>
+					<hr>
+					<p>By Kyle Chayka</p>
+				</a>
+			</div>
+		</div>
 
-      	</div> <!-- si chiude il div grid-container -->
+		<hr id="new">
+		<h2>ISSUE N°2</h2>
+		<br>
 
+		<div class="row">
+			<div class="presentation">
+				<img src="imgs/red-for-home.jpg">
+				<div class="presentation-text">
+					<h3>Art and Covid-19</h3>
+					<p>During the ongoing COVID-19 pandemic, art has been deeply involved. From museum closing and the art market renewing itslef online, to the attempts to communicate and feel better through art itself; this issue is all about the complex relationship between art and COVID-19.</p>
+				</div>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article6">
+					<div class="cutPortrait artTable">
+						<img src="articles/issue2_art1/art1-img9.jpg">
+					</div>				 
+					<h3>In the Midst of COVID-19, Chinese Galleries Adapt and Persevere</h3>
+					<hr>
+					<p>by Sonia Xie</p>
+				</a>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article7">
+					<div class="land artTable">
+						<img src="articles/issue2_art2/art2-img2.jpg">
+					</div>				 
+					<h3>How 9 artists are living and creating during self-isolation</h3> 
+					<h4>From South Africa to Canada, artists share original artworks made at home during the pandemic.</h4>
+					<hr>
+					<p>by CNN Staff</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="block">
+				<a href="metadata_model.html#article8">
+					<div class="land artTable">
+						<img src="articles/issue2_art3/art3-img1.jpg">
+					</div>					 
+					<h3>With Museums Empty, Security Experts Hope Thieves Stay Home, Too</h3>
+					<hr>
+					<p>by Colin Moynihan</p>
+				</a>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article9">
+					<div class="land artTable">
+						<img src="articles/issue2_art4/art4-img1.jpg">
+					</div>					 
+					<h3>Bye bye, blockbusters: can the art world adapt to Covid-19?</h3>
+					<hr>
+					<p>by Andrew Dickson</p>
+				</a>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article10">
+					<div class="land artTable">
+						<img src="articles/issue2_art5/art5-img1.jpg">
+					</div>				 
+					<h3>Now Virtual and in Video, Museum Websites Shake Off the Dust</h3>
+					<hr>
+					<p>by Jason Farago</p>
+				</a>
+			</div>
+		</div>
+
+
+		<hr id="new">
+		<h2>ISSUE N°3</h2>
+		<br>
+
+		<div class="row">
+			<div class="presentation">
+				<img src="imgs/color.jpg">
+				<div class="presentation-text">
+				<h3>Art and Ecology</h3>
+				<p>&ldquo;The welter of emotions that people feel about the climate crisis, they can see in the mirror of art,&rdquo; Miranda Massie. This issue is related to artists that are exploring the intersection of arts and climate change, showing its consequences and trying to make people think.</p>
+				</div>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article11">
+					<div class="land artTable">
+						<img src="articles/issue3_art1/art1-img5.jpeg">
+					</div>
+					<h3>An artist set out to paint climate change. She ended up on a journey through grief</h3>
+					<hr>
+					<p>By Julia Rosen</p>
+				</a>	
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article12">
+					<div class="cutPortrait artTable">
+						<img src="articles/issue3_art2/art2-img2.jpg">
+					</div>				 
+					<h3>Can Art Help Save the Planet?</h3>
+					<hr>
+					<p>By Alina Tugend</p>	
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="block">
+				<a href="metadata_model.html#article13">
+					<div class="land artTable">
+						<img src="articles/issue3_art3/art3-img4.jpeg">
+					</div>					 
+					<h3>Environmental Art: Proposals for a Future World</h3>
+					<hr>
+					<p>by Carol Becker</p>
+				</a>
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article14">
+					<div class="cutPortrait artTable">
+						<img src="articles/issue3_art4/art4-img5.jpg">
+					</div>				 
+					<h3>Fabrics With Powerful Stories to Tell</h3>
+					<hr>
+					<p>by Jill Langlois</p>	
+				</a>	
+			</div>
+			<div class="block">
+				<a href="metadata_model.html#article15">
+					<div class="land artTable">
+						<img src="articles/issue3_art5/art5-gallery15.jpeg">
+					</div>				 
+					<h3>PHOTOS: New 'Washed Ashore' exhibit in Little Rock showcases wildly colorful art made from plastic trash collected at beaches</h3>
+					<hr>
+					<p>by Jennifer Nixon</p>
+				</a>	
+			</div>
+		</div>
+
+		<br>
+		<br>
+
+		<div class= "footer">
+			<h5>© Art&amp;Life:</h5>  
+			<h5 class="mb-1">Created by Alessia Cioffi, Sara Coppini and Ariele Santello for the final project of the course <a href="https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2019/424627">Information Modeling and Web Technologies</a> 
+      		<br>	
+      		held by professor Fabio Vitali within the master degree course <a href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge">Digital Humanities and Digital Knowledge</a> at the <a href="https://www.unibo.it/en/homepage">University of Bologna</a>.</h5>		
+		</div>
 	</body>
 </html>
