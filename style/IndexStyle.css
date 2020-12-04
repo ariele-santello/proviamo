@@ -495,7 +495,8 @@ p.metadataText{
   text-align: justify;
   text-align: center;
   font-size: small;
-  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background: rgba(38, 38, 38);
   color: white;
   margin-top: 0em;  /* or 0em;  */
