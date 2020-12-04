@@ -725,16 +725,12 @@ button#prev, button#next  {
 
 
 /* METTIAMO IN BLOCK TUTTI I DIV DEGLI ARTICOLI E DELLE COVER */
- 
+#coverPage1, #coverPage2, #coverPage3 { display: none; }
+
+#coverPage1:target, #coverPage2:target, #coverPage3:target { display: block; }
 
 
 #article1:target, #article2:target, #article3:target, #article4:target, #article5:target, #article6:target, #article7:target, #article8:target, #article9:target, #article10:target, #article11:target, #article12:target, #article13:target, #article14:target, #article15:target { display: block; }
-
-#coverPage1:target ~ #listIssue1, #article1:target ~ #listIssue1, #article2:target ~ #listIssue1, #article3:target ~ #listIssue1, #article5:target ~ #listIssue1 { display: block; }
-
-#coverPage2:target ~ #listIssue2, #article6:target ~ #listIssue2, #article7:target ~ #listIssue2, #article8:target ~ #listIssue2, #article9:target ~ #listIssue2, #article10:target ~ #listIssue2  { display: block; }
-
-#coverPage3:target ~ #listIssue3, #article11:target ~ #listIssue3, #article12:target ~ #listIssue3, #article13:target ~ #listIssue3, #article114:target ~ #listIssue3, #article15:target ~ #listIssue3  { display: block; }
 
 
 
