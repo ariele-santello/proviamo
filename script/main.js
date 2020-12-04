@@ -41,11 +41,9 @@ function changeCSS(cssFile, cssLinkIndex) {
     	}
     
     /* aggiunta per cambiare il css anche nei singoli iframe    */
-    
     /* frames[i].document.head.repleaceChild(newLink);
     n = i+1
     frames['frame'+n].document.head.children[1].replace(newlink, oldlink);   */
-	
     /*	var doc = document.getElementsByTagName("iframe");
 	for (var i = 0; i < doc.length; i++) {
 		var c = doc[i].contentWindow;
@@ -55,13 +53,10 @@ function changeCSS(cssFile, cssLinkIndex) {
     	}  */
 }
 
-
 function changeIssue(issueN){
-	var y = [];
-	for (var h=1; h<=3; h++){
-		if ('issue'+h === issueN){x = document.getElementById('issue'+h);}
-		else{y.push(h);}
-	}
+	/*var y = [];
+	for (var h=1; h<=3; h++){if ('issue'+h === issueN){x = document.getElementById('issue'+h);}
+		else{y.push(h);}}
 	//issue da nascondere
 	for (var num of y){
 		var curIssue = document.getElementById('issue'+num);
@@ -69,20 +64,16 @@ function changeIssue(issueN){
 		for (var i=0; i<curIssue.children.length; i++) {curIssue.children[i].style.display = "none";}
 	}
 	//issue da mostrare
-	var xChildren = x.children;     /*  i div che hanno class coverPage e articleN   */
+	var xChildren = x.children;     //  i div che hanno class coverPage e articleN  
 	var totLength = xChildren.length;  
-	x.style.display = "block";   /* issue da mostrare  */
-	xChildren[0].style.display = "block";   /* cover da mostrare  */
-	
-	var oldArticles = document.getElementById("changeArguments").children;  /* per cambiare il contenuto delle funzioni onclick degli articoli  */
-	
+	x.style.display = "block";   // issue da mostrare  
+	xChildren[0].style.display = "block";   // cover da mostrare  
+	var oldArticles = document.getElementById("changeArguments").children;  // per cambiare il contenuto delle funzioni onclick degli articoli  
 	for (var i=1; i<totLength; i++) {
 		xChildren[i].style.display = "none";    // articoli da non mostrare  
-		
 		var newArticle = document.createElement("a");    // creazione del nuovo tag 
 		newArticle.setAttribute("class", "buttonArticle");   // creazione del nuovo tag, set classe
 		newArticle.setAttribute("onclick", "changeArticle('article"  + i + "', '" + issueN + "')");   // creazione del nuovo tag, set onclick attibute
-
 		var myFrame = xChildren[i].children[0];
 		var myMeta = myFrame.contentWindow.document.head.getElementsByTagName("meta");
 			for (var l = 0; l < myMeta.length; l++) {
@@ -91,12 +82,12 @@ function changeIssue(issueN){
 				}
 			}
 		document.getElementById("changeArguments").replaceChild(newArticle, oldArticles[i-1]);
-	}	
+	} */	
         var originButton = document.getElementById("Origin");
 	if (originButton.hasAttribute("href")) {
 		originButton.removeAttribute("href");
 	}
-	showMetaList('changeIssue', issueN); 
+	//showMetaList('changeIssue', issueN); 
 }
 
 function getLinkOrigin(currentArticle, myOrigin) {
