@@ -93,9 +93,9 @@ function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children;
 	var myOrigin = window.parent.document.getElementById("Origin");
 	changeArticleCommon(c, articleNum, myOrigin);
-	showMetaList('changeArticleCover', issueNum);
+	//showMetaList('changeArticleCover', issueNum);
 }
-
+/*
 function showMetaList(string, issueN){
 	if (string === 'changeArticleCover'){var strToParse = window.parent.document.getElementById('metadata').children;}
 	else {var strToParse = document.getElementById('metadata').children;}
@@ -103,7 +103,7 @@ function showMetaList(string, issueN){
 		if (strToParse[m].id === "list"+issueN.charAt(0).toUpperCase()+issueN.slice(1)){strToParse[m].style.display = "block";}
 		else{strToParse[m].style.display = "none";}
 	}
-}
+} */
 
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
