@@ -52,52 +52,14 @@
 			</li>	
 			<li class="dropdown"><a class="dropbtn">Articles</a>
 				<div class="dropdown-content" id="changeArguments">
-					<a class="buttonArticle">Article 1</a>
-					<a class="buttonArticle">Article 2</a>
-			    	<a class="buttonArticle">Article 3</a>
-			    	<a class="buttonArticle">Article 4</a>
-			    	<a class="buttonArticle">Article 5</a>
+				<a class="buttonArticle" onclick="showArticle(article1)">Article 1</a>
+				<a class="buttonArticle" onclick="showArticle(article2)">Article 2</a>
+			    	<a class="buttonArticle" onclick="showArticle(article3)">Article 3</a>
+			    	<a class="buttonArticle" onclick="showArticle(article4)">Article 4</a>
+			    	<a class="buttonArticle" onclick="showArticle(article5)">Article 5</a>
 				</div>
 			</li>
-			<!-- <a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-					<a class="buttonArticle" onclick="changeArticle()">Article 4</a> -->
 			
-			<!-- navbar con doppio dropdown: (problema: quando si va in hover sull'elemento <li>Issues</li>, si sovrebbero vedere solo tre elementi: issue 1, issue 2, issue 3. Solo una volte andati in hover su uno di questi tre elementi, solo allora si dovrebbero vedere gli articoli. Bisogna dare una classe specifica all'elemento <li>Issue 1</li> (come per gli altri due issue) che lo renda sia dropdown-content che dropdown container)
-		  	<li class="dropdown"><a class="dropbtn">Issues</a>
-		  		<div class="dropdown-content">
-		      		<li class="dropdown"><a class="dropbtn buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
-		      			<div class="dropdown-content changeArguments">
-		      				<a class="buttonIssue" onclick="changeIssue('issue1')">Cover page</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
-		      			</div>
-		      		</li>
-		      		<li class="dropdown"><a class="dropbtn buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
-		      			<div class="dropdown-content changeArguments">
-		      				<a class="buttonIssue" onclick="changeIssue('issue2')">Cover page</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
-		      			</div>
-		      		</li>
-		      		<li class="dropdown"><a class="dropbtn">Issue 3</a>
-		      			<div class="dropdown-content changeArguments">
-		      				<a class="buttonIssue">Cover page</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 4</a>
-		      				<a class="buttonArticle" onclick="changeArticle()">Article 5</a>
-		      			</div>
-		      		</li>
-		    	</div>
-		  	</li> -->
-			<!-- <li><a href="#news">Disclaimer</a></li> -->
 		  	<li class="dropdown"><a class="dropbtn">Themes</a>
 				<div class="dropdown-content">
 					<a>Between 1500 and 1800</a>
@@ -110,30 +72,6 @@
 		  	</li>
 		  	<li><a class="buttonIssue" id="Origin">Source</a></li>
 		</ul>
-
-		<!--  bottoni per cambiare stile
-			
-		<a class="buttonStyle" href="#" onclick="changeCSS('PROVA_CSS.css', 0);">Style 1</a>
-		<a class="buttonStyle" href="#" onclick="changeCSS('PROVA2_CSS.css', 0);">Style 2</a>
-		<script src="PROVA_js.js"></script>
-		bottoni per cambiare issue
-		<a class="buttonIssue" onclick="changeIssue('issue1')">Issue 1</a>
-		<a class="buttonIssue" onclick="changeIssue('issue2')">Issue 2</a>
-		<script src="PROVA_js.js"></script>
-		bottoni per cambiare articolo
-		<div id="changeArguments">
-			<a class="buttonArticle" onclick="changeArticle()">Article 1</a>
-			<a class="buttonArticle" onclick="changeArticle()">Article 2</a>
-			<a class="buttonArticle" onclick="changeArticle()">Article 3</a>
-			<script src="PROVA_js.js"></script>
-			<br>
-			<br>
-		</div>
-		
-	 	bottoni per andare all'articolo di origine del testo 
-		<a class="buttonIssue" id="Origin">Origin</a>
-		<a class="buttonIssue" onclick="prevArticlee()">Previous article</a>
-		<script src="PROVA_js.js"></script>-->
 				
 		<div id = "flex-container">
 			<div id="content">
