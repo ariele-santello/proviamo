@@ -37,23 +37,14 @@ function changeCSS(cssFile, cssLinkIndex) {
     				mylinks[l].href = cssFile;
     			}
     		}
-    		if (count == 0) {elmnt.appendChild(newlink);}
-    	}
-    
-    /* aggiunta per cambiare il css anche nei singoli iframe    */
-    /* frames[i].document.head.repleaceChild(newLink);
-    n = i+1
-    frames['frame'+n].document.head.children[1].replace(newlink, oldlink);   */
-    /*	var doc = document.getElementsByTagName("iframe");
-	for (var i = 0; i < doc.length; i++) {
-		var c = doc[i].contentWindow;
-		var iframeOldlink = c.document.getElementsByTagName("link").item(cssLinkIndex);
-		var d = c.document.getElementsByTagName("head");
-		d[0].replaceChild(newlink, iframeOldlink);
-    	}  */
+    		if (count == 0) {elmnt.appendChild(newlink);}}
 }
 
 function changeIssue(){
+	/* x.style.display = "block"; 
+	xChildren[0].style.display = "block";
+	for (var i=1; i<totLength; i++) {
+		xChildren[i].style.display = "none"; */
         var originButton = document.getElementById("Origin");
 	if (originButton.hasAttribute("href")) {
 		originButton.removeAttribute("href");
@@ -155,36 +146,17 @@ function nextArticle() {
 }
 
 
-function metadataViewer () {  // ricordarsi di lowercase e altre cose di scrittura + separare 1. più classi in una 2. più tag innestati + funzioni block/hide sulle singole liste
-//window.addEventListener("load", function(){
-	// enter each issue 
-	var elements = document.getElementById('content').children;
-	
-	var counter = 0;
-	for (var i = 0; i < elements.length; i++) {
-		if (elements[i].id.includes('issue')){
-			counter++;
-		}
-	}
-	for (var i = 1; i <= counter; i++) {
-		// find the reference list 
-
-		var myList = document.getElementById("listIssue"+ i);  
-		
-		// enter each iFrame of the issue 
-		var myFrames = document.getElementById("issue"+ i).getElementsByTagName("iframe");
+function metadataViewer (issueN) { 
+	var myList = document.getElementById("listIssue");  
+	var myFrames = document.getElementById(issueN).getElementsByTagName("iframe");
 
     	for (var n = 1; n < myFrames.length; n++) { 
-		
 		var sc = document.createElement("script");
-		sc.setAttribute('src', '../../main.js');
+		sc.setAttribute('src', 'script/main.js');
 		myFrames[n].contentWindow.document.head.appendChild(sc);
 		
 	    	var elmnt = myFrames[n].contentWindow.document.body;
-
-	    	//add an id for each element of the body of the iframe with the name of the tag + number of the tag + number of the current article (e.g. "h1-1-n")
 	    	var allIframeElements = elmnt.getElementsByTagName("*");
-	    	//for (let element of allIframeElements) {
 	    	for (var e = 0; e < allIframeElements.length; e++) {
 	    		var x = allIframeElements[e].tagName; //ritorna una stringa che rappresenta il nome del tag in maiuscolo	    		
 	    		var elementsWithSameTag = elmnt.querySelectorAll('[id^=' + CSS.escape(x) + ']'); //^ matches the start; the querySelectorAll method returns a static NodeList with elements matching the specified group of selectors; css.escape per assicurarsi che il valore sia codificato correttamente per l'uso in un'espressione CSS
