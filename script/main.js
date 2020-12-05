@@ -40,20 +40,14 @@ function changeCSS(cssFile, cssLinkIndex) {
     		if (count == 0) {elmnt.appendChild(newlink);}}
 }
 
-function changeIssue(){
-	/* x.style.display = "block"; 
-	xChildren[0].style.display = "block";
-	for (var i=1; i<totLength; i++) {
-		xChildren[i].style.display = "none"; */
+function changeIssue(issueN){
+	document.getElementById(issueN).children[0].style.display = "block";
+	for (var i=1; i<document.getElementById(issueN).children.length; i++) {document.getElementById(issueN).children[i].style.display = "none";}
         var originButton = document.getElementById("Origin");
-	if (originButton.hasAttribute("href")) {
-		originButton.removeAttribute("href");
-	}
-	//showMetaList('changeIssue', issueN); 
+	if (originButton.hasAttribute("href")) {originButton.removeAttribute("href");}
 }
 
 function getLinkOrigin(currentArticle, myOrigin) {
-	/* TORNARE AL FILE SORGENTE   */
 	var myFrame = currentArticle.children[0];
 	var elmnt = myFrame.contentWindow.document.head;
 	var myMeta = elmnt.getElementsByTagName("meta");
@@ -76,13 +70,6 @@ function changeArticleCommon(c, articleNum, myOrigin){
 	}
 }
 
-/*function showArticle(artNum){
-	for (var n=1; n<docuemnt.getElementById('changeArguments').children.length; n++){
-		if ('article'+n === artNum){'article'+n.style.display='block';}
-		else{'article'+n.style.display='none';}
-	}
-}*/
-
 function changeArticle(articleNum, issueNum){
 	var c = document.getElementById(issueNum).children;
 	var myOrigin = document.getElementById("Origin");
@@ -93,17 +80,7 @@ function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children;
 	var myOrigin = window.parent.document.getElementById("Origin");
 	changeArticleCommon(c, articleNum, myOrigin);
-	//showMetaList('changeArticleCover', issueNum);
 }
-/*
-function showMetaList(string, issueN){
-	if (string === 'changeArticleCover'){var strToParse = window.parent.document.getElementById('metadata').children;}
-	else {var strToParse = document.getElementById('metadata').children;}
-	for (var m=1; m<strToParse.length; m++){
-		if (strToParse[m].id === "list"+issueN.charAt(0).toUpperCase()+issueN.slice(1)){strToParse[m].style.display = "block";}
-		else{strToParse[m].style.display = "none";}
-	}
-} */
 
 function prevArticle() {
  	var articles = document.getElementsByClassName("article");
