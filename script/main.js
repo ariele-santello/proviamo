@@ -247,11 +247,8 @@ function metadataViewer (issueN) {
 
 				createOccurrenceLi(times[t], timeParent, times[t].dateTime, newUl, n, myFrames, myList);
 			}
-
-		}
 	}
 }
-//});
 
 function createCategoryLi(category, myList) {
 	var newLi = document.createElement('li');
