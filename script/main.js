@@ -85,6 +85,13 @@ function changeArticleCommon(c, articleNum, myOrigin){
 	}
 }
 
+/*function showArticle(artNum){
+	for (var n=1; n<docuemnt.getElementById('changeArguments').children.length; n++){
+		if ('article'+n === artNum){'article'+n.style.display='block';}
+		else{'article'+n.style.display='none';}
+	}
+}*/
+
 function changeArticle(articleNum, issueNum){
 	var c = document.getElementById(issueNum).children;
 	var myOrigin = document.getElementById("Origin");
