@@ -478,12 +478,12 @@ function highlight(spanId, iFrameN, event) {
 
 function sortOccurrences(keyToSearch){
 	var elements = document.getElementById("metadata").children;
-	for (var i = 1; i < elements.length; i++){   //sostituito 2 con elements.length 
-		sortCategory(document.getElementById("listIssue" + i), keyToSearch);
-		for (var n = 0; n < document.getElementById("listIssue" + i).children.length; n++){
-			sortCategory(document.getElementById("listIssue" + i).getElementsByClassName(document.getElementById("listIssue" + i).children[n].className)[0], keyToSearch);
+	//for (var i = 1; i < elements.length; i++){   //sostituito 2 con elements.length 
+		sortCategory(document.getElementById("listIssue"), keyToSearch);
+		for (var n = 0; n < document.getElementById("listIssue").children.length; n++){
+			sortCategory(document.getElementById("listIssue").getElementsByClassName(document.getElementById("listIssue").children[n].className)[0], keyToSearch);
 		}
-	}
+	//}
 }
 
 function sortByFreq() {
