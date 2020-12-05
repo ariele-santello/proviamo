@@ -152,7 +152,7 @@ function metadataViewer (issueN) {
 
     	for (var n = 1; n < myFrames.length; n++) { 
 		var sc = document.createElement("script");
-		sc.setAttribute('src', 'script/main.js');
+		sc.setAttribute('src', '../../script/main.js');
 		myFrames[n].contentWindow.document.head.appendChild(sc);
 		
 	    	var elmnt = myFrames[n].contentWindow.document.body;
