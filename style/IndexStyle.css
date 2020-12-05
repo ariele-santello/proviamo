@@ -725,7 +725,7 @@ button#prev, button#next  {
 
 
 /* METTIAMO IN BLOCK TUTTI I DIV DEGLI ARTICOLI E DELLE COVER */
-#coverPage1, #coverPage2, #coverPage3 { display: none; }
+/* #coverPage1, #coverPage2, #coverPage3 { display: none; } */
 
 #coverPage1:target, #coverPage2:target, #coverPage3:target { display: block; }
 
@@ -756,12 +756,12 @@ span[onclick] {cursor:pointer;}
   display: inline-block;
 }
 
-#listIssue1, #listIssue2, #listIssue3 {
+#listIssue {
   width: 350px;
   padding-inline-start: 0px;
 }
 
-#listIssue1>li, #listIssue2>li, #listIssue3>li {
+#listIssue>li {
   font-size: 17px;
   border: 2px solid black;
   padding-top: 5px;
@@ -771,7 +771,7 @@ span[onclick] {cursor:pointer;}
   text-align: center;
 }
 
-#listIssue1 li ul, #listIssue2 li ul, #listIssue3 li ul {
+#listIssue li ul{
   font-size: 16px;
   list-style-type: none;
   border: 1px solid black;
