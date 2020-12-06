@@ -6,7 +6,7 @@
 
 function changeCSS(cssFile) {
     	for (var i = 0; i < document.getElementsByTagName("iframe").length; i++) {
-		if (i!== 0){cssFile='../'+cssFile;}
+		if (i=== 1){cssFile='../'+cssFile;}
 		var frameHead = document.getElementsByTagName("iframe")[i].contentWindow.document.head,
     		allLinks = frameHead.getElementsByTagName("link"),
     		found=false;
