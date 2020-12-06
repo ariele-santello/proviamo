@@ -52,6 +52,8 @@ body{
   font-style:normal;
   margin-right: 20vW;
   margin-left: 30vW;
+  margin-top: 20vW;
+  margin-bottom: 30vW;
 }
 
 p.pubnote {text-transform: uppercase;}
