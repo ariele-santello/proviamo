@@ -725,7 +725,7 @@ button#prev, button#next  {
 
 
 /* METTIAMO IN BLOCK TUTTI I DIV DEGLI ARTICOLI E DELLE COVER */
-/* #coverPage1, #coverPage2, #coverPage3 { display: none; } */
+#coverPage1, #coverPage2, #coverPage3 { display: none; } 
 
 #coverPage1:target, #coverPage2:target, #coverPage3:target { display: block; }
 
