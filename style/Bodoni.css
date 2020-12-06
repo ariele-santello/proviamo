@@ -40,6 +40,21 @@ body{
   font-style:normal;
 }
 
+p.byline, p.pubnote, p.subtitle, p.publicationDate, img {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+
+
+
+
 
 
 
