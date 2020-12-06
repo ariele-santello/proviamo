@@ -34,6 +34,7 @@ p{
 
 body{
   background-color: #fcfcf4;
+  background-image:" url('../sfondo_bodoni.jpg');"; 
   color: #44413c; /*black ink*/
   font-family: 'Bodoni Six ITC';
   font-weight:normal;
