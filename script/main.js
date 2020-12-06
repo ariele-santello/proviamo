@@ -5,20 +5,21 @@
     }
 
 function changeCSS(cssFile) {
-	var newlink = document.createElement("link");
-	newlink.rel = "stylesheet"; 
-  	newlink.type = "text/css";
-	newlink.href = cssFile;
-	
     	for (var i = 0; i < document.getElementsByTagName("iframe").length; i++) {
-    		//var frameHead = document.getElementById("iframe"+ (i+1)).contentWindow.document.head,
+		if (i!== 0){cssFile='../'+cssFile;}
 		var frameHead = document.getElementsByTagName("iframe")[i].contentWindow.document.head,
     		allLinks = frameHead.getElementsByTagName("link"),
     		found=false;
     		for (var l=0; l<allLinks.length; l++) {
     			if (allLinks[l].rel == "stylesheet") {found=true; allLinks[l].href = cssFile; break;}
     		}
-    		if (found === false) {frameHead.appendChild(newlink);}
+    		if (found === false) {
+			var newlink = document.createElement("link");
+			newlink.rel = "stylesheet"; 
+			newlink.type = "text/css";
+			newlink.href = cssFile;
+			frameHead.appendChild(newlink);
+		}
 	}
 }
 
