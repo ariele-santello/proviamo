@@ -13,11 +13,11 @@ function changeCSS(cssFile) {
     	for (var i = 0; i < document.getElementsByTagName("iframe").length; i++) {
     		var frameHead = document.getElementById("iframe"+ (i+1)).contentWindow.document.head,
     		allLinks = frameHead.getElementsByTagName("link"),
-    		found=False;
+    		found=false;
     		for (var l=0; l<allLinks.length; l++) {
-    			if (allLinks[l].rel == "stylesheet") {found=True; allLinks[l].href = cssFile;}
+    			if (allLinks[l].rel == "stylesheet") {found=true; allLinks[l].href = cssFile;}
     		}
-    		if (found === False) {frameHead.appendChild(newlink);}
+    		if (found === false) {frameHead.appendChild(newlink);}
 	}
 }
 
