@@ -10,9 +10,7 @@ function changeCSS(cssFile) {
 		var frameHead = document.getElementsByTagName("iframe")[i].contentWindow.document.head,
     		allLinks = frameHead.getElementsByTagName("link"),
     		found=false;
-    		for (var l=0; l<allLinks.length; l++) {
-    			if (allLinks[l].rel == "stylesheet") {found=true; allLinks[l].href = cssFile; break;}
-    		}
+    		for (var l=0; l<allLinks.length; l++) {if (allLinks[l].rel == "stylesheet") {found=true; allLinks[l].href = cssFile; break;}}
     		if (found === false) {
 			var newlink = document.createElement("link");
 			newlink.rel = "stylesheet"; 
@@ -31,9 +29,9 @@ function changeIssue(issueN){
 }
 
 function getLinkOrigin(currentArticle, myOrigin) {
-	var myFrame = currentArticle.children[0];
-	var elmnt = myFrame.contentWindow.document.head;
-	var myMeta = elmnt.getElementsByTagName("meta");
+	var myFrame = currentArticle.children[0],
+	elmnt = myFrame.contentWindow.document.head,
+	myMeta = elmnt.getElementsByTagName("meta");
 		for (var l = 0; l < myMeta.length; l++) {
 			if (myMeta[l].name == "DC.identifier" && myMeta[l].scheme == "DCTERMS.URI") {
 				myOrigin.href = myMeta[l].content;
@@ -54,14 +52,14 @@ function changeArticleCommon(c, articleNum, myOrigin){
 }
 
 function changeArticle(articleNum, issueNum){
-	var c = document.getElementById(issueNum).children;
-	var myOrigin = document.getElementById("Origin");
+	var c = document.getElementById(issueNum).children,
+	myOrigin = document.getElementById("Origin");
 	changeArticleCommon(c, articleNum, myOrigin);
 }
 
 function changeArticleCover(articleNum, issueNum){
-	var c = window.parent.document.getElementById(issueNum).children;
-	var myOrigin = window.parent.document.getElementById("Origin");
+	var c = window.parent.document.getElementById(issueNum).children,
+	myOrigin = window.parent.document.getElementById("Origin");
 	changeArticleCommon(c, articleNum, myOrigin);
 }
 
