@@ -32,6 +32,10 @@ p{
 
 /* stile per articoli*/
 
+[onClick] {cursor:pointer;}
+span[onclick] {cursor:pointer;}
+span[onclick]:hover {background-color: "#6666ff";}
+
 body{
   background-color: #fcfcf4;
   background-image:" url('../sfondo_bodoni.jpg');"; 
@@ -43,24 +47,20 @@ body{
   margin-left: 30vW;
 }
 
-p.byline, p.pubnote, p.subtitle, p.publicationDate {
+p.byline, p.pubnote, p.subtitle, p.publicationDate, img, h1 {
 	text-align: center;
 	text-transform: uppercase;
 }
 
-h1 {
-	text-align: center;
-	text-transform: uppercase;
-}
+img {width:100%;}
 
-img {
-	text-align: center;
-	text-transform: uppercase;
-	width:100%;
-}
+h1 {font-size: '2.5em';}
 
+p.byline {font-size: '1.5em';}
 
+p.subtitle {font-size: '1em';}
 
+p.publicationDate {font-size: '0.5em';}
 
 
 
