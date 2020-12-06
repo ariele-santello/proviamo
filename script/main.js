@@ -16,7 +16,7 @@ function changeCSS(cssFile) {
     		allLinks = frameHead.getElementsByTagName("link"),
     		found=false;
     		for (var l=0; l<allLinks.length; l++) {
-    			if (allLinks[l].rel == "stylesheet") {found=true; allLinks[l].href = cssFile;}
+    			if (allLinks[l].rel == "stylesheet") {found=true; allLinks[l].href = cssFile; break;}
     		}
     		if (found === false) {frameHead.appendChild(newlink);}
 	}
