@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Bodoni Six ITC;
+  src: url(bodoni-six-itc-book.ttf);
+  
+}
+@font-face {
+  font-family: "Bodoni Seventytwo ITC";
+  src: url("bodoni-seventytwo-itc-book.ttf"); 
+}
+h1{
+  font-family: "Bodoni Seventytwo ITC";
+}
+
+/* stile per cover page*/
+
+body#cover {
+  background-image: url('aminta_cover_page.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  font-family: 'Bodoni Six ITC';
+  font-weight:normal;
+  font-style:normal;
+}
+p{
+	line-height: 20px;
+  text-align:justify;
+	/*font-size: ;
+	letter-spacing: ;
+	word-spacing: ;*/
+}
+
+/* stile per articoli*/
+
+body{
+  background-color: #fcfcf4;
+  color: #44413c; /*black ink*/
+  font-family: 'Bodoni Six ITC';
+  font-weight:normal;
+  font-style:normal;
+}
+
+
+
+
+
+
+
