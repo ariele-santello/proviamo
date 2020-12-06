@@ -34,7 +34,7 @@ p{
 
 [onClick] {cursor:pointer;}
 span[onclick] {cursor:pointer;}
-span[onclick]:hover {background-color: "#6666ff";}
+span[onclick]:hover {background-color: #b38316c4;}
 
 body{
   background-color: #fcfcf4;
