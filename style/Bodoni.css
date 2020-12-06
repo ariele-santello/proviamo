@@ -43,7 +43,7 @@ body{
   margin-left: 30vW;
 }
 
-p.byline, p.pubnote, p.subtitle, p.publicationDate, img {
+p.byline, p.pubnote, p.subtitle, p.publicationDate {
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -53,7 +53,11 @@ h1 {
 	text-transform: uppercase;
 }
 
-
+img {
+	text-align: center;
+	text-transform: uppercase;
+	width:100%;
+}
 
 
 
