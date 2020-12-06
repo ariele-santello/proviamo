@@ -39,8 +39,8 @@ span[onclick] {cursor:pointer;}
 body{
    background-image: 
     linear-gradient(
-      rgba(255, 0, 0, 0.45), 
-      rgba(255, 0, 0, 0.45)
+      rgba(255, 255, 240, 0.5), 
+      rgba(255, 255, 240, 0.5)
     ),
     url('../sfondo_bodoni.jpg');
 	
