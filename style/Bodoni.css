@@ -37,8 +37,15 @@ span[onclick] {cursor:pointer;}
 [onclick]:hover {background-color: #b38316c4;}
 
 body{
+   background-image: 
+    linear-gradient(
+      rgba(255, 0, 0, 0.45), 
+      rgba(255, 0, 0, 0.45)
+    ),
+    url('../sfondo_bodoni.jpg');
+	
   background-color: #fcfcf4;
-  background-image:" url('../sfondo_bodoni.jpg');"; 
+  /*background-image: url('../sfondo_bodoni.jpg');*/
   color: #44413c; /*black ink*/
   font-family: 'Bodoni Six ITC';
   font-weight:normal;
