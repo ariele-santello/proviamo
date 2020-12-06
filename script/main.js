@@ -121,7 +121,6 @@ function metadataViewer (issueN) {
 	    		var len = elementsWithSameTag.length;
 	    		allIframeElements[e].setAttribute("id", x+"-"+(len+1)+"-"+n);
 	    	}		    	 
-			
 			// get span tag 
 			var spans = Array.prototype.slice.call(elmnt.getElementsByTagName("span"));
 
@@ -142,12 +141,10 @@ function metadataViewer (issueN) {
 						var matchedLi = myList.children[a];
 					}
 				}
-
 				if (categoryFound === false) {
 					createCategoryLi(curCategory, myList);
 					var matchedLi = myList.getElementsByClassName(curCategory)[0];
 				}
-
 				else{
 					for (c=0; c<matchedLi.children.length; c++){
 						if (span.innerHTML.includes(matchedLi.children[c].className) || matchedLi.children[c].className.includes(span.innerHTML)) { // partial matching
@@ -156,7 +153,6 @@ function metadataViewer (issueN) {
 						}
 					}
 				}
-			
 				if (instanceFound === false) {
 					createInstanceUl(span.innerHTML, matchedLi, myList);
 					var newUl = myList.getElementsByClassName(span.innerHTML)[0];
@@ -164,15 +160,11 @@ function metadataViewer (issueN) {
 				else {
 					var newUl = matchedUl;
 				}
-				
 				createOccurrenceLi(span, spanParent, span.innerHTML, newUl, n, myFrames, myList);	
-				
 			}
-
 
 			// get time tag 
 			var times = Array.prototype.slice.call(elmnt.getElementsByTagName("time"));
-
 			//first check: if the category already exist
 			for (var t=0; t<times.length; t++){
 				// creating variable for parent
@@ -182,10 +174,7 @@ function metadataViewer (issueN) {
 				}
 				else {var timeParent = times[t].parentNode;}
 				var myInstanceFound = false;
-				if (t===0 && n===1) {
-					createCategoryLi("TIME", myList); //decidere come chiamarlo
-				}
-
+				if (t===0 && n===1) {createCategoryLi("TIME", myList);}
 				else{
 					for (r=0; r<myList.getElementsByClassName('TIME')[0].children.length; r++){  //document.getElementById('Time').children.length
 						if ((times[t].dateTime === myList.getElementsByClassName('TIME')[0].children[r].className)) {  // qualcosa qui non funziona, forse, invece di id, class.. (createInstanceUl risulta avere parent null)   //document.getElementById('Time').children[r].className
@@ -194,15 +183,11 @@ function metadataViewer (issueN) {
 						}
 					}
 				}
-
 				if (myInstanceFound === false) {
 					createInstanceUl(times[t].dateTime, myList.getElementsByClassName('TIME')[0], myList);  //secondo parametro: document.getElementById('Time')
 					var newUl = myList.getElementsByClassName(times[t].dateTime)[0];
 				}
-				else{
-					var newUl = matchedTimeUl;
-				}
-
+				else{var newUl = matchedTimeUl;}
 				createOccurrenceLi(times[t], timeParent, times[t].dateTime, newUl, n, myFrames, myList);
 			}
 	}
@@ -261,30 +246,22 @@ function createOccurrenceLi(occurrence, occurrenceParent, occurrenceValue, newUl
 	var instanceNode = document.createTextNode("article "+n+", "+parentTagAndNum+": "); //aggiungere stringa del titolo dell'articolo?
 	
 	occurrenceLi.style.display = 'none';
-
 	occurrenceLi.appendChild(instanceNode);
-
 	
 	//numero di li il cui span o elemento time corrispondente ha lo stesso parent di quello corrente
 	var pos = 0;
 	for (var ulchild of newUl.children){
-		if (occurrenceParent.id === ulchild.getAttribute('data-parent')){
-			pos++;
-		}
+		if (occurrenceParent.id === ulchild.getAttribute('data-parent')){pos++;}
 	}
 	occurrenceLi.setAttribute('data-parent', occurrenceParent.id);
 
 	var citNode = document.createTextNode('" '+ parsing(occurrence.innerText, occurrenceParent, pos)+'"'); //vedi se fare textNode o innerHTML
 	occurrenceLi.appendChild(citNode); //appena tolto dal commento
-
 	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
 	occurrence.setAttribute('id', occurrenceId);
-
 	occurrenceLi.setAttribute('onclick', "highlight('"+occurrenceId+"', '"+myFrames[n].id+"', event)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 	newUl.appendChild(occurrenceLi);
-
-	//from text keywords to metadata viewer
 	occurrence.setAttribute('onclick', "goToMetadata('"+myList.id+"', '"+occurrenceValue+"')");
 }
 					
@@ -294,9 +271,7 @@ function goToMetadata(curListId, instanceId){
 	e.style.display = 'block';
 	var f = e.children;
 	f[0].style.display = 'inline-block;'
-	for (var g=1; g<f.length; g++){
-		f[g].style.display = 'block';
-	}
+	for (var g=1; g<f.length; g++){f[g].style.display = 'block';}
 	e.style.backgroundColor = "#FFDAB9";
 	e.scrollIntoView(true);
 
@@ -325,7 +300,6 @@ function goToMetadata(curListId, instanceId){
     e.style.OAnimation = 'background-fade 10s forwards';
     e.style.MozAnimation = 'background-fade 10s forwards';
 
-
     setTimeout(function() {
     	e.style.backgroundColor = 'transparent';
     	e.style.WebkitAnimationName = '';
@@ -336,7 +310,6 @@ function goToMetadata(curListId, instanceId){
     	}, 10000); // we have to reset the name of animation otherwise another call to background-fade wont have any effect
 	
      event.stopPropagation();
-
 }
 //attribuisci effetto di hover da specificare nel css tipo con un background color 
 
@@ -444,7 +417,6 @@ function highlight(spanId, iFrameN, event) {
     curInstance.style.OAnimation = 'background-fade 10s forwards';
     curInstance.style.MozAnimation = 'background-fade 10s forwards';
 
-
     setTimeout(function() {
     	curInstance.style.backgroundColor = 'transparent';
     	curInstance.style.WebkitAnimationName = '';
@@ -494,7 +466,6 @@ function sortByFreq() {
 
 }
 
-
 function sortCategory(list, searchKey) {
   var i, switching, b, shouldSwitch;
   switching = true;
@@ -505,15 +476,9 @@ function sortCategory(list, searchKey) {
       		shouldSwitch = false;
 		if (!isNaN(b[i].getAttribute(searchKey))){var myStr = parseInt(b[i].getAttribute(searchKey))>parseInt(b[i+1].getAttribute(searchKey));}
 		else{var myStr = b[i].getAttribute(searchKey).toLowerCase() >b[i+1].getAttribute(searchKey).toLowerCase();}
-      		if (myStr) {
-        		shouldSwitch = true;
-        		break;
-      		}
+      		if (myStr) {shouldSwitch = true; break;}
     	}
-    	if (shouldSwitch) {
-		b[i].parentNode.insertBefore(b[i + 1], b[i]); 
-		switching = true;
-	}
+    	if (shouldSwitch) {b[i].parentNode.insertBefore(b[i + 1], b[i]); switching = true;}
   }
 }
 
