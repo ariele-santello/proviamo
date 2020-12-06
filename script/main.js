@@ -9,9 +9,10 @@ function changeCSS(cssFile) {
 	newlink.rel = "stylesheet"; 
   	newlink.type = "text/css";
 	newlink.href = cssFile;
-
+	
     	for (var i = 0; i < document.getElementsByTagName("iframe").length; i++) {
-    		var frameHead = document.getElementById("iframe"+ (i+1)).contentWindow.document.head,
+    		//var frameHead = document.getElementById("iframe"+ (i+1)).contentWindow.document.head,
+		var frameHead = document.getElementsByTagName("iframe")[i].contentWindow.document.head,
     		allLinks = frameHead.getElementsByTagName("link"),
     		found=false;
     		for (var l=0; l<allLinks.length; l++) {
