@@ -440,10 +440,10 @@ function sortOccurrences(keyToSearch){
 }
 
 function sortByFreq() {
-	var elements = document.getElementById("metadata").children;
+	//var elements = document.getElementById("metadata").children;
 	//parte 1: assegnare l'attributo data-frequency a ogni li e ogni ul
-	for (var i = 1; i < elements.length; i++) { //entriamo in ognuna delle liste
-		var curListCategories = document.getElementById('listIssue'+i).children; //<li> di ogni lista
+	//for (var i = 1; i < elements.length; i++) { //entriamo in ognuna delle liste
+		var curListCategories = document.getElementById('listIssue').children; //<li> di ogni lista
 		for (var g = 0; g < curListCategories.length; g++) {
 			var curListCategoriesUl = curListCategories[g].children; //ul di ogni li
 			curListCategories[g].setAttribute('data-frequency', curListCategoriesUl.length); //creiamo attributo data-frequency per ogni li, che ha come valore la lunghezza della lista dei suoi figli
@@ -453,16 +453,16 @@ function sortByFreq() {
 		}
 
 		//parte 2: ordinare secondo il valore dell'attributo
-		sortCategory(document.getElementById("listIssue" + i), 'data-frequency');
-		var numCategories = document.getElementById("listIssue" + i).childNodes.length;
-		while (numCategories--) { document.getElementById("listIssue" + i).appendChild(document.getElementById("listIssue" + i).childNodes[numCategories]);}
+		sortCategory(document.getElementById("listIssue"), 'data-frequency');
+		var numCategories = document.getElementById("listIssue").childNodes.length;
+		while (numCategories--) { document.getElementById("listIssue").appendChild(document.getElementById("listIssue").childNodes[numCategories]);}
 		
-		for (var n = 0; n < document.getElementById("listIssue" + i).children.length; n++){
-			sortCategory(document.getElementById("listIssue" + i).getElementsByClassName(document.getElementById("listIssue" + i).children[n].className)[0], 'data-frequency');
-			var numIstances = document.getElementById("listIssue" + i).children[n].children.length;
-			while (numIstances--) { document.getElementById("listIssue" + i).children[n].appendChild(document.getElementById("listIssue" + i).children[n].children[numIstances]); }
+		for (var n = 0; n < document.getElementById("listIssue").children.length; n++){
+			sortCategory(document.getElementById("listIssue").getElementsByClassName(document.getElementById("listIssue").children[n].className)[0], 'data-frequency');
+			var numIstances = document.getElementById("listIssue").children[n].children.length;
+			while (numIstances--) { document.getElementById("listIssue").children[n].appendChild(document.getElementById("listIssue").children[n].children[numIstances]); }
 		}
-	}
+	//}
 
 }
 
