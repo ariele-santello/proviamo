@@ -54,12 +54,18 @@ body{
   margin-left: 30vW;
 }
 
+p.pubnote {text-transform: uppercase;}
+
 p.byline, p.pubnote, p.subtitle, p.publicationDate, img, h1 {
 	text-align: center;
 	text-transform: uppercase;
 }
 
-img {width:100%;}
+img {
+	width:100%;
+	padding-top:1.5em;
+	padding-bottom:1.5em
+}
 
 h1 {
 	font-size: '2.5em';
