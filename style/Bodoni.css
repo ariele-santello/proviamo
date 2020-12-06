@@ -39,8 +39,8 @@ span[onclick] {cursor:pointer;}
 body{
    background-image: 
     linear-gradient(
-      rgba(255, 0, 0, 0.45), 
-      rgba(255, 0, 0, 0.45)
+      rgba(255, 255, 240, 0.5), 
+      rgba(255, 255, 240, 0.5)
     ),
     url('../sfondo_bodoni.jpg');
 	
@@ -54,20 +54,29 @@ body{
   margin-left: 30vW;
 }
 
+p.pubnote {text-transform: uppercase;}
+
 p.byline, p.pubnote, p.subtitle, p.publicationDate, img, h1 {
 	text-align: center;
 	text-transform: uppercase;
 }
 
-img {width:100%;}
+img {
+	width:100%;
+	padding-top:1.5em;
+	padding-bottom:1.5em
+}
 
-h1 {font-size: '2.5em';}
+h1 {
+	font-size: 2.5em;
+	line-height: 2em;
+}
 
-p.byline {font-size: '1.5em';}
+p.byline {font-size: 1.5em;}
 
-p.subtitle {font-size: '1em';}
+p.subtitle {font-size: 1em;}
 
-p.publicationDate {font-size: '0.5em';}
+p.publicationDate {font-size: 0.5em;}
 
 
 
