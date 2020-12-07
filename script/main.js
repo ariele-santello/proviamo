@@ -18,7 +18,32 @@ function changeCSS(cssFile) {
 			newlink.href = cssFile;
 			frameHead.appendChild(newlink);
 		}
+		if (cssFile.includes('Bodoni.css') && i>0){manageBodoni(i);}
 	}
+}
+
+function manageBodoni(iframeN){
+	var elArray = ['h1','subtitle', 'byline', 'img', 'publicationDate'];
+	var contentDiv = document.createElement('div');
+	contentDiv.setAttribute('id', 'heading');
+	for (var el of elArray){
+		if (el == 'h1' || el=='img'){
+			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByTagName(el)[0];
+			contentDiv.appendChild(elToMove);
+			//elToMove.remove();
+		}
+		/*else if (el == 'subtitle' || el=='publicationDate') {var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByClassName(el)[0];
+			contentDiv.appendChild(elToMove);
+			elToMove.remove();}*/
+		else{//if (el=='publicationDate'){var impresso = document.createElement('p'); impresso.innerHTML = 'Impresso co' tipi bodoniani'; contentDiv.appendChild(impresso);}
+			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByClassName(el);
+				for (var n=0; n<elToMove.length; n++){
+					contentDiv.appendChild(elToMove[n]);
+					//elToMove[n].remove();
+				}
+		}
+	}
+	document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.appendChild(contentDiv);	
 }
 
 function changeIssue(issueN){
