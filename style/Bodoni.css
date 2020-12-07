@@ -67,6 +67,9 @@ img {
 	width:100%;
 	padding-top:1.5em;
 	padding-bottom:1.5em;
+}
+
+img:first-of-type{
 	border-radius: 50%;
 	height: 14em;
         width: 14em;
