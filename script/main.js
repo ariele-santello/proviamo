@@ -30,20 +30,16 @@ function manageBodoni(iframeN){
 		if (el == 'h1' || el=='img'){
 			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByTagName(el)[0];
 			contentDiv.appendChild(elToMove);
-			//elToMove.remove();
 		}
-		/*else if (el == 'subtitle' || el=='publicationDate') {var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByClassName(el)[0];
-			contentDiv.appendChild(elToMove);
-			elToMove.remove();}*/
 		else{//if (el=='publicationDate'){var impresso = document.createElement('p'); impresso.innerHTML = 'Impresso co' tipi bodoniani'; contentDiv.appendChild(impresso);}
 			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByClassName(el);
 				for (var n=0; n<elToMove.length; n++){
 					contentDiv.appendChild(elToMove[n]);
-					//elToMove[n].remove();
 				}
 		}
 	}
-	document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.appendChild(contentDiv);	
+	//document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.appendChild(contentDiv);	
+	document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.insertBefore(contentDiv, document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.children[0])
 }
 
 function changeIssue(issueN){
