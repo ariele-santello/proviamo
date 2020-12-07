@@ -59,6 +59,9 @@ body{
 p{text-indent: 2em;}
 
 p:first-of-type:first-letter{font-size: 1.5em;}
+p:first-child {
+  text-indent: none;
+}
 
 p.pubnote {text-transform: uppercase;}
 
