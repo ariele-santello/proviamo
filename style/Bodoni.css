@@ -58,6 +58,8 @@ body{
 
 p{text-indent: 2em;}
 
+p:first-of-type:first-letter{font-size: 1.5em;}
+
 p.pubnote {text-transform: uppercase;}
 
 p.byline, p.pubnote, p.subtitle, p.publicationDate, img, h1 {
