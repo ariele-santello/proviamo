@@ -28,7 +28,9 @@ p.metadataText{
 	padding-top: 5px;
 }
 
-img{width: 100%;}
+img{width: 100%;
+padding-right: 32px; 
+}
 
 /* styling navbar */
 .topnav {
