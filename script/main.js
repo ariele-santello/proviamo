@@ -18,7 +18,7 @@ function changeCSS(cssFile) {
 			newlink.href = cssFile;
 			frameHead.appendChild(newlink);
 		}
-		if (cssFile.includes('Bodoni.css')){manageBodoni(i);}
+		if (cssFile.includes('Bodoni.css') && i>0){manageBodoni(i);}
 	}
 }
 
