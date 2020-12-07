@@ -49,7 +49,8 @@ function changeArticleCommon(c, articleNum, myOrigin){
 		}
 		else {c[i].style.display = "none";}
 	}
-	window.location.href = window.location.href+articleNum;
+	//window.location.href = window.location.href+articleNum;
+	window.location.href =  window.location.href.split('#')[0]+'#'+articleNum;
 }
 
 function changeArticle(articleNum, issueNum){
