@@ -77,7 +77,7 @@ img {
 	filter: grayscale(100%) brightness(70%) sepia(70%) contrast(100%);
 }
 
-img:first-of-type{
+#heading img {
 	border-radius: 50%;
 	height: 14em;
         width: 14em;
