@@ -18,11 +18,11 @@ function changeCSS(cssFile) {
 			newlink.href = cssFile;
 			frameHead.appendChild(newlink);
 		}
-		if (cssFile.includes('Bodoni.css')){manageBodoni(document.getElementsByTagName("iframe")[i].contentWindow.document);}
+		//if (cssFile.includes('Bodoni.css')){manageBodoni(document.getElementsByTagName("iframe")[i].contentWindow.document);}
 	}
 }
 
-function manageBodoni(iframeDocu){
+/*function manageBodoni(iframeDocu){
 	var elArray = ['h1','subtitle', 'byline', 'img', 'publicationDate'];
 	var contentDiv = document.createElement('div');
 	contentDiv.setAttribute('id', 'heading');
@@ -35,7 +35,7 @@ function manageBodoni(iframeDocu){
 		contentDiv.appendChild(elToMove);
 	}
 	iframeDocu.body.appendChild(contentDiv);	
-}
+}*/
 
 function changeIssue(issueN){
 	document.getElementById(issueN).children[0].style.display = "block";
