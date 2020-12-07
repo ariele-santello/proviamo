@@ -30,7 +30,7 @@ function manageBodoni(iframeN){
 		if (el == 'h1' || el=='img'){
 			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByTagName(el)[0];
 			contentDiv.appendChild(elToMove);
-			elToMove.remove();
+			//elToMove.remove();
 		}
 		/*else if (el == 'subtitle' || el=='publicationDate') {var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByClassName(el)[0];
 			contentDiv.appendChild(elToMove);
@@ -39,7 +39,7 @@ function manageBodoni(iframeN){
 			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByClassName(el);
 				for (var n=0; n<elToMove.length; n++){
 					contentDiv.appendChild(elToMove[n]);
-					elToMove[n].remove();
+					//elToMove[n].remove();
 				}
 		}
 	}
