@@ -55,13 +55,13 @@ function changeArticleCommon(c, articleNum, myOrigin, strToSplit, isCover){
 	window.location.href =  window.location.href.split(strToSplit)[0]+articleNum;
 }
 
-function changeArticle(articleNum, issueNum, false){
+function changeArticle(articleNum, issueNum, 'false'){
 	var c = document.getElementById(issueNum).children,
 	myOrigin = document.getElementById("Origin");
 	changeArticleCommon(c, articleNum, myOrigin, '#');
 }
 
-function changeArticleCover(articleNum, issueNum, true){
+function changeArticleCover(articleNum, issueNum, 'true'){
 	var c = window.parent.document.getElementById(issueNum).children,
 	myOrigin = window.parent.document.getElementById("Origin");
 	changeArticleCommon(c, articleNum, myOrigin, 'cover_pages/');
