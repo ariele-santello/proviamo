@@ -56,6 +56,8 @@ body{
   margin-bottom: 30vW;
 }
 
+p{text-indent: 2em;}
+
 p.pubnote {text-transform: uppercase;}
 
 p.byline, p.pubnote, p.subtitle, p.publicationDate, img, h1 {
