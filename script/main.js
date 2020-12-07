@@ -18,7 +18,23 @@ function changeCSS(cssFile) {
 			newlink.href = cssFile;
 			frameHead.appendChild(newlink);
 		}
+		if (cssFile.includes('Bodoni.css')){manageBodoni(document.getElementsByTagName("iframe")[i].contentWindow.document);}
 	}
+}
+
+function manageBodoni(iframeDocu){
+	var elArray = ['h1','subtitle', 'byline', 'img', 'publicationDate'];
+	var contentDiv = document.createElement('div');
+	contentDiv.setAttribute('id', 'heading');
+	for (var el of elArray){
+		if (el == 'h1' || el == 'img'){var elToMove = iframeDocu.getElementsByTagName(el)[0];}
+		else{//if (el=='publicationDate'){var impresso = document.createElement('p'); impresso.innerHTML = 'Impresso co' tipi bodoniani'; contentDiv.appendChild(impresso);}
+			var elToMove = iframeDocu.getElementById(el);
+		}
+		elToMove.remove();
+		contentDiv.appendChild(elToMove);
+	}
+	iframeDocu.body.appendChild(contentDiv);	
 }
 
 function changeIssue(issueN){
