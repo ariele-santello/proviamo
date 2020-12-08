@@ -572,6 +572,8 @@ Bottom right text
   width: 100%; */
 }
 /* per rendere sticky la navbar del selector*/
+
+/* 
 .sticky {
   position: fixed;
   top: 0;
@@ -581,8 +583,12 @@ Bottom right text
 .sticky + .content {
   padding-top: 60px;
 }
+*/
+
 
 /* per rendere sticky la navbar del selector*/
+
+/*
 <script>
 window.onscroll = function() {myFunction()};
 
@@ -597,6 +603,7 @@ function myFunction() {
   }
 }
 </script>
+*/
       
 #selectorNav > li {
   display: inline-block;
