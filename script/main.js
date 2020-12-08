@@ -152,7 +152,8 @@ function metadataViewer (issueN) {
 			//first check: if the category already exist
 			for (var span of spans) {
 				// creating the variable for the parent
-				if (span.parentNode.tagName === "I" || "A" || "Q" || "SPAN" || "EM" || "STRONG" || "B" || "CITE") {
+				var options = ["I", "A", "Q", "SPAN", "EM", "STRONG", "B", "CITE"];
+				if (options.indexOf(span.parentNode.tagName) > -1) {
 					var inlineParent = span.parentNode;
 					var spanParent = inlineParent.parentNode;
 				}
@@ -193,7 +194,7 @@ function metadataViewer (issueN) {
 			//first check: if the category already exist
 			for (var t=0; t<times.length; t++){
 				// creating variable for parent
-				if (times[t].parentNode.tagName === "Q" || "I" || "SPAN" || "A" || "EM" || "STRONG" || "B" || "CITE") {
+				if (options.indexOf(times[t].parentNode.tagName) > -1) { //options is used out of scope
 					var inlineParent = times[t].parentNode;
 					var timeParent = inlineParent.parentNode;
 				}
