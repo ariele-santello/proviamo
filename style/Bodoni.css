@@ -24,10 +24,12 @@ body#cover {
 }
 p{
 	line-height: 20px;
-  text-align:justify;
-	/*font-size: ;
-	letter-spacing: ;
-	word-spacing: ;*/
+	text-align:justify;
+	letter-spacing: 0.02em;
+    	word-spacing: 0.02em;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
 }
 
 /* stile per articoli*/
@@ -56,7 +58,7 @@ body{
   margin-bottom: 30vW;
 }
 
-p{text-indent: 2em;}
+p:not(.byline){text-indent: 2em;}
 
 p:first-of-type:first-letter{font-size: 1.5em;}
 p:first-of-type {
@@ -68,6 +70,10 @@ p.pubnote {text-transform: uppercase;}
 p.byline, p.pubnote, p.subtitle, p.publicationDate, img, h1 {
 	text-align: center;
 	text-transform: uppercase;
+	word-spacing: 0.5em;
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
 
 img {
