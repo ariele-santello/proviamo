@@ -667,17 +667,18 @@ function myFunction() {
 #content {
   position: relative;
   height: 35.85em;
-  padding-left: 15px; /* per farci stare il bottone prevArticle */
-  flex: 0 0 65%;
-  max-width: 65%;
+ /* padding-left: 15px;  per farci stare il bottone prevArticle */
+  flex: 0 0 70%;
+  max-width: 70%;
+  border-right: 2px solid;
 }
 
 #metadata {
   position: relative;
   height: 35.85em;
   overflow: scroll;
-  flex: 0 0 30%;
-  max-width: 30%;
+  flex: 0 0 28%;
+  max-width: 28%;
 }
 
 
@@ -775,9 +776,9 @@ button#prev, button#next  {
 
 
 .article {
-  /* padding necessario per i bottoni prev e next */
+  /* padding necessario per i bottoni prev e next
   padding-left: 30px;
-  padding-right: 32px;
+  padding-right: 32px; */
   display: none;
 }
 
@@ -793,10 +794,15 @@ span[onclick] {cursor:pointer;}
   margin: 8px;
   display: inline-block;
 }
-
+/*
 #listIssue {
   width: 350px;
   padding-inline-start: 0px;
+}
+*/
+#listIssue {
+    width: 20em;
+    padding-inline-start: 0px;
 }
 
 #listIssue>li {
