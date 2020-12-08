@@ -586,7 +586,7 @@ Bottom right text
 */
 
 
-/* per rendere sticky la navbar del selector*/
+/* per rendere sticky la navbar del selector con JS*/
 
 /*
 <script>
@@ -604,7 +604,7 @@ function myFunction() {
 }
 </script>
 */
-      
+
 #selectorNav > li {
   display: inline-block;
 }
