@@ -831,7 +831,7 @@ li ul li{font-size: 15px;}
 button#sort, button#appearanceSort, button#frequencySort {
 	font-size: 12px;
 	letter-spacing: 2px;
-	padding: 13px 17px;
+	padding: 1em 1em;
   border-color: aquamarine;
 	color: aquamarine;
   border: 2px solid;
