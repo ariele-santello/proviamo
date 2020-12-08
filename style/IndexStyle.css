@@ -507,7 +507,7 @@ border-right: 32px;
   margin-left: 0em;
   margin-right: 0em;  /* modifiche per tenere sotto il footer */
   position: absolute; 
-  bottom: 0;
+  bottom: 0; /* togliendo bottom:0 viene su safari*/
   width: 100%;
   height: 2.5rem;
   /* per fissarlo sotto con FLEX --> BODY DISPLAY: FLEX;
