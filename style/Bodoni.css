@@ -91,7 +91,18 @@ h1 {
 	line-height: 1.5em;
 }
 
-p.byline {font-size: 1.5em;}
+p.byline {font-size: 1em;}
+
+p.byline .person {font-size: 1.5em;}
+
+p.byline .person::before{
+	content: "\a";
+    	white-space: pre;
+}
+p.byline .person::after{
+	content: "\a";
+    	white-space: pre;
+}
 
 p.subtitle {font-size: 1em;}
 
