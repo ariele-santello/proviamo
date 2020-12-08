@@ -503,7 +503,7 @@ border-right: 32px;
   background: rgba(38, 38, 38);
   color: white;
   margin-top: 0em;  /* or 0em;  */
-  margin-bottom: 0em;
+  /*margin-bottom: 0em;*/
   margin-left: 0em;
   margin-right: 0em;  /* modifiche per tenere sotto il footer */
   position: absolute; /*bottom: 0;*/
