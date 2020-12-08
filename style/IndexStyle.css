@@ -571,6 +571,32 @@ Bottom right text
   /* position: sticky;
   width: 100%; */
 }
+/* per rendere sticky la navbar del selector*/
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+/* per rendere sticky la navbar del selector*/
+<script>
+window.onscroll = function() {myFunction()};
+
+var selectorNav = document.getElementById("selectorNav");
+var sticky = selectorNav.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    selectorNav.classList.add("sticky")
+  } else {
+    selectorNav.classList.remove("sticky");
+  }
+}
+</script>
       
 #selectorNav > li {
   display: inline-block;
