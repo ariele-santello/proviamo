@@ -633,6 +633,7 @@ Bottom right text
 /* @media (min-width: 768px) */
 #content {
   position: relative;
+  height: 35.85em;
   padding-left: 15px; /* per farci stare il bottone prevArticle */
   flex: 0 0 65%;
   max-width: 65%;
