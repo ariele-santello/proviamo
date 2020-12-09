@@ -100,6 +100,7 @@ function prevArticle() {
 				frame.style.display = "none";
 				var articleNow = articles[i-1];
 				articleNow.style.display = "block";
+				window.location.href =  window.location.href.split('#')[0]+'#'+articleNow.id;
 				/* var myFrame = articleNow.children[0];
 				var curIssue = articleNow.parentElement;
 				var x = curIssue.children[i-1]; */
@@ -121,6 +122,7 @@ function nextArticle() {
 			if (!(frame.classList.contains('article5'))) { //IMPORTANTE: qua ho messo che la classe dell'ultimo articolo è "article5"
 				frame.style.display='none';
 				articles[i+1].style.display = 'block';
+				window.location.href =  window.location.href.split('#')[0]+'#'+articles[i+1].id;
 				var myOrigin = document.getElementById("Origin");
 				getLinkOrigin(articles[i+1], myOrigin);
 			}
