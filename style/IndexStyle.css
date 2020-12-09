@@ -569,6 +569,7 @@ Bottom right text
   padding: 0;
   overflow: hidden;
   background-color: #bfbfbf;
+  border-bottom: 3px solid;
   /* position: sticky;
   width: 100%; */
 }
@@ -809,8 +810,9 @@ span[onclick] {cursor:pointer;}
 }
 */
 #listIssue {
-    width: 20em;
+    width: 15em;
     padding-inline-start: 0px;
+    padding: 0 3vw 0 3vw;
 }
 
 #listIssue>li {
