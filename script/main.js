@@ -283,17 +283,18 @@ function createOccurrenceLi(occurrence, occurrenceParent, occurrenceValue, newUl
 
 	var citNode = document.createTextNode('"'+ parsing(occurrence.innerText, occurrenceParent, pos)+'"'); //vedi se fare textNode o innerHTML
 	occurrenceLi.appendChild(citNode); //appena tolto dal commento
-	var occurrenceId = occurrenceValue+"-"+(newUl.children.length+1);
+
+	var occurrenceId = newUl.childNodes[0].nodeValue+"-"+(newUl.children.length+1);
 	occurrence.setAttribute('id', occurrenceId);
 	occurrenceLi.setAttribute('onclick', "highlight('"+occurrenceId+"', '"+myFrames[n].id+"', event)"); // per richiamare la funzione che evidenza il metadato nel testo dell'articolo quando si clicca sul <li> corrispondente nel metadata viewer
 
 	newUl.appendChild(occurrenceLi);
-	occurrence.setAttribute('onclick', "goToMetadata('"+myList.id+"', '"+occurrenceValue+"')");
+	occurrence.setAttribute('onclick', "goToMetadata('"+myList.id+"', '"+newUl.childNodes[0].nodeValue+"')");
 }
 					
 //from text keywords to metadata viewer
-function goToMetadata(curListId, instanceId){
-	var e = window.parent.document.getElementById(curListId).getElementsByClassName(instanceId)[0];
+function goToMetadata(curListId, ulClass){
+	var e = window.parent.document.getElementById(curListId).getElementsByClassName(ulClass)[0];
 	e.style.display = 'block';
 	var f = e.children;
 	f[0].style.display = 'inline-block;'
@@ -407,27 +408,11 @@ function parsing(instance, parent, numIstanza){
 // serve anche cambiare articolo se i metadati puntano all'articolo non in block al momento? sì
 // manca la scomparsa dello stile onscroll e onclick su qualunque altro tasto
 function highlight(spanId, iFrameN, event) {
-	//cambia articolo da mettere in display = block; se il metadato su cui si clicca è in un articolo diverso rispetto a quello mostrato correntemente
+	//cambiare articolo da mattere in display:block se il metadato cliccato è in un articolo diverso rispetto a quello corrente
 	var curIFrameDiv = document.getElementById(iFrameN).parentNode;
-
-	/* RICHIAMARE CHANGEARTICLECOMMON NON VA BENE PERCHE' LAVORA CON LE CLASSI E NON CON GLI ID DEI DIV DEGLI ARTICOLI
 	var curIssueDivs = curIFrameDiv.parentNode.children;
-	var originButton = document.getElementById("Origin");
-	
-	changeArticleCommon(curIssueDivs, curIFrameDiv.id, originButton, false, '#'); //in questo modo supponiamo che non ci siano metadati nelle cover
-	*/
-
-	for (var iFrameDiv of curIFrameDiv.parentNode.children) {
-		if (iFrameN === iFrameDiv.children[0].id) { iFrameDiv.style.display = 'block'; }
-		else {iFrameDiv.style.display = 'none';}
-	}
-
-	/*
-	window.location.href = window.location.href.split('#')[0]+'#'+iFrameDiv.id; //in questo modo supponiamo che non vogliamo andare a una cover (quindi che non ci siano metadati nelle cover) e che non siamo attualmente in una cover
-	var originButton = document.getElementById("Origin");
-	getLinkOrigin(articles[i+1], originButton);
-	*/
-
+	var originButton = document.getElementById("Origin");	
+	changeArticleCommon(curIssueDivs, curIFrameDiv.classList[0], originButton, false, '#'); //in questo modo supponiamo che né il div target né quello di provenienza sia quello di una cover
 
 	//removeHighligth(iFrameN);
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
