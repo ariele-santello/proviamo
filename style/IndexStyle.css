@@ -815,7 +815,7 @@ span[onclick] {cursor:pointer;}
   text-align: center;
 }
 
-#listIssue li ul{
+#listIssue > li > ul{
   font-size: 16px;
   list-style-type: none;
   border: 1px solid black;
@@ -826,7 +826,7 @@ span[onclick] {cursor:pointer;}
   padding-inline-start: 0px;
 }
 
-#listIssue li ul li {margin: 0 0 3px 0;}
+#listIssue > li > ul > li {margin-bottom: 3px;}
 
 li ul li{font-size: 15px;}
 
