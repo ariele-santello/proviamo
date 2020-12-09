@@ -539,7 +539,7 @@ function showMetaContent(){
 function findOrigin(){
 	if(window.location.href.includes('#article')){
 		if(document.getElementById("Origin").href.length <1){
-			getLinkOrigin((window.location.href.slice(window.location.href.indexOf('#')+1, window.location.href.length), document.getElementById("Origin"));
+			getLinkOrigin(window.location.href.slice(window.location.href.indexOf('#')+1, window.location.href.length), document.getElementById("Origin"));
 		}
 	}
 }
