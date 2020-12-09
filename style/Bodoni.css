@@ -30,6 +30,8 @@ p{
 	-webkit-hyphens: auto;
 	-ms-hyphens: auto;
 	hyphens: auto;
+	margin-bottom: 0em;
+    	margin-top: 0em;
 }
 
 /* stile per articoli*/
@@ -115,13 +117,24 @@ p.byline .person::after{
     	white-space: pre;
 }
 
-p.subtitle {font-size: 1.02em;}
+p.subtitle {
+	font-size: 1.02em;
+	line-height:2.5em;
+}
 
-p.publicationDate {font-size: 0.7em;}
+p.publicationDate {
+	font-size: 0.7em;
+	margin-bottom:5em;
+}
 
+figcaption {margin-bottom:2em;}
 
-
-
+h2, h3 {
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 2.5em;
+    	margin-top: 2.5em;
+}
 
 
 
