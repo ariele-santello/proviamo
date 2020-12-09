@@ -70,7 +70,7 @@ function changeArticleCommon(c, articleNum, myOrigin, isCover, strToSplit, issue
 		}
 		else {c[i].style.display = "none";}
 	}
-	if (isCover) {top.window.location.href =  window.location.href.split(strToSplit)[0]+issueNum+'.html#'+articleNum;}
+	if (isCover) {top.window.location.href =  window.location.href.split(strToSplit)[0]+issueNum[0].toUpperCase()+issueNum.slice(1)+'.html#'+articleNum;}
 	else{window.location.href =  window.location.href.split(strToSplit)[0]+'#'+articleNum;}	
 }
 
