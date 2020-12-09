@@ -826,6 +826,8 @@ span[onclick] {cursor:pointer;}
   padding-inline-start: 0px;
 }
 
+#listIssue li ul li {margin: 0 0 3px 0;}
+
 li ul li{font-size: 15px;}
 
 button#sort, button#appearanceSort, button#frequencySort {
