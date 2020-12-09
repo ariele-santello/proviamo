@@ -72,14 +72,16 @@ function changeArticleCommon(c, articleNum, myOrigin, isCover, strToSplit){
 	}
 	//window.location.href =  window.location.href.split('#')[0]+'#'+articleNum;
 	if (isCover) {
-		articleNum = 'Issue1.html#'+articleNum;
-		var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
-		top.window.location.href =  newLocation;
+		//articleNum = 'Issue1.html#'+articleNum;
+		//var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
+		//top.window.location.href =  newLocation;
+		top.window.location.href =  window.location.href.split(strToSplit)[0]+'Issue1.html#'+articleNum;
 	}
 	else{
-		articleNum = '#'+articleNum;
-	    	var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
-		window.location.href =  newLocation;
+		//articleNum = '#'+articleNum;
+	    	//var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
+		//window.location.href =  newLocation;
+		window.location.href =  window.location.href.split(strToSplit)[0]+'#'+articleNum;
 	}
 	
 }
