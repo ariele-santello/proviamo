@@ -409,12 +409,13 @@ function parsing(instance, parent, numIstanza){
 function highlight(spanId, iFrameN, event) {
 	//cambia articolo da mettere in display = block; se il metadato su cui si clicca è in un articolo diverso rispetto a quello mostrato correntemente
 	var curIFrameDiv = document.getElementById(iFrameN).parentNode;
+
+	/* RICHIAMARE CHANGEARTICLECOMMON NON VA BENE PERCHE' LAVORA CON LE CLASSI E NON CON GLI ID DEI DIV DEGLI ARTICOLI
 	var curIssueDivs = curIFrameDiv.parentNode.children;
 	var originButton = document.getElementById("Origin");
 	
 	changeArticleCommon(curIssueDivs, curIFrameDiv.id, originButton, false, '#'); //in questo modo supponiamo che non ci siano metadati nelle cover
-
-	/*
+	*/
 
 	for (var iFrameDiv of curIFrameDiv.parentNode.children) {
 		if (iFrameN === iFrameDiv.children[0].id) {
@@ -422,7 +423,11 @@ function highlight(spanId, iFrameN, event) {
 		}
 		else {iFrameDiv.style.display = 'none';}
 	}
-	window.location.href = window.location.href.split(strToSplit)[0]+'#'+articleNum;*/
+	window.location.href = window.location.href.split('#')[0]+'#'+iFrameDiv.id; //in questo modo supponiamo che non vogliamo andare a una cover (quindi che non ci siano metadati nelle cover) e che non siamo attualmente in una cover
+	var originButton = document.getElementById("Origin");
+	getLinkOrigin(articles[i+1], originButton);
+
+				*/
 
 	//removeHighligth(iFrameN);
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
