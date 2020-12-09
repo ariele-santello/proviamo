@@ -38,42 +38,41 @@
 				
 		<div id = "flex-container">
 			
-			<!-- selector navbar -->
-		<ul id="selectorNav">
-			<li class="dropdown"><a class="dropbtn">Issues</a>
-				<div class="dropdown-content">
-					<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue1.html#coverPage1" onclick="changeIssue('issue1')">Art and Society</a>
-					<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue2.html#coverPage2">Art and Covid-19</a>
-					<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue3.html#coverPage3">Art and Ecology</a> 
-				</div>
-			</li>	
-			<li class="dropdown"><a class="dropbtn">Articles</a>
-				<div class="dropdown-content" id="changeArguments">
-				<a class="buttonArticle" onclick="changeArticle('article1', 'issue1')">How art and culture can help us rethink time</a>
-				<a class="buttonArticle" onclick="changeArticle('article2', 'issue1')">How to create an iconic image</a>
-			    	<a class="buttonArticle" onclick="changeArticle('article3', 'issue1')">The death of the artist and the birth of the creative entrepreneur</a>
-			    	<a class="buttonArticle" onclick="changeArticle('article4', 'issue1')">Welcome to Airspace</a>
-			    	<a class="buttonArticle" onclick="changeArticle('article5', 'issue1')">Style is an algorithm</a>
-				</div>
-			</li>
-			
-		  	<li class="dropdown"><a class="dropbtn">Themes</a>
-				<div class="dropdown-content">
-					<a onclick="changeCSS('../style/IndexStyle.css')">Default Style</a>
-					<a onclick="changeCSS('../style/Bodoni.css')">Bodoni (Neoclassicism)</a>
-					<a onclick="changeCSS('')">XIX Century</a>
-					<a onclick="changeCSS('')">First half of XX Century</a>
-					<a onclick="changeCSS('')">Second half of XX Century</a>
-					<a onclick="changeCSS('')">Late XX Century - Start of XXI Century (print)</a>
-					<a onclick="changeCSS('')">2021-2025 (screen + print)</a>
-				</div>
-		  	</li>
-		  	<li><a class="buttonIssue" id="Origin">Source</a></li>
-		</ul>
-			
-			
-			
 			<div id="content">
+				
+				<!-- selector navbar -->
+				<ul id="selectorNav">
+					<li class="dropdown"><a class="dropbtn">Issues</a>
+						<div class="dropdown-content">
+							<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue1.html#coverPage1" onclick="changeIssue('issue1')">Art and Society</a>
+							<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue2.html#coverPage2">Art and Covid-19</a>
+							<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue3.html#coverPage3">Art and Ecology</a> 
+						</div>
+					</li>	
+					<li class="dropdown"><a class="dropbtn">Articles</a>
+						<div class="dropdown-content" id="changeArguments">
+						<a class="buttonArticle" onclick="changeArticle('article1', 'issue1')">How art and culture can help us rethink time</a>
+						<a class="buttonArticle" onclick="changeArticle('article2', 'issue1')">How to create an iconic image</a>
+						<a class="buttonArticle" onclick="changeArticle('article3', 'issue1')">The death of the artist and the birth of the creative entrepreneur</a>
+						<a class="buttonArticle" onclick="changeArticle('article4', 'issue1')">Welcome to Airspace</a>
+						<a class="buttonArticle" onclick="changeArticle('article5', 'issue1')">Style is an algorithm</a>
+						</div>
+					</li>
+
+					<li class="dropdown"><a class="dropbtn">Themes</a>
+						<div class="dropdown-content">
+							<a onclick="changeCSS('../style/IndexStyle.css')">Default Style</a>
+							<a onclick="changeCSS('../style/Bodoni.css')">Bodoni (Neoclassicism)</a>
+							<a onclick="changeCSS('')">XIX Century</a>
+							<a onclick="changeCSS('')">First half of XX Century</a>
+							<a onclick="changeCSS('')">Second half of XX Century</a>
+							<a onclick="changeCSS('')">Late XX Century - Start of XXI Century (print)</a>
+							<a onclick="changeCSS('')">2021-2025 (screen + print)</a>
+						</div>
+					</li>
+					<li><a class="buttonIssue" id="Origin">Source</a></li>
+				</ul>
+				
 				<!-- bottone per articolo precedente -->
 				<button id="prev" onclick="prevArticle()"/>&lt;</button>
 				<button id="next" onclick="nextArticle()"/>&gt;</button>
