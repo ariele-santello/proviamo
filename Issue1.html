@@ -34,16 +34,14 @@
 			<a href="documentation.html">Documentation</a>
 			<a href="about.html">About</a>
 			<a class="icon" onclick="myFunction()"></a>
-    	</div>
-
-		<!-- selector navbar -->
+    		</div>
+				
+		<div id = "flex-container">
+			
+			<!-- selector navbar -->
 		<ul id="selectorNav">
 			<li class="dropdown"><a class="dropbtn">Issues</a>
 				<div class="dropdown-content">
-					<!-- <a class="buttonIssue" onclick="changeIssue('issue1')">Art and Society</a>
-					<a class="buttonIssue" onclick="changeIssue('issue2')">Art and Covid-19</a>
-					<a class="buttonIssue" onclick="changeIssue('issue3')">Art and Ecology</a> -->
-					
 					<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue1.html#coverPage1" onclick="changeIssue('issue1')">Art and Society</a>
 					<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue2.html#coverPage2">Art and Covid-19</a>
 					<a class="buttonIssue" href="https://alessia438.github.io/cookbook-cakes/Issue3.html#coverPage3">Art and Ecology</a> 
@@ -72,8 +70,9 @@
 		  	</li>
 		  	<li><a class="buttonIssue" id="Origin">Source</a></li>
 		</ul>
-				
-		<div id = "flex-container">
+			
+			
+			
 			<div id="content">
 				<!-- bottone per articolo precedente -->
 				<button id="prev" onclick="prevArticle()"/>&lt;</button>
@@ -121,14 +120,34 @@
 		    </div> <!-- si chiude il div content -->
 
 	    	<div id="metadata">  <!-- div che contiene il metadata viewer -->
+	
+			<ul id="selectorNav">    
+				<li class="dropdown"><a class="dropbtn" onclick="showMetaContent()">About metadata</a>
+					<div class="dropdown-content">	
+						<a class="buttonIssue" id="contentToShow" style="display: none;">Here you can find all the metadata of all the articles of the issue. You can jump from a metadata to the correspondent place in the article and vice versa.</a>
+					</div>
+				</li>
+
+				<li class="dropdown"><a class="dropbtn">Order by</a>
+					<div class="dropdown-content">
+					    <a class="buttonIssue" id="sort" onclick="sortOccurrences('class')">Alphabet</a>
+					    <a class="buttonIssue" id="appearanceSort" onclick="sortOccurrences('data-position')">Appearence</a>
+					    <a class="buttonIssue" id="frequencySort" onclick="sortByFreq()">Frequency</a>
+					</div>
+				</li>
+			</ul>
+			
+			
+			<!--
 			    <div id="changeOrderBtns">
 				      <p class="metadataText" onclick="showMetaContent()">METADATA VIEWER</p>
 				      <p class="metadataText" id="contentToShow" style="display:none">Here you can find all the metadata of all the articles of the issue. You can jump from a metadata to the correspondent place in the article and vice versa.</p>
 				      <p class="metadataText">Order your list by:</p>
-				      <button id="sort" onclick="sortOccurrences('class')">Alphabet</button> <!-- bottone sort --> 
-				      <button id="appearanceSort" onclick="sortOccurrences('data-position')">Appearance</button> <!-- bottone sort per ordine di comparsa --> 
-				      <button id="frequencySort" onclick="sortByFreq()">Frequency</button> <!-- bottone sort per ordine di frequenza --> 
+				      <button id="sort" onclick="sortOccurrences('class')">Alphabet</button> 
+				      <button id="appearanceSort" onclick="sortOccurrences('data-position')">Appearance</button> 
+				      <button id="frequencySort" onclick="sortByFreq()">Frequency</button> 
 			    </div>
+			-->
 			    <ul id="listIssue"></ul>
 
 			</div> <!-- si chiude il div che contiene il metadata viewer -->
