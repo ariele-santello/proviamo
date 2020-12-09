@@ -409,6 +409,12 @@ function parsing(instance, parent, numIstanza){
 function highlight(spanId, iFrameN, event) {
 	//cambia articolo da mettere in display = block; se il metadato su cui si clicca è in un articolo diverso rispetto a quello mostrato correntemente
 	var curIFrameDiv = document.getElementById(iFrameN).parentNode;
+	var curIssueDivs = curIFrameDiv.parentNode.children;
+	var originButton = document.getElementById("Origin");
+	
+	changeArticleCommon(curIssueDivs, curIFrameDiv.id, originButton, false, '#'); //in questo modo supponiamo che non ci siano metadati nelle cover
+
+	/*
 
 	for (var iFrameDiv of curIFrameDiv.parentNode.children) {
 		if (iFrameN === iFrameDiv.children[0].id) {
@@ -416,6 +422,7 @@ function highlight(spanId, iFrameN, event) {
 		}
 		else {iFrameDiv.style.display = 'none';}
 	}
+	window.location.href = window.location.href.split(strToSplit)[0]+'#'+articleNum;*/
 
 	//removeHighligth(iFrameN);
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
