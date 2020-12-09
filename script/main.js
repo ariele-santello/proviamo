@@ -73,7 +73,8 @@ function changeArticleCommon(c, articleNum, myOrigin, isCover, strToSplit){
 	//window.location.href =  window.location.href.split('#')[0]+'#'+articleNum;
 	if (isCover) {articleNum = 'Issue1.html#'+articleNum;}
 	else{articleNum = '#'+articleNum;}
-	window.location.href =  window.location.href.split(strToSplit)[0]+articleNum;
+	var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
+	window.location.href =  newLocation;
 }
 
 function changeArticle(articleNum, issueNum){
