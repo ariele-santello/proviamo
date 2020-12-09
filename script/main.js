@@ -276,10 +276,12 @@ function createOccurrenceLi(occurrence, occurrenceParent, occurrenceValue, newUl
 	
 	//numero di li il cui span o elemento time corrispondente ha lo stesso parent di quello corrente
 	var pos = 0;
+	// recuperare innerText dello span sibling (però NON VA BENE PER TIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)
 	for (var ulchild of newUl.children){
-		if (occurrenceParent.id === ulchild.getAttribute('data-parent')){pos++;}
+		if (occurrenceParent.id === ulchild.getAttribute('data-parent') && occurrenceValue === ulchild.getAttribute('data-inner') ){pos++;}
 	}
-	occurrenceLi.setAttribute('data-parent', occurrenceParent.id);
+	occurrenceLi.setAttribute('data-parent', occurrenceParent.id);	
+	occurrenceLi.setAttribute('data-inner', occurrenceValue);
 
 	var citNode = document.createTextNode('"'+ parsing(occurrence.innerText, occurrenceParent, pos)+'"'); //vedi se fare textNode o innerHTML
 	occurrenceLi.appendChild(citNode); //appena tolto dal commento
