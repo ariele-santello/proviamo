@@ -61,7 +61,7 @@ function getLinkOrigin(currentArticle, myOrigin) {
 		}
 }
 
-function changeArticleCommon(c, articleNum, myOrigin, isCover, strToSplit){
+function changeArticleCommon(c, articleNum, myOrigin, isCover, strToSplit, issueNum){
 	c[0].style.display = "none";
 	for (var i=1; i<c.length; i++){
 		if ("article" + i === articleNum){
@@ -70,20 +70,20 @@ function changeArticleCommon(c, articleNum, myOrigin, isCover, strToSplit){
 		}
 		else {c[i].style.display = "none";}
 	}
-	if (isCover) {top.window.location.href =  window.location.href.split(strToSplit)[0]+'Issue1.html#'+articleNum;}
+	if (isCover) {top.window.location.href =  window.location.href.split(strToSplit)[0]+issueNum[0].toUpperCase()+issueNum.slice(1)+'.html#'+articleNum;}
 	else{window.location.href =  window.location.href.split(strToSplit)[0]+'#'+articleNum;}	
 }
 
 function changeArticle(articleNum, issueNum){
 	var c = document.getElementById(issueNum).children,
 	myOrigin = document.getElementById("Origin");
-	changeArticleCommon(c, articleNum, myOrigin, false, '#');
+	changeArticleCommon(c, articleNum, myOrigin, false, '#', issueNum);
 }
 
 function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children,
 	myOrigin = window.parent.document.getElementById("Origin");
-	changeArticleCommon(c, articleNum, myOrigin, true, 'cover_pages/cover_page1.html');
+	changeArticleCommon(c, articleNum, myOrigin, true, 'cover_pages/cover_page1.html', issueNum);
 }
 
 function prevArticle() {
