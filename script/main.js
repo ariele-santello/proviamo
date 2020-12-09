@@ -83,7 +83,7 @@ function changeArticle(articleNum, issueNum){
 function changeArticleCover(articleNum, issueNum){
 	var c = window.parent.document.getElementById(issueNum).children,
 	myOrigin = window.parent.document.getElementById("Origin");
-	changeArticleCommon(c, articleNum, myOrigin, true, 'cover_pages/cover_page1.html', issueNum);
+	changeArticleCommon(c, articleNum, myOrigin, true, 'cover_pages/cover_page'+issueNum.charAt(issueNum.length-1)+'.html', issueNum);
 }
 
 function prevArticle() {
