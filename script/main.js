@@ -71,10 +71,17 @@ function changeArticleCommon(c, articleNum, myOrigin, isCover, strToSplit){
 		else {c[i].style.display = "none";}
 	}
 	//window.location.href =  window.location.href.split('#')[0]+'#'+articleNum;
-	if (isCover) {articleNum = 'Issue1.html#'+articleNum;}
-	else{articleNum = '#'+articleNum;}
-	var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
-	window.location.href =  newLocation;
+	if (isCover) {
+		articleNum = 'Issue1.html#'+articleNum;
+		var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
+		top.window.location.href =  newLocation;
+	}
+	else{
+		articleNum = '#'+articleNum;
+	    	var newLocation = window.location.href.split(strToSplit)[0]+articleNum;
+		window.location.href =  newLocation;
+	}
+	
 }
 
 function changeArticle(articleNum, issueNum){
