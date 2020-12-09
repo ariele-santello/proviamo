@@ -418,16 +418,13 @@ function highlight(spanId, iFrameN, event) {
 	*/
 
 	for (var iFrameDiv of curIFrameDiv.parentNode.children) {
-		if (iFrameN === iFrameDiv.children[0].id) {
-			iFrameDiv.style.display = 'block';
-		}
+		if (iFrameN === iFrameDiv.children[0].id) { iFrameDiv.style.display = 'block'; }
 		else {iFrameDiv.style.display = 'none';}
 	}
 	window.location.href = window.location.href.split('#')[0]+'#'+iFrameDiv.id; //in questo modo supponiamo che non vogliamo andare a una cover (quindi che non ci siano metadati nelle cover) e che non siamo attualmente in una cover
 	var originButton = document.getElementById("Origin");
 	getLinkOrigin(articles[i+1], originButton);
 
-				*/
 
 	//removeHighligth(iFrameN);
 	var elmnt = document.getElementById(iFrameN).contentWindow.document;
