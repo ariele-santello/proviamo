@@ -19,7 +19,7 @@ function changeCSS(cssFile) {
 			frameHead.appendChild(newlink);
 		}
 		if (cssFile.includes('Bodoni.css') && i>0){manageBodoni(i);}
-		if (cssFile.includes('Bauhaus.css') && i>0){manageBauhaus(i);}
+		/* if (cssFile.includes('Bauhaus.css') && i>0){manageBauhaus(i);} */
 	}
 }
 
@@ -42,7 +42,7 @@ function manageBodoni(iframeN){
 	//document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.appendChild(contentDiv);	
 	document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.insertBefore(contentDiv, document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.children[0])
 }
-
+/*
 function manageBauhaus(iframeN){
 	var elArray = ['h1','subtitle', 'byline', 'img', 'publicationDate'];
 	var contentDiv = document.createElement('div');
@@ -62,7 +62,7 @@ function manageBauhaus(iframeN){
 	//document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.appendChild(contentDiv);	
 	document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.insertBefore(contentDiv, document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.children[0])
 }
-
+*/
 
 function changeIssue(issueN){
 	document.getElementById(issueN).children[0].style.display = "block";
