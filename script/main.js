@@ -19,6 +19,7 @@ function changeCSS(cssFile) {
 			frameHead.appendChild(newlink);
 		}
 		if (cssFile.includes('Bodoni.css') && i>0){manageBodoni(i);}
+		if (cssFile.includes('Bauhaus.css') && i>0){manageBauhaus(i);}
 	}
 }
 
@@ -41,6 +42,27 @@ function manageBodoni(iframeN){
 	//document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.appendChild(contentDiv);	
 	document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.insertBefore(contentDiv, document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.children[0])
 }
+
+function manageBauhaus(iframeN){
+	var elArray = ['h1','subtitle', 'byline', 'img', 'publicationDate'];
+	var contentDiv = document.createElement('div');
+	contentDiv.setAttribute('id', 'heading');
+	for (var el of elArray){
+		if (el == 'h1' || el=='img'){
+			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByTagName(el)[0];
+			contentDiv.appendChild(elToMove);
+		}
+		else{//if (el=='publicationDate'){var impresso = document.createElement('p'); impresso.innerHTML = 'Impresso co' tipi bodoniani'; contentDiv.appendChild(impresso);}
+			var elToMove = document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.getElementsByClassName(el);
+				for (var n=0; n<elToMove.length; n++){
+					contentDiv.appendChild(elToMove[n]);
+				}
+		}
+	}
+	//document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.appendChild(contentDiv);	
+	document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.insertBefore(contentDiv, document.getElementsByTagName("iframe")[iframeN].contentWindow.document.body.children[0])
+}
+
 
 function changeIssue(issueN){
 	document.getElementById(issueN).children[0].style.display = "block";
